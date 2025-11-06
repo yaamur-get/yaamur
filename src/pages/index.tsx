@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Wrench, Sparkles, ArrowRight, Phone, Mail, MapPin, ExternalLink, Users, Handshake, BookOpen } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { MobileMenu } from "@/components/MobileMenu";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { PartnersCarousel } from "@/components/PartnersCarousel";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -119,61 +121,69 @@ export default function HomePage() {
         {/* Services Section */}
         <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">برامجنا وخدماتنا</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                نقدم مجموعة شاملة من الخدمات لضمان أفضل رعاية للمساجد
-              </p>
-            </div>
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold text-gray-900 mb-4">برامجنا وخدماتنا</h2>
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                  نقدم مجموعة شاملة من الخدمات لضمان أفضل رعاية للمساجد
+                </p>
+              </div>
+            </ScrollReveal>
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Service 1 */}
-              <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-emerald-200 overflow-hidden">
-                <CardContent className="p-8 space-y-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                    <Building2 className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">بناء المساجد</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    نشرف على مشاريع بناء المساجد من التخطيط حتى التسليم، مع الالتزام بأعلى معايير الجودة والتصميم الإسلامي الأصيل
-                  </p>
-                  <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold">
-                    اعرف المزيد <ArrowLeft className="w-4 h-4 mr-2" />
-                  </Button>
-                </CardContent>
-              </Card>
+              <ScrollReveal delay={100}>
+                <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-emerald-200 overflow-hidden h-full">
+                  <CardContent className="p-8 space-y-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                      <Building2 className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">بناء المساجد</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      نشرف على مشاريع بناء المساجد من التخطيط حتى التسليم، مع الالتزام بأعلى معايير الجودة والتصميم الإسلامي الأصيل
+                    </p>
+                    <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold">
+                      اعرف المزيد <ArrowLeft className="w-4 h-4 mr-2" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
 
               {/* Service 2 */}
-              <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-amber-200 overflow-hidden">
-                <CardContent className="p-8 space-y-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                    <Wrench className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">الصيانة والترميم</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    نوفر خدمات الصيانة الدورية والترميم للمساجد، للحفاظ على جمالها وسلامتها الإنشائية على مدار السنة
-                  </p>
-                  <Button variant="ghost" className="text-amber-600 hover:text-amber-700 p-0 h-auto font-semibold">
-                    اعرف المزيد <ArrowLeft className="w-4 h-4 mr-2" />
-                  </Button>
-                </CardContent>
-              </Card>
+              <ScrollReveal delay={200}>
+                <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-amber-200 overflow-hidden h-full">
+                  <CardContent className="p-8 space-y-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                      <Wrench className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">الصيانة والترميم</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      نوفر خدمات الصيانة الدورية والترميم للمساجد، للحفاظ على جمالها وسلامتها الإنشائية على مدار السنة
+                    </p>
+                    <Button variant="ghost" className="text-amber-600 hover:text-amber-700 p-0 h-auto font-semibold">
+                      اعرف المزيد <ArrowLeft className="w-4 h-4 mr-2" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
 
               {/* Service 3 */}
-              <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-200 overflow-hidden">
-                <CardContent className="p-8 space-y-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                    <Sparkles className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">التشغيل والنظافة</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    نتولى تشغيل المساجد وإدارتها، بما في ذلك النظافة اليومية والخدمات المساندة، لتوفير بيئة نظيفة ومريحة للمصلين
-                  </p>
-                  <Button variant="ghost" className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold">
-                    اعرف المزيد <ArrowLeft className="w-4 h-4 mr-2" />
-                  </Button>
-                </CardContent>
-              </Card>
+              <ScrollReveal delay={300}>
+                <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-200 overflow-hidden h-full">
+                  <CardContent className="p-8 space-y-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                      <Sparkles className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">التشغيل والنظافة</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      نتولى تشغيل المساجد وإدارتها، بما في ذلك النظافة اليومية والخدمات المساندة، لتوفير بيئة نظيفة ومريحة للمصلين
+                    </p>
+                    <Button variant="ghost" className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold">
+                      اعرف المزيد <ArrowLeft className="w-4 h-4 mr-2" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -181,32 +191,36 @@ export default function HomePage() {
         {/* Latest News Section */}
         <section id="news" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">آخر الأخبار</h2>
-              <p className="text-xl text-gray-600">تابع أحدث مشاريعنا وإنجازاتنا</p>
-            </div>
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold text-gray-900 mb-4">آخر الأخبار</h2>
+                <p className="text-xl text-gray-600">تابع أحدث مشاريعنا وإنجازاتنا</p>
+              </div>
+            </ScrollReveal>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((item) => (
-                <Card key={item} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-emerald-100 to-amber-100 flex items-center justify-center overflow-hidden">
-                    <Building2 className="w-20 h-20 text-emerald-600/30 group-hover:scale-110 transition-transform" />
-                  </div>
-                  <CardContent className="p-6 space-y-4">
-                    <span className="text-sm text-emerald-600 font-medium">
-                      {mounted ? new Date().toLocaleDateString("ar-SA") : ""}
-                    </span>
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
-                      افتتاح مسجد جديد في حي السلام
-                    </h3>
-                    <p className="text-gray-600 line-clamp-3">
-                      بحمد الله تم افتتاح مسجد جديد يتسع لـ 500 مصلٍ، تم بناؤه وفق أحدث المعايير والمواصفات الإسلامية
-                    </p>
-                    <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold">
-                      اقرأ المزيد <ArrowLeft className="w-4 h-4 mr-2" />
-                    </Button>
-                  </CardContent>
-                </Card>
+              {[1, 2, 3].map((item, index) => (
+                <ScrollReveal key={item} delay={index * 100}>
+                  <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+                    <div className="aspect-video bg-gradient-to-br from-emerald-100 to-amber-100 flex items-center justify-center overflow-hidden">
+                      <Building2 className="w-20 h-20 text-emerald-600/30 group-hover:scale-110 transition-transform" />
+                    </div>
+                    <CardContent className="p-6 space-y-4">
+                      <span className="text-sm text-emerald-600 font-medium">
+                        {mounted ? new Date().toLocaleDateString("ar-SA") : ""}
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                        افتتاح مسجد جديد في حي السلام
+                      </h3>
+                      <p className="text-gray-600 line-clamp-3">
+                        بحمد الله تم افتتاح مسجد جديد يتسع لـ 500 مصلٍ، تم بناؤه وفق أحدث المعايير والمواصفات الإسلامية
+                      </p>
+                      <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold">
+                        اقرأ المزيد <ArrowLeft className="w-4 h-4 mr-2" />
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -241,77 +255,80 @@ export default function HomePage() {
         {/* Partners Section */}
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">شركاؤنا</h2>
-              <p className="text-xl text-gray-600">نفخر بشراكتنا مع أفضل المؤسسات</p>
-            </div>
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold text-gray-900 mb-4">شركاؤنا</h2>
+                <p className="text-xl text-gray-600">نفخر بشراكتنا مع أفضل المؤسسات</p>
+              </div>
+            </ScrollReveal>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                <div 
-                  key={item} 
-                  className="aspect-square rounded-full bg-gray-50 border-2 border-gray-200 flex items-center justify-center hover:border-emerald-300 hover:shadow-lg transition-all cursor-pointer"
-                >
-                  <span className="text-gray-400 font-bold">شريك {item}</span>
-                </div>
-              ))}
-            </div>
+            <ScrollReveal delay={200}>
+              <PartnersCarousel />
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Join Section */}
         <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-amber-50 to-white">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">انضم إلينا</h2>
-              <p className="text-xl text-gray-600">كن جزءًا من مسيرتنا في عمارة بيوت الله</p>
-            </div>
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold text-gray-900 mb-4">انضم إلينا</h2>
+                <p className="text-xl text-gray-600">كن جزءًا من مسيرتنا في عمارة بيوت الله</p>
+              </div>
+            </ScrollReveal>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-emerald-200">
-                <CardContent className="p-8 text-center space-y-6">
-                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Users className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">تطوع معنا</h3>
-                  <p className="text-gray-600">
-                    انضم إلى فريق المتطوعين وساهم في خدمة بيوت الله
-                  </p>
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    سجل الآن
-                  </Button>
-                </CardContent>
-              </Card>
+              <ScrollReveal delay={100}>
+                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-emerald-200 h-full">
+                  <CardContent className="p-8 text-center space-y-6">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Users className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">تطوع معنا</h3>
+                    <p className="text-gray-600">
+                      انضم إلى فريق المتطوعين وساهم في خدمة بيوت الله
+                    </p>
+                    <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                      سجل الآن
+                    </Button>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
 
-              <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-amber-200">
-                <CardContent className="p-8 text-center space-y-6">
-                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Handshake className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">كن شريكًا</h3>
-                  <p className="text-gray-600">
-                    شارك معنا في مشاريعنا وكن شريكًا في الأجر
-                  </p>
-                  <Button className="w-full bg-amber-600 hover:bg-amber-700">
-                    تواصل معنا
-                  </Button>
-                </CardContent>
-              </Card>
+              <ScrollReveal delay={200}>
+                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-amber-200 h-full">
+                  <CardContent className="p-8 text-center space-y-6">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Handshake className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">كن شريكًا</h3>
+                    <p className="text-gray-600">
+                      شارك معنا في مشاريعنا وكن شريكًا في الأجر
+                    </p>
+                    <Button className="w-full bg-amber-600 hover:bg-amber-700">
+                      تواصل معنا
+                    </Button>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
 
-              <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-blue-200">
-                <CardContent className="p-8 text-center space-y-6">
-                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <BookOpen className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">اعرف أكثر</h3>
-                  <p className="text-gray-600">
-                    تعرف على رؤيتنا ورسالتنا وإنجازاتنا
-                  </p>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                    من نحن
-                  </Button>
-                </CardContent>
-              </Card>
+              <ScrollReveal delay={300}>
+                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-blue-200 h-full">
+                  <CardContent className="p-8 text-center space-y-6">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <BookOpen className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">اعرف أكثر</h3>
+                    <p className="text-gray-600">
+                      تعرف على رؤيتنا ورسالتنا وإنجازاتنا
+                    </p>
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                      من نحن
+                    </Button>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
             </div>
           </div>
         </section>
