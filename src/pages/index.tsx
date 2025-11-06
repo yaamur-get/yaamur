@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnersCarousel } from "@/components/PartnersCarousel";
 import { NewsSlider } from "@/components/NewsSlider";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ClientOnly } from "@/components/ClientOnly";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -528,7 +528,7 @@ export default function HomePage() {
 
             <div className="border-t border-gray-700 pt-8 text-center space-y-3">
               <p className="text-gray-400">
-                جميع الحقوق محفوظة © {new Date().getFullYear()} جمعية يعمر لعناية المساجد
+                جميع الحقوق محفوظة © <ClientOnly>{new Date().getFullYear()}</ClientOnly> جمعية يعمر لعناية المساجد
               </p>
               <p className="text-gray-500 text-sm">
                 رقم الترخيص: 1234567890

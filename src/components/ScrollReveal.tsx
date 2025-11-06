@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { useEffect, useRef, ReactNode } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -8,28 +8,31 @@ interface ScrollRevealProps {
 }
 
 export function ScrollReveal({ children, delay = 0, className = "" }: ScrollRevealProps) {
-  const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = elementRef.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true);
-          }, delay);
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              element.classList.add("animate-reveal");
+            }, delay);
+            observer.unobserve(element);
+          }
+        });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
+    observer.observe(element);
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, [delay]);
@@ -37,11 +40,10 @@ export function ScrollReveal({ children, delay = 0, className = "" }: ScrollReve
   return (
     <div
       ref={elementRef}
-      className={`transition-all duration-700 ${
-        isVisible 
-          ? "opacity-100 translate-y-0" 
-          : "opacity-0 translate-y-8"
-      } ${className}`}
+      className={`opacity-0 translate-y-8 ${className}`}
+      style={{
+        transition: "opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)"
+      }}
     >
       {children}
     </div>

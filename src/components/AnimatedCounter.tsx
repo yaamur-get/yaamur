@@ -1,25 +1,31 @@
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 interface AnimatedCounterProps {
   end: number;
   duration?: number;
   suffix?: string;
+  prefix?: string;
 }
 
-export function AnimatedCounter({ end, duration = 2000, suffix = "" }: AnimatedCounterProps) {
+export function AnimatedCounter({ 
+  end, 
+  duration = 2000, 
+  suffix = "", 
+  prefix = "" 
+}: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const counterRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
+      ([entry]) => {
+        if (entry.isIntersecting) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
 
     if (counterRef.current) {
@@ -37,31 +43,34 @@ export function AnimatedCounter({ end, duration = 2000, suffix = "" }: AnimatedC
     if (!isVisible) return;
 
     let startTime: number | null = null;
-    const startValue = 0;
+    let animationFrame: number;
 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
-
+      
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      const currentCount = Math.floor(easeOutQuart * (end - startValue) + startValue);
-
-      setCount(currentCount);
+      setCount(Math.floor(easeOutQuart * end));
 
       if (progress < 1) {
-        requestAnimationFrame(animate);
+        animationFrame = requestAnimationFrame(animate);
       }
     };
 
-    requestAnimationFrame(animate);
-  }, [isVisible, end, duration]);
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [end, duration, isVisible]);
 
   return (
-    <div ref={counterRef}>
-      <span className="text-4xl font-bold">
-        {count}
-        {suffix}
-      </span>
+    <div ref={counterRef} className="text-5xl font-black">
+      {prefix}
+      {count.toLocaleString("ar-SA")}
+      {suffix}
     </div>
   );
 }

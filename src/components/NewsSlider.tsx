@@ -1,104 +1,120 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar } from "lucide-react";
-import { Building2 } from "lucide-react";
-import { ClientOnly } from "./ClientOnly";
+import { ChevronRight, ChevronLeft, Calendar, ArrowLeft } from "lucide-react";
+import { ClientOnly } from "@/components/ClientOnly";
 
 const newsItems = [
   {
     id: 1,
-    title: "افتتاح مسجد جديد في حي النهضة",
-    excerpt: "بفضل الله تم افتتاح مسجد النور الجديد بحي النهضة لخدمة أكثر من 500 مصلي",
+    title: "افتتاح مسجد الرحمة الجديد",
+    description: "بحمد الله تم افتتاح مسجد الرحمة الجديد بحضور أكثر من 500 مصلي في حفل بهيج",
     date: "2025-11-01",
-    image: null
+    image: "/placeholder-mosque-1.jpg"
   },
   {
     id: 2,
-    title: "إكمال صيانة 15 مسجداً في المنطقة الشرقية",
-    excerpt: "تم الانتهاء من أعمال الصيانة الشاملة لـ 15 مسجداً شملت التكييف والإضاءة",
+    title: "إطلاق برنامج الصيانة الشاملة",
+    description: "برنامج متكامل للصيانة الدورية يشمل 50 مسجداً في المنطقة الشرقية",
     date: "2025-10-28",
-    image: null
+    image: "/placeholder-mosque-2.jpg"
   },
   {
     id: 3,
-    title: "إطلاق برنامج تدريب المتطوعين",
-    excerpt: "بدأنا برنامج تدريب جديد للمتطوعين في صيانة ونظافة المساجد",
+    title: "توقيع شراكة استراتيجية جديدة",
+    description: "شراكة مع مؤسسة الخير لدعم مشاريع بناء المساجد في المناطق النائية",
     date: "2025-10-25",
-    image: null
+    image: "/placeholder-mosque-3.jpg"
   },
   {
     id: 4,
-    title: "توقيع شراكة استراتيجية جديدة",
-    excerpt: "وقعنا اتفاقية شراكة مع مؤسسة الخير لدعم مشاريع المساجد",
+    title: "إنجاز 150 مسجداً في عامين",
+    description: "نفخر بإنجاز بناء وتشغيل 150 مسجداً خلال عامين من العمل المتواصل",
     date: "2025-10-20",
-    image: null
+    image: "/placeholder-mosque-4.jpg"
   }
 ];
 
 export function NewsSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (!isHovered) {
-      const interval = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % newsItems.length);
-      }, 4000);
-      return () => clearInterval(interval);
-    }
-  }, [isHovered]);
+    if (isPaused) return;
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % newsItems.length);
+    }, 5000);
 
-  const nextSlide = () => {
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % newsItems.length);
   };
 
-  const prevSlide = () => {
+  const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + newsItems.length) % newsItems.length);
   };
 
   return (
-    <div 
+    <div
       className="relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="overflow-hidden rounded-2xl">
-        <div 
-          className="flex transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(${currentIndex * 100}%)` }}
+      <div className="overflow-hidden rounded-3xl">
+        <div
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {newsItems.map((item) => (
-            <div key={item.id} className="min-w-full px-2">
-              <Card className="border-2 border-gray-200 hover:border-brand-green transition-all duration-300 overflow-hidden">
+          {newsItems.map((news) => (
+            <div key={news.id} className="min-w-full">
+              <Card className="border-2 border-gray-100 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 bg-white">
                 <CardContent className="p-0">
-                  <div className="aspect-video bg-gradient-to-br from-[#08704C]/10 to-[#7B4F28]/10 flex items-center justify-center">
-                    <Building2 className="w-24 h-24 text-[#08704C]/30" />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                      <Calendar className="w-4 h-4" />
-                      <ClientOnly>
-                        <span>{new Date(item.date).toLocaleDateString("ar-SA")}</span>
-                      </ClientOnly>
+                  <div className="grid md:grid-cols-2 gap-0">
+                    <div className="aspect-[4/3] md:aspect-auto bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 relative overflow-hidden group">
+                      <div className="absolute inset-0 pattern-diagonal"></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-32 h-32 bg-white/90 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                          <Calendar className="w-16 h-16 text-[#08704C]" />
+                        </div>
+                      </div>
+                      <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                        <span className="text-sm font-bold text-[#08704C]">جديد</span>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">
-                      {item.excerpt}
-                    </p>
-                    <Button 
-                      variant="ghost" 
-                      className="text-[#08704C] hover:text-[#08704C]/80 hover:bg-[#08704C]/10 p-0"
-                    >
-                      اقرأ المزيد
-                      <ArrowRight className="w-4 h-4 mr-2" />
-                    </Button>
+
+                    <div className="p-8 md:p-12 flex flex-col justify-center space-y-6">
+                      <div className="flex items-center gap-2 text-[#08704C]">
+                        <Calendar className="w-5 h-5" />
+                        <ClientOnly>
+                          <span className="text-sm font-semibold" dir="ltr">
+                            {new Date(news.date).toLocaleDateString("ar-SA", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric"
+                            })}
+                          </span>
+                        </ClientOnly>
+                      </div>
+
+                      <h3 className="text-3xl font-bold text-gray-900 leading-tight">
+                        {news.title}
+                      </h3>
+
+                      <p className="text-gray-600 text-lg leading-relaxed">
+                        {news.description}
+                      </p>
+
+                      <Button
+                        variant="ghost"
+                        className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto font-bold group/btn"
+                      >
+                        <span className="group-hover/btn:mr-2 transition-all">اقرأ المزيد</span>
+                        <ArrowLeft className="w-5 h-5 mr-2 group-hover/btn:mr-0 transition-all" />
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -107,34 +123,38 @@ export function NewsSlider() {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 bg-white hover:bg-[#08704C] text-[#08704C] hover:text-white rounded-full p-3 shadow-lg transition-all z-10 border-2 border-gray-200"
-        aria-label="الخبر السابق"
-      >
-        <ArrowRight className="w-5 h-5" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-1/2 bg-white hover:bg-[#08704C] text-[#08704C] hover:text-white rounded-full p-3 shadow-lg transition-all z-10 border-2 border-gray-200"
-        aria-label="الخبر التالي"
-      >
-        <ArrowRight className="w-5 h-5 rotate-180" />
-      </button>
+      {/* Navigation Buttons */}
+      <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none z-10">
+        <Button
+          size="icon"
+          variant="ghost"
+          onClick={goToPrevious}
+          className="pointer-events-auto w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-2xl hover:shadow-3xl border-2 border-gray-100 hover:border-[#08704C]/30 transition-all hover:scale-110"
+        >
+          <ChevronRight className="w-6 h-6 text-[#08704C]" />
+        </Button>
+        <Button
+          size="icon"
+          variant="ghost"
+          onClick={goToNext}
+          className="pointer-events-auto w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-2xl hover:shadow-3xl border-2 border-gray-100 hover:border-[#08704C]/30 transition-all hover:scale-110"
+        >
+          <ChevronLeft className="w-6 h-6 text-[#08704C]" />
+        </Button>
+      </div>
 
-      {/* Dots Navigation */}
-      <div className="flex justify-center gap-2 mt-6">
+      {/* Dots Indicator */}
+      <div className="flex justify-center gap-3 mt-8">
         {newsItems.map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all ${
-              index === currentIndex 
-                ? "w-8 bg-[#08704C]" 
-                : "w-2 bg-gray-300 hover:bg-gray-400"
+            onClick={() => setCurrentIndex(index)}
+            className={`h-2.5 rounded-full transition-all duration-500 ${
+              index === currentIndex
+                ? "w-12 bg-gradient-to-r from-[#08704C] to-[#00A186]"
+                : "w-2.5 bg-gray-300 hover:bg-[#08704C]/50"
             }`}
-            aria-label={`الانتقال للخبر ${index + 1}`}
+            aria-label={`الذهاب إلى الخبر ${index + 1}`}
           />
         ))}
       </div>
