@@ -299,6 +299,23 @@
     transform: translateY(0) !important;
   }
   
+  /* WhatsApp Button Specific Animations */
+  @keyframes whatsapp-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+  
+  /* Enhanced shadow for WhatsApp button */
+  .shadow-3xl {
+    box-shadow: 0 25px 50px -12px rgba(37, 211, 102, 0.5);
+  }
+  
   /* Custom scrollbar */
   .custom-scrollbar::-webkit-scrollbar {
     width: 8px;

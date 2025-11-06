@@ -10,6 +10,7 @@ import { PartnersCarousel } from "@/components/PartnersCarousel";
 import { NewsSlider } from "@/components/NewsSlider";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ClientOnly } from "@/components/ClientOnly";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -452,6 +453,9 @@ export default function HomePage() {
             <ArrowUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform" />
           </button>
         )}
+
+        {/* WhatsApp Button - Always Visible */}
+        <WhatsAppButton />
 
         {/* Footer - Enhanced */}
         <footer id="contact" className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
