@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Wrench, Sparkles, ArrowRight, Phone, Mail, MapPin, ExternalLink, Users, Handshake, BookOpen } from "lucide-react";
+import { Building2, Wrench, Sparkles, ArrowRight, Phone, Mail, MapPin, ExternalLink, Users, Handshake, BookOpen, ArrowUp } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { MobileMenu } from "@/components/MobileMenu";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -10,22 +10,29 @@ import { PartnersCarousel } from "@/components/PartnersCarousel";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      setShowScrollTop(window.scrollY > 400);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
       <Head>
         <title>جمعية يعمر لعناية المساجد | Ya&apos;mur Association</title>
         <meta name="description" content="جمعية يعمر لعناية المساجد - بناء وصيانة وتشغيل المساجد" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </Head>
 
       <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-amber-50/30" dir="rtl">
@@ -83,11 +90,11 @@ export default function HomePage() {
                       نحن نبني ونحافظ على بيوت الله
                     </span>
                   </div>
-                  <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                     نعمر المساجد
                     <span className="block text-emerald-600 mt-2">ونرعى بيوت الله</span>
                   </h2>
-                  <p className="text-xl text-gray-600 leading-relaxed">
+                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
                     جمعية متخصصة في بناء وصيانة وتشغيل المساجد، نسعى لخدمة بيوت الله وتوفير بيئة مناسبة للعبادة والتعلم
                   </p>
                 </div>
@@ -107,7 +114,7 @@ export default function HomePage() {
               <div className="order-1 lg:order-2 relative">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <div className="aspect-[4/3] bg-gradient-to-br from-emerald-100 to-amber-100 flex items-center justify-center">
-                    <Building2 className="w-48 h-48 text-emerald-600/20" />
+                    <Building2 className="w-32 sm:w-48 h-32 sm:h-48 text-emerald-600/20" />
                   </div>
                   {/* Floating accent elements */}
                   <div className="absolute -top-6 -right-6 w-24 h-24 bg-amber-400 rounded-full opacity-20 blur-2xl"></div>
@@ -332,6 +339,17 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* Scroll to Top Button */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-8 left-8 z-50 w-12 h-12 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
+            aria-label="العودة للأعلى"
+          >
+            <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+          </button>
+        )}
 
         {/* Footer */}
         <footer id="contact" className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
