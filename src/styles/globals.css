@@ -1,7 +1,28 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Font Loading - إذا كان لديك ملفات خطوط خاصة */
+/* Uncomment and modify if you want to use custom font files from public/fonts/ */
+/*
+@font-face {
+  font-family: 'CustomArabic';
+  src: url('/fonts/your-font-name.woff2') format('woff2'),
+       url('/fonts/your-font-name.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CustomArabic';
+  src: url('/fonts/your-font-name-bold.woff2') format('woff2'),
+       url('/fonts/your-font-name-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
 
 @layer base {
   :root {
@@ -71,6 +92,8 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     background-color: var(--brand-cream);
+    /* Apply custom font - يمكنك تغيير font-arabic إلى CustomArabic إذا استخدمت ملفات خاصة */
+    font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
   }
   
   /* RTL optimizations */
@@ -250,6 +273,23 @@
   .transition-smooth {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  
+  /* Font utility classes - استخدم هذه الكلاسات لتطبيق خطوط مختلفة */
+  .font-arabic {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+  }
+  
+  .font-display {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+  }
+  
+  /* If using custom fonts, uncomment below: */
+  /*
+  .font-custom {
+    font-family: 'CustomArabic', 'Cairo', sans-serif;
+  }
+  */
 }
 
 @layer utilities {
