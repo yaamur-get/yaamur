@@ -1,9 +1,9 @@
-
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "lucide-react";
 import { Building2 } from "lucide-react";
+import { ClientOnly } from "./ClientOnly";
 
 const newsItems = [
   {
@@ -82,7 +82,9 @@ export function NewsSlider() {
                   <div className="p-6">
                     <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
                       <Calendar className="w-4 h-4" />
-                      <span>{new Date(item.date).toLocaleDateString("ar-SA")}</span>
+                      <ClientOnly>
+                        <span>{new Date(item.date).toLocaleDateString("ar-SA")}</span>
+                      </ClientOnly>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">
                       {item.title}
