@@ -1,71 +1,73 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 
 const testimonials = [
   {
     id: 1,
-    quote: "جمعية يعمر قامت بعمل رائع في صيانة مسجد حينا. العمل احترافي والخدمة ممتازة. جزاهم الله خيراً",
-    name: "محمد العتيبي",
-    role: "متبرع"
+    quote: "جمعية يعمر قامت ببناء مسجد حينا بكل احترافية وإتقان. المسجد أصبح قبلة للمصلين وبيئة مثالية للعبادة",
+    author: "عبدالله السالم",
+    role: "إمام مسجد النور",
+    rating: 5
   },
   {
     id: 2,
-    quote: "نحن فخورون بالشراكة مع جمعية يعمر. التزامهم بخدمة المساجد وجودة العمل يستحق كل تقدير",
-    name: "مؤسسة البركة الخيرية",
-    role: "شريك استراتيجي"
+    quote: "الصيانة الدورية والاهتمام بأدق التفاصيل يظهر حرص الجمعية على راحة المصلين وجودة الخدمات",
+    author: "محمد العتيبي",
+    role: "متبرع ومؤسس شريك",
+    rating: 5
   },
   {
     id: 3,
-    quote: "تجربة التطوع مع يعمر كانت رائعة. الفريق محترف ومنظم والعمل له أثر كبير في المجتمع",
-    name: "فاطمة السالم",
-    role: "متطوعة"
+    quote: "فريق متميز ومحترف في التعامل. كل التقدير لجهودهم المبذولة في خدمة بيوت الله",
+    author: "فاطمة الدوسري",
+    role: "متطوعة في الجمعية",
+    rating: 5
   }
 ];
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F8F4ED]">
-      <div className="container mx-auto">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 pattern-dots opacity-20"></div>
+      <div className="absolute top-10 left-10 w-72 h-72 bg-[#00A186]/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#7B4F28]/10 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#08704C] mb-4">قالوا عنا</h2>
-            <p className="text-xl text-gray-600">شهادات من شركائنا ومتبرعينا ومتطوعينا</p>
+          <div className="text-center mb-20">
+            <span className="inline-block px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-bold mb-4">
+              شهادات العملاء
+            </span>
+            <h2 className="text-5xl font-black text-gray-900 mb-6">قالوا عنا</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              نفخر بثقة شركائنا ومجتمعنا في خدماتنا المتميزة
+            </p>
           </div>
         </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <ScrollReveal key={testimonial.id} delay={index * 100}>
-              <Card className="group hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-[#00A186] bg-white h-full">
-                <CardContent className="p-8 relative">
-                  {/* Quote Icon */}
-                  <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <Quote className="w-16 h-16 text-[#08704C]" />
+              <Card className="group relative overflow-hidden border-2 border-transparent hover:border-[#08704C]/30 transition-all duration-500 h-full card-elevated bg-gradient-to-br from-white to-[#08704C]/5">
+                <CardContent className="p-8 space-y-6">
+                  <div className="flex items-start justify-between">
+                    <Quote className="w-12 h-12 text-[#08704C]/20 group-hover:text-[#08704C]/40 transition-colors" />
+                    <div className="flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-[#00A186] text-[#00A186]" />
+                      ))}
+                    </div>
                   </div>
                   
-                  {/* Quote Text */}
-                  <div className="relative z-10 mb-6">
-                    <p className="text-gray-700 text-lg leading-relaxed italic">
-                      "{testimonial.quote}"
-                    </p>
-                  </div>
-
-                  {/* Author Info */}
-                  <div className="border-t-2 border-gray-100 pt-6">
-                    <div className="flex items-center gap-4">
-                      {/* Avatar Circle */}
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#08704C] to-[#00A186] flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                        {testimonial.name.charAt(0)}
-                      </div>
-                      
-                      {/* Name and Role */}
-                      <div>
-                        <p className="font-bold text-gray-900">{testimonial.name}</p>
-                        <p className="text-sm text-[#7B4F28]">{testimonial.role}</p>
-                      </div>
-                    </div>
+                  <p className="text-gray-700 leading-relaxed text-lg italic">
+                    &quot;{testimonial.quote}&quot;
+                  </p>
+                  
+                  <div className="pt-4 border-t border-gray-200">
+                    <p className="font-bold text-gray-900 mb-1">{testimonial.author}</p>
+                    <p className="text-sm text-[#08704C]">{testimonial.role}</p>
                   </div>
                 </CardContent>
               </Card>

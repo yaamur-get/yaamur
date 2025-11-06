@@ -1,41 +1,35 @@
 
-import { useEffect, useState } from "react";
+import { Building2, Handshake, Heart, Lightbulb, Shield, Users } from "lucide-react";
 
 const partners = [
-  { id: 1, name: "شريك 1" },
-  { id: 2, name: "شريك 2" },
-  { id: 3, name: "شريك 3" },
-  { id: 4, name: "شريك 4" },
-  { id: 5, name: "شريك 5" },
-  { id: 6, name: "شريك 6" },
-  { id: 7, name: "شريك 7" },
-  { id: 8, name: "شريك 8" },
+  { id: 1, name: "شريك 1", icon: Building2 },
+  { id: 2, name: "شريك 2", icon: Handshake },
+  { id: 3, name: "شريك 3", icon: Heart },
+  { id: 4, name: "شريك 4", icon: Lightbulb },
+  { id: 5, name: "شريك 5", icon: Shield },
+  { id: 6, name: "شريك 6", icon: Users }
 ];
 
 export function PartnersCarousel() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
-
   return (
-    <div className="relative overflow-hidden py-8">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-        {partners.map((partner) => (
+    <div className="relative">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        {partners.map((partner, index) => (
           <div
             key={partner.id}
-            onMouseEnter={() => setHoveredId(partner.id)}
-            onMouseLeave={() => setHoveredId(null)}
-            className={`aspect-square rounded-full bg-gray-50 border-2 flex items-center justify-center transition-all duration-300 cursor-pointer ${
-              hoveredId === partner.id
-                ? "border-emerald-400 shadow-xl scale-110 bg-white"
-                : "border-gray-200 hover:border-emerald-300 hover:shadow-lg"
-            }`}
+            className="group relative"
+            style={{ animationDelay: `${index * 100}ms` }}
           >
-            <span
-              className={`font-bold transition-colors ${
-                hoveredId === partner.id ? "text-emerald-600" : "text-gray-400"
-              }`}
-            >
-              {partner.name}
-            </span>
+            <div className="aspect-square bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center border-2 border-transparent hover:border-[#08704C]/30 group-hover:scale-110 card-elevated">
+              <div className="text-center space-y-3">
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-all duration-500 shadow-xl">
+                  <partner.icon className="w-8 h-8 text-white" />
+                </div>
+                <p className="text-sm font-bold text-gray-700 group-hover:text-[#08704C] transition-colors">
+                  {partner.name}
+                </p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
