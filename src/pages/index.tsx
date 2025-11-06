@@ -1,9 +1,10 @@
-
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Wrench, Sparkles, ArrowRight, Phone, Mail, MapPin, ExternalLink, Users, Handshake, BookOpen } from "lucide-react";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { MobileMenu } from "@/components/MobileMenu";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,9 +55,11 @@ export default function HomePage() {
                 <a href="#contact" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">تواصل معنا</a>
               </nav>
 
+              <MobileMenu isScrolled={isScrolled} />
+
               {/* CTA Button */}
               <Button 
-                className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white shadow-lg hover:shadow-xl transition-all"
+                className="hidden sm:flex bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white shadow-lg hover:shadow-xl transition-all"
                 size="lg"
               >
                 <ExternalLink className="w-4 h-4 ml-2" />
@@ -217,18 +220,18 @@ export default function HomePage() {
               <p className="text-xl text-emerald-100">نفخر بما حققناه من إنجازات في خدمة بيوت الله</p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { number: "150+", label: "مسجد تم بناؤه" },
-                { number: "500+", label: "عملية صيانة" },
-                { number: "300+", label: "مسجد قيد التشغيل" },
-                { number: "50+", label: "مشروع جاري" }
+                { number: 150, label: "مسجد تم بناؤه", suffix: "+" },
+                { number: 500, label: "عملية صيانة", suffix: "+" },
+                { number: 300, label: "مسجد قيد التشغيل", suffix: "+" },
+                { number: 50, label: "مشروع جاري", suffix: "+" }
               ].map((stat, index) => (
                 <div key={index} className="text-center space-y-4">
-                  <div className="w-32 h-32 mx-auto bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/20 hover:scale-110 transition-transform">
-                    <span className="text-4xl font-bold">{stat.number}</span>
+                  <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/20 hover:scale-110 transition-transform">
+                    <AnimatedCounter end={stat.number} suffix={stat.suffix} />
                   </div>
-                  <p className="text-xl font-semibold">{stat.label}</p>
+                  <p className="text-lg sm:text-xl font-semibold">{stat.label}</p>
                 </div>
               ))}
             </div>
