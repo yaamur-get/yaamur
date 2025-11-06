@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+
+import { useState, useEffect, useRef, TouchEvent } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, ChevronLeft, Calendar, ArrowLeft } from "lucide-react";
@@ -38,23 +39,58 @@ const newsItems = [
 export function NewsSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || isTransitioning) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % newsItems.length);
+      handleNext();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, currentIndex, isTransitioning]);
 
-  const goToNext = () => {
+  const handleNext = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentIndex((prev) => (prev + 1) % newsItems.length);
+    setTimeout(() => setIsTransitioning(false), 700);
   };
 
-  const goToPrevious = () => {
+  const handlePrevious = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentIndex((prev) => (prev - 1 + newsItems.length) % newsItems.length);
+    setTimeout(() => setIsTransitioning(false), 700);
+  };
+
+  const goToSlide = (index: number) => {
+    if (isTransitioning || index === currentIndex) return;
+    setIsTransitioning(true);
+    setCurrentIndex(index);
+    setTimeout(() => setIsTransitioning(false), 700);
+  };
+
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 75) {
+      handleNext();
+    }
+
+    if (touchStartX.current - touchEndX.current < -75) {
+      handlePrevious();
+    }
   };
 
   return (
@@ -63,14 +99,24 @@ export function NewsSlider() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="overflow-hidden rounded-3xl">
+      <div 
+        ref={sliderRef}
+        className="overflow-hidden rounded-3xl"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          className="flex"
+          style={{
+            transform: `translateX(-${currentIndex * 100}%)`,
+            transition: isTransitioning ? "transform 700ms cubic-bezier(0.4, 0, 0.2, 1)" : "none",
+            willChange: "transform"
+          }}
         >
           {newsItems.map((news) => (
             <div key={news.id} className="min-w-full">
-              <Card className="border-2 border-gray-100 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 bg-white">
+              <Card className="border-2 border-gray-100 overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500 bg-white">
                 <CardContent className="p-0">
                   <div className="grid md:grid-cols-2 gap-0">
                     <div className="aspect-[4/3] md:aspect-auto bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 relative overflow-hidden group">
@@ -109,10 +155,10 @@ export function NewsSlider() {
 
                       <Button
                         variant="ghost"
-                        className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto font-bold group/btn"
+                        className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto font-bold group/btn transition-all duration-300"
                       >
-                        <span className="group-hover/btn:mr-2 transition-all">اقرأ المزيد</span>
-                        <ArrowLeft className="w-5 h-5 mr-2 group-hover/btn:mr-0 transition-all" />
+                        <span className="group-hover/btn:mr-2 transition-all duration-300">اقرأ المزيد</span>
+                        <ArrowLeft className="w-5 h-5 mr-2 group-hover/btn:mr-0 transition-all duration-300" />
                       </Button>
                     </div>
                   </div>
@@ -128,16 +174,20 @@ export function NewsSlider() {
         <Button
           size="icon"
           variant="ghost"
-          onClick={goToPrevious}
-          className="pointer-events-auto w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-2xl hover:shadow-3xl border-2 border-gray-100 hover:border-[#08704C]/30 transition-all hover:scale-110"
+          onClick={handlePrevious}
+          disabled={isTransitioning}
+          className="pointer-events-auto w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-2xl hover:shadow-3xl border-2 border-gray-100 hover:border-[#08704C]/30 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+          aria-label="الخبر السابق"
         >
           <ChevronRight className="w-6 h-6 text-[#08704C]" />
         </Button>
         <Button
           size="icon"
           variant="ghost"
-          onClick={goToNext}
-          className="pointer-events-auto w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-2xl hover:shadow-3xl border-2 border-gray-100 hover:border-[#08704C]/30 transition-all hover:scale-110"
+          onClick={handleNext}
+          disabled={isTransitioning}
+          className="pointer-events-auto w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-2xl hover:shadow-3xl border-2 border-gray-100 hover:border-[#08704C]/30 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+          aria-label="الخبر التالي"
         >
           <ChevronLeft className="w-6 h-6 text-[#08704C]" />
         </Button>
@@ -148,12 +198,13 @@ export function NewsSlider() {
         {newsItems.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => goToSlide(index)}
+            disabled={isTransitioning}
             className={`h-2.5 rounded-full transition-all duration-500 ${
               index === currentIndex
-                ? "w-12 bg-gradient-to-r from-[#08704C] to-[#00A186]"
-                : "w-2.5 bg-gray-300 hover:bg-[#08704C]/50"
-            }`}
+                ? "w-12 bg-gradient-to-r from-[#08704C] to-[#00A186] shadow-lg"
+                : "w-2.5 bg-gray-300 hover:bg-[#08704C]/50 hover:w-8"
+            } disabled:cursor-not-allowed`}
             aria-label={`الذهاب إلى الخبر ${index + 1}`}
           />
         ))}
