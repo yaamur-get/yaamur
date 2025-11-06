@@ -1,9 +1,18 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    /* Ya'mur Brand Colors */
+    --brand-deep-green: #08704C;
+    --brand-warm-brown: #7B4F28;
+    --brand-teal: #00A186;
+    --brand-light-blue: #C3CFF1;
+    --brand-cream: #F8F4ED;
+    
+    /* Base theme colors */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -23,13 +32,9 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+  
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -50,11 +55,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
   }
 }
 
@@ -70,6 +70,7 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: var(--brand-cream);
   }
   
   /* RTL optimizations */
@@ -96,5 +97,50 @@
 @layer components {
   .container {
     @apply mx-auto px-4 md:px-6 lg:px-8 max-w-7xl w-full;
+  }
+  
+  /* Brand color utilities */
+  .bg-brand-green {
+    background-color: var(--brand-deep-green);
+  }
+  
+  .bg-brand-brown {
+    background-color: var(--brand-warm-brown);
+  }
+  
+  .bg-brand-teal {
+    background-color: var(--brand-teal);
+  }
+  
+  .bg-brand-blue {
+    background-color: var(--brand-light-blue);
+  }
+  
+  .bg-brand-cream {
+    background-color: var(--brand-cream);
+  }
+  
+  .text-brand-green {
+    color: var(--brand-deep-green);
+  }
+  
+  .text-brand-brown {
+    color: var(--brand-warm-brown);
+  }
+  
+  .text-brand-teal {
+    color: var(--brand-teal);
+  }
+  
+  .border-brand-green {
+    border-color: var(--brand-deep-green);
+  }
+  
+  .border-brand-brown {
+    border-color: var(--brand-warm-brown);
+  }
+  
+  .border-brand-teal {
+    border-color: var(--brand-teal);
   }
 }

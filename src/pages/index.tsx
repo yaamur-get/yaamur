@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Button } from "@/components/ui/button";
@@ -7,14 +8,14 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { MobileMenu } from "@/components/MobileMenu";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnersCarousel } from "@/components/PartnersCarousel";
+import { NewsSlider } from "@/components/NewsSlider";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       setShowScrollTop(window.scrollY > 400);
@@ -31,44 +32,44 @@ export default function HomePage() {
     <>
       <Head>
         <title>جمعية يعمر لعناية المساجد | Ya&apos;mur Association</title>
-        <meta name="description" content="جمعية يعمر لعناية المساجد - بناء وصيانة وتشغيل المساجد" />
+        <meta name="description" content="جمعية يعمر لعناية المساجد - بناء وصيانة وتشغيل المساجد - مساجدنا عامرة" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-amber-50/30" dir="rtl">
+      <div className="min-h-screen bg-brand-cream" dir="rtl">
         {/* Header */}
         <header 
           className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
             isScrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
           }`}
         >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto">
             <div className="flex items-center justify-between h-20">
               {/* Logo and Name */}
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-xl flex items-center justify-center shadow-lg">
                   <Building2 className="w-7 h-7 text-white" />
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-gray-900">جمعية يعمر</h1>
-                  <p className="text-xs text-emerald-700">لعناية المساجد</p>
+                  <p className="text-xs text-[#08704C]">لعناية المساجد</p>
                 </div>
               </div>
 
               {/* Navigation */}
               <nav className="hidden md:flex items-center gap-8">
-                <a href="#home" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">الرئيسية</a>
-                <a href="#services" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">برامجنا</a>
-                <a href="#news" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">الأخبار</a>
-                <a href="#about" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">من نحن</a>
-                <a href="#contact" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">تواصل معنا</a>
+                <a href="#home" className="text-gray-700 hover:text-[#08704C] transition-colors font-medium">الرئيسية</a>
+                <a href="#services" className="text-gray-700 hover:text-[#08704C] transition-colors font-medium">برامجنا</a>
+                <a href="#news" className="text-gray-700 hover:text-[#08704C] transition-colors font-medium">الأخبار</a>
+                <a href="#about" className="text-gray-700 hover:text-[#08704C] transition-colors font-medium">من نحن</a>
+                <a href="#contact" className="text-gray-700 hover:text-[#08704C] transition-colors font-medium">تواصل معنا</a>
               </nav>
 
               <MobileMenu isScrolled={isScrolled} />
 
               {/* CTA Button */}
               <Button 
-                className="hidden sm:flex bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white shadow-lg hover:shadow-xl transition-all"
+                className="hidden sm:flex bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-lg hover:shadow-xl transition-all"
                 size="lg"
               >
                 <ExternalLink className="w-4 h-4 ml-2" />
@@ -86,24 +87,24 @@ export default function HomePage() {
               <div className="space-y-8 order-2 lg:order-1">
                 <div className="space-y-4">
                   <div className="inline-block">
-                    <span className="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">
-                      نحن نبني ونحافظ على بيوت الله
+                    <span className="px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-medium">
+                      مساجدنا عامرة
                     </span>
                   </div>
                   <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                     نعمر المساجد
-                    <span className="block text-emerald-600 mt-2">ونرعى بيوت الله</span>
+                    <span className="block text-[#08704C] mt-2">ونرعى بيوت الله</span>
                   </h2>
-                  <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+                  <p className="text-lg sm:text-xl text-[#7B4F28] leading-relaxed">
                     جمعية متخصصة في بناء وصيانة وتشغيل المساجد، نسعى لخدمة بيوت الله وتوفير بيئة مناسبة للعبادة والتعلم
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg text-lg px-8">
+                  <Button size="lg" className="bg-[#08704C] hover:bg-[#00A186] text-white shadow-lg text-lg px-8">
                     <ExternalLink className="w-5 h-5 ml-2" />
                     تبرع الآن
                   </Button>
-                  <Button size="lg" variant="outline" className="border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 text-lg px-8">
+                  <Button size="lg" variant="outline" className="border-2 border-[#08704C] text-[#08704C] hover:bg-[#08704C]/10 text-lg px-8">
                     <BookOpen className="w-5 h-5 ml-2" />
                     اعرف المزيد
                   </Button>
@@ -113,12 +114,11 @@ export default function HomePage() {
               {/* Image */}
               <div className="order-1 lg:order-2 relative">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-emerald-100 to-amber-100 flex items-center justify-center">
-                    <Building2 className="w-32 sm:w-48 h-32 sm:h-48 text-emerald-600/20" />
+                  <div className="aspect-[4/3] bg-gradient-to-br from-[#08704C]/10 to-[#7B4F28]/10 flex items-center justify-center">
+                    <Building2 className="w-32 sm:w-48 h-32 sm:h-48 text-[#08704C]/20" />
                   </div>
-                  {/* Floating accent elements */}
-                  <div className="absolute -top-6 -right-6 w-24 h-24 bg-amber-400 rounded-full opacity-20 blur-2xl"></div>
-                  <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-emerald-400 rounded-full opacity-20 blur-2xl"></div>
+                  <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#00A186] rounded-full opacity-20 blur-2xl"></div>
+                  <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#7B4F28] rounded-full opacity-20 blur-2xl"></div>
                 </div>
               </div>
             </div>
@@ -130,62 +130,59 @@ export default function HomePage() {
           <div className="container mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-gray-900 mb-4">برامجنا وخدماتنا</h2>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                <h2 className="text-4xl font-bold text-[#08704C] mb-4">برامجنا وخدماتنا</h2>
+                <p className="text-xl text-[#7B4F28] max-w-2xl mx-auto">
                   نقدم مجموعة شاملة من الخدمات لضمان أفضل رعاية للمساجد
                 </p>
               </div>
             </ScrollReveal>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {/* Service 1 */}
               <ScrollReveal delay={100}>
-                <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-emerald-200 overflow-hidden h-full">
+                <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-[#08704C]/30 overflow-hidden h-full">
                   <CardContent className="p-8 space-y-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                       <Building2 className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">بناء المساجد</h3>
                     <p className="text-gray-600 leading-relaxed">
                       نشرف على مشاريع بناء المساجد من التخطيط حتى التسليم، مع الالتزام بأعلى معايير الجودة والتصميم الإسلامي الأصيل
                     </p>
-                    <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold">
+                    <Button variant="ghost" className="text-[#08704C] hover:text-[#00A186] hover:bg-[#08704C]/10 p-0 h-auto font-semibold">
                       اعرف المزيد <ArrowLeft className="w-4 h-4 mr-2" />
                     </Button>
                   </CardContent>
                 </Card>
               </ScrollReveal>
 
-              {/* Service 2 */}
               <ScrollReveal delay={200}>
-                <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-amber-200 overflow-hidden h-full">
+                <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-[#7B4F28]/30 overflow-hidden h-full">
                   <CardContent className="p-8 space-y-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#7B4F28] to-[#08704C] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                       <Wrench className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">الصيانة والترميم</h3>
                     <p className="text-gray-600 leading-relaxed">
                       نوفر خدمات الصيانة الدورية والترميم للمساجد، للحفاظ على جمالها وسلامتها الإنشائية على مدار السنة
                     </p>
-                    <Button variant="ghost" className="text-amber-600 hover:text-amber-700 p-0 h-auto font-semibold">
+                    <Button variant="ghost" className="text-[#7B4F28] hover:text-[#08704C] hover:bg-[#7B4F28]/10 p-0 h-auto font-semibold">
                       اعرف المزيد <ArrowLeft className="w-4 h-4 mr-2" />
                     </Button>
                   </CardContent>
                 </Card>
               </ScrollReveal>
 
-              {/* Service 3 */}
               <ScrollReveal delay={300}>
-                <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-200 overflow-hidden h-full">
+                <Card className="group hover:shadow-2xl transition-all duration-300 border-2 hover:border-[#00A186]/30 overflow-hidden h-full">
                   <CardContent className="p-8 space-y-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#00A186] to-[#08704C] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                       <Sparkles className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">التشغيل والنظافة</h3>
                     <p className="text-gray-600 leading-relaxed">
                       نتولى تشغيل المساجد وإدارتها، بما في ذلك النظافة اليومية والخدمات المساندة، لتوفير بيئة نظيفة ومريحة للمصلين
                     </p>
-                    <Button variant="ghost" className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold">
+                    <Button variant="ghost" className="text-[#00A186] hover:text-[#08704C] hover:bg-[#00A186]/10 p-0 h-auto font-semibold">
                       اعرف المزيد <ArrowLeft className="w-4 h-4 mr-2" />
                     </Button>
                   </CardContent>
@@ -195,50 +192,30 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Latest News Section */}
-        <section id="news" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+        {/* Latest News Section - RTL Slider */}
+        <section id="news" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F8F4ED] to-white">
           <div className="container mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-gray-900 mb-4">آخر الأخبار</h2>
-                <p className="text-xl text-gray-600">تابع أحدث مشاريعنا وإنجازاتنا</p>
+                <h2 className="text-4xl font-bold text-[#08704C] mb-4">آخر الأخبار</h2>
+                <p className="text-xl text-[#7B4F28]">تابع أحدث مشاريعنا وإنجازاتنا</p>
               </div>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((item, index) => (
-                <ScrollReveal key={item} delay={index * 100}>
-                  <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
-                    <div className="aspect-video bg-gradient-to-br from-emerald-100 to-amber-100 flex items-center justify-center overflow-hidden">
-                      <Building2 className="w-20 h-20 text-emerald-600/30 group-hover:scale-110 transition-transform" />
-                    </div>
-                    <CardContent className="p-6 space-y-4">
-                      <span className="text-sm text-emerald-600 font-medium">
-                        {mounted ? new Date().toLocaleDateString("ar-SA") : ""}
-                      </span>
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
-                        افتتاح مسجد جديد في حي السلام
-                      </h3>
-                      <p className="text-gray-600 line-clamp-3">
-                        بحمد الله تم افتتاح مسجد جديد يتسع لـ 500 مصلٍ، تم بناؤه وفق أحدث المعايير والمواصفات الإسلامية
-                      </p>
-                      <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold">
-                        اقرأ المزيد <ArrowLeft className="w-4 h-4 mr-2" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </ScrollReveal>
-              ))}
-            </div>
+            <ScrollReveal delay={200}>
+              <div className="max-w-4xl mx-auto">
+                <NewsSlider />
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Achievements Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#08704C] to-[#00A186] text-white">
           <div className="container mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4">إنجازاتنا بالأرقام</h2>
-              <p className="text-xl text-emerald-100">نفخر بما حققناه من إنجازات في خدمة بيوت الله</p>
+              <p className="text-xl text-white/90">نفخر بما حققناه من إنجازات في خدمة بيوت الله</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -259,13 +236,16 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Testimonials Section */}
+        <TestimonialsSection />
+
         {/* Partners Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F8F4ED]">
           <div className="container mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-gray-900 mb-4">شركاؤنا</h2>
-                <p className="text-xl text-gray-600">نفخر بشراكتنا مع أفضل المؤسسات</p>
+                <h2 className="text-4xl font-bold text-[#08704C] mb-4">شركاؤنا</h2>
+                <p className="text-xl text-[#7B4F28]">نفخر بشراكتنا مع أفضل المؤسسات</p>
               </div>
             </ScrollReveal>
 
@@ -276,27 +256,27 @@ export default function HomePage() {
         </section>
 
         {/* Join Section */}
-        <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-amber-50 to-white">
+        <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="container mx-auto">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-gray-900 mb-4">انضم إلينا</h2>
-                <p className="text-xl text-gray-600">كن جزءًا من مسيرتنا في عمارة بيوت الله</p>
+                <h2 className="text-4xl font-bold text-[#08704C] mb-4">انضم إلينا</h2>
+                <p className="text-xl text-[#7B4F28]">كن جزءًا من مسيرتنا في عمارة بيوت الله</p>
               </div>
             </ScrollReveal>
 
             <div className="grid md:grid-cols-3 gap-8">
               <ScrollReveal delay={100}>
-                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-emerald-200 h-full">
+                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#08704C]/30 h-full">
                   <CardContent className="p-8 text-center space-y-6">
-                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Users className="w-10 h-10 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">تطوع معنا</h3>
                     <p className="text-gray-600">
                       انضم إلى فريق المتطوعين وساهم في خدمة بيوت الله
                     </p>
-                    <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    <Button className="w-full bg-[#08704C] hover:bg-[#00A186] text-white">
                       سجل الآن
                     </Button>
                   </CardContent>
@@ -304,16 +284,16 @@ export default function HomePage() {
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
-                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-amber-200 h-full">
+                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7B4F28]/30 h-full">
                   <CardContent className="p-8 text-center space-y-6">
-                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#7B4F28] to-[#08704C] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Handshake className="w-10 h-10 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">كن شريكًا</h3>
                     <p className="text-gray-600">
                       شارك معنا في مشاريعنا وكن شريكًا في الأجر
                     </p>
-                    <Button className="w-full bg-amber-600 hover:bg-amber-700">
+                    <Button className="w-full bg-[#7B4F28] hover:bg-[#08704C] text-white">
                       تواصل معنا
                     </Button>
                   </CardContent>
@@ -321,16 +301,16 @@ export default function HomePage() {
               </ScrollReveal>
 
               <ScrollReveal delay={300}>
-                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-blue-200 h-full">
+                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#00A186]/30 h-full">
                   <CardContent className="p-8 text-center space-y-6">
-                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#00A186] to-[#08704C] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                       <BookOpen className="w-10 h-10 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">اعرف أكثر</h3>
                     <p className="text-gray-600">
                       تعرف على رؤيتنا ورسالتنا وإنجازاتنا
                     </p>
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                    <Button className="w-full bg-[#00A186] hover:bg-[#08704C] text-white">
                       من نحن
                     </Button>
                   </CardContent>
@@ -344,7 +324,7 @@ export default function HomePage() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-8 left-8 z-50 w-12 h-12 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
+            className="fixed bottom-8 left-8 z-50 w-12 h-12 bg-[#08704C] hover:bg-[#00A186] text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
             aria-label="العودة للأعلى"
           >
             <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
@@ -355,10 +335,9 @@ export default function HomePage() {
         <footer id="contact" className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto">
             <div className="grid md:grid-cols-4 gap-12 mb-12">
-              {/* About */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-xl flex items-center justify-center">
                     <Building2 className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -371,43 +350,40 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* Quick Links */}
               <div className="space-y-4">
                 <h4 className="font-bold text-lg mb-4">روابط سريعة</h4>
                 <nav className="flex flex-col gap-3">
-                  <a href="#home" className="text-gray-400 hover:text-emerald-400 transition-colors">الرئيسية</a>
-                  <a href="#services" className="text-gray-400 hover:text-emerald-400 transition-colors">برامجنا</a>
-                  <a href="#news" className="text-gray-400 hover:text-emerald-400 transition-colors">الأخبار</a>
-                  <a href="#about" className="text-gray-400 hover:text-emerald-400 transition-colors">من نحن</a>
+                  <a href="#home" className="text-gray-400 hover:text-[#00A186] transition-colors">الرئيسية</a>
+                  <a href="#services" className="text-gray-400 hover:text-[#00A186] transition-colors">برامجنا</a>
+                  <a href="#news" className="text-gray-400 hover:text-[#00A186] transition-colors">الأخبار</a>
+                  <a href="#about" className="text-gray-400 hover:text-[#00A186] transition-colors">من نحن</a>
                 </nav>
               </div>
 
-              {/* Contact */}
               <div className="space-y-4">
                 <h4 className="font-bold text-lg mb-4">تواصل معنا</h4>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-gray-400">
-                    <Phone className="w-5 h-5 text-emerald-400" />
+                    <Phone className="w-5 h-5 text-[#00A186]" />
                     <span dir="ltr">+966 50 123 4567</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-400">
-                    <Mail className="w-5 h-5 text-emerald-400" />
+                    <Mail className="w-5 h-5 text-[#00A186]" />
                     <span>info@yaamur.org</span>
                   </div>
                   <div className="flex items-start gap-3 text-gray-400">
-                    <MapPin className="w-5 h-5 text-emerald-400 mt-1" />
-                    <span>الرياض، المملكة العربية السعودية</span>
+                    <MapPin className="w-5 h-5 text-[#00A186] mt-1" />
+                    <span>المنطقة الشرقية، المملكة العربية السعودية</span>
                   </div>
                 </div>
               </div>
 
-              {/* CTA */}
               <div className="space-y-4">
                 <h4 className="font-bold text-lg mb-4">ساهم معنا</h4>
                 <p className="text-gray-400 text-sm mb-4">
                   تبرعك يساهم في بناء وصيانة بيوت الله
                 </p>
-                <Button className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800">
+                <Button className="w-full bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C]">
                   <ExternalLink className="w-4 h-4 ml-2" />
                   المتجر الخيري
                 </Button>
