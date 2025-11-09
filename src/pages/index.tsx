@@ -67,7 +67,7 @@ export default function HomePage() {
 
               <nav className="hidden lg:flex items-center gap-8">
                 {["الرئيسية", "برامجنا", "الأخبار", "من نحن", "تواصل معنا"].map((item, idx) => {
-                  const links = ["#home", "/programs", "#news", "#about", "#contact"];
+                  const links = ["#home", "/programs", "/news", "#about", "#contact"];
                   return (
                     <Link
                       key={idx}
