@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Building2, Wrench, Newspaper, Info, Phone } from "lucide-react";
+import Link from "next/link";
 
 interface MobileMenuProps {
   isScrolled: boolean;
@@ -36,21 +36,22 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
             onClick={() => setIsOpen(false)}
           />
           <div className="fixed top-20 left-0 right-0 bg-white shadow-2xl z-40 rounded-b-3xl border-t border-gray-200 max-h-[calc(100vh-6rem)] overflow-y-auto">
-            <nav className="p-6 space-y-2">
-              {menuItems.map((item, idx) => (
-                <a
+            <nav className="flex flex-col gap-1 p-3">
+              {[
+                { label: "الرئيسية", href: "/#home" },
+                { label: "برامجنا", href: "/programs" },
+                { label: "الأخبار", href: "/#news" },
+                { label: "من نحن", href: "/#about" },
+                { label: "تواصل معنا", href: "/#contact" }
+              ].map((item, idx) => (
+                <Link
                   key={idx}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 p-4 rounded-2xl hover:bg-[#08704C]/10 transition-all duration-300 group"
+                  className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                    <item.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="text-lg font-bold text-gray-900 group-hover:text-[#08704C] transition-colors">
-                    {item.label}
-                  </span>
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </nav>
             <div className="p-6 border-t border-gray-200">

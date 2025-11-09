@@ -11,6 +11,7 @@ import { NewsSlider } from "@/components/NewsSlider";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ClientOnly } from "@/components/ClientOnly";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import Link from "next/link";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,16 +66,19 @@ export default function HomePage() {
               </div>
 
               <nav className="hidden lg:flex items-center gap-8">
-                {["الرئيسية", "برامجنا", "الأخبار", "من نحن", "تواصل معنا"].map((item, idx) => (
-                  <a 
-                    key={idx}
-                    href={`#${["home", "services", "news", "about", "contact"][idx]}`} 
-                    className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
-                  >
-                    {item}
-                    <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
-                  </a>
-                ))}
+                {["الرئيسية", "برامجنا", "الأخبار", "من نحن", "تواصل معنا"].map((item, idx) => {
+                  const links = ["#home", "/programs", "#news", "#about", "#contact"];
+                  return (
+                    <Link
+                      key={idx}
+                      href={links[idx]}
+                      className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
+                    >
+                      {item}
+                      <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+                    </Link>
+                  );
+                })}
               </nav>
 
               <MobileMenu isScrolled={isScrolled} />
