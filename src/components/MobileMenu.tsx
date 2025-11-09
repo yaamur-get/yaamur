@@ -41,6 +41,7 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
                 { label: "الرئيسية", href: "/#home" },
                 { label: "برامجنا", href: "/programs" },
                 { label: "الأخبار", href: "/news" },
+                { label: "الحوكمة", href: "/governance" },
                 { label: "من نحن", href: "/#about" },
                 { label: "تواصل معنا", href: "/#contact" }
               ].map((item, idx) => (
