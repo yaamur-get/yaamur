@@ -12,6 +12,7 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ClientOnly } from "@/components/ClientOnly";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,13 +56,17 @@ export default function HomePage() {
         >
           <div className="container mx-auto">
             <div className="flex items-center justify-between h-20">
+              {/* Logo Section */}
               <div className="flex items-center gap-3">
-                <div className="relative w-12 h-12 bg-gradient-to-br from-[#08704C] via-[#00A186] to-[#08704C] rounded-2xl flex items-center justify-center shadow-xl animate-pulse-glow">
-                  <Building2 className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-gray-900">جمعية يعمر</h1>
-                  <p className="text-xs text-[#08704C] font-semibold">لعناية المساجد</p>
+                <div className="relative h-16 w-auto">
+                  <Image
+                    src="/logoyaamurtop.png"
+                    alt="جمعية يعمر لعناية المساجد"
+                    width={200}
+                    height={64}
+                    className="h-16 w-auto object-contain"
+                    priority
+                  />
                 </div>
               </div>
 

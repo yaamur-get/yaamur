@@ -1,4 +1,3 @@
-
 import Head from "next/head";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building2, FileText, Download, Eye, ArrowLeft, Shield, Users, BarChart, FileCheck, Scale, UserCheck, AlertCircle, Lock, Trash2, ClipboardList, MessageSquare, ThumbsUp, FileBarChart, TrendingUp, DollarSign, Archive } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import Image from "next/image";
 
 interface Document {
   id: string;
@@ -265,12 +265,14 @@ export default function GovernancePage() {
           <div className="container mx-auto">
             <div className="flex items-center justify-between h-20">
               <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#08704C] via-[#00A186] to-[#08704C] rounded-2xl flex items-center justify-center shadow-xl">
-                  <Building2 className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-gray-900">جمعية يعمر</h1>
-                  <p className="text-xs text-[#08704C] font-semibold">لعناية المساجد</p>
+                <div className="relative h-16 w-auto">
+                  <Image
+                    src="/logoyaamurtop.png"
+                    alt="جمعية يعمر لعناية المساجد"
+                    width={200}
+                    height={64}
+                    className="h-16 w-auto object-contain"
+                  />
                 </div>
               </Link>
 
