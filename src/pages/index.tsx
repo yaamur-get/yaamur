@@ -1,8 +1,9 @@
+
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Wrench, Sparkles, ArrowRight, Phone, Mail, MapPin, ExternalLink, Users, Handshake, BookOpen, ArrowUp, ArrowLeft, CheckCircle, TrendingUp } from "lucide-react";
+import { Building2, Wrench, Sparkles, ArrowRight, Phone, Mail, MapPin, ExternalLink, Users, Handshake, BookOpen, ArrowUp, ArrowLeft, CheckCircle, TrendingUp, ChevronDown } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { MobileMenu } from "@/components/MobileMenu";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -17,6 +18,7 @@ import Image from "next/image";
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showServicesMenu, setShowServicesMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,13 +42,11 @@ export default function HomePage() {
       </Head>
 
       <div className="min-h-screen bg-[#F8F4ED]" dir="rtl">
-        {/* Decorative Background Elements */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#08704C]/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#7B4F28]/5 rounded-full blur-3xl"></div>
         </div>
 
-        {/* Header */}
         <header 
           className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
             isScrolled 
@@ -56,7 +56,6 @@ export default function HomePage() {
         >
           <div className="container mx-auto">
             <div className="flex items-center justify-between h-20">
-              {/* Logo Section */}
               <div className="flex items-center gap-3">
                 <div className="relative h-16 w-auto">
                   <Image
@@ -71,19 +70,91 @@ export default function HomePage() {
               </div>
 
               <nav className="hidden lg:flex items-center gap-8">
-                {["الرئيسية", "برامجنا", "الأخبار", "الحوكمة", "من نحن", "تواصل معنا"].map((item, idx) => {
-                  const links = ["#home", "/programs", "/news", "/governance", "#about", "#contact"];
-                  return (
-                    <Link
-                      key={idx}
-                      href={links[idx]}
-                      className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
-                    >
-                      {item}
-                      <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
-                    </Link>
-                  );
-                })}
+                <Link
+                  href="/"
+                  className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
+                >
+                  الرئيسية
+                  <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+                </Link>
+
+                <div 
+                  className="relative"
+                  onMouseEnter={() => setShowServicesMenu(true)}
+                  onMouseLeave={() => setShowServicesMenu(false)}
+                >
+                  <button className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group flex items-center gap-1">
+                    خدماتنا
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showServicesMenu ? 'rotate-180' : ''}`} />
+                    <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+                  </button>
+                  
+                  {showServicesMenu && (
+                    <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border-2 border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <Link
+                        href="/services/construction"
+                        className="block px-4 py-3 text-gray-700 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"
+                      >
+                        <Building2 className="w-4 h-4" />
+                        البناء
+                      </Link>
+                      <Link
+                        href="/services/maintenance"
+                        className="block px-4 py-3 text-gray-700 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"
+                      >
+                        <Wrench className="w-4 h-4" />
+                        الصيانة
+                      </Link>
+                      <Link
+                        href="/services/operation"
+                        className="block px-4 py-3 text-gray-700 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"
+                      >
+                        <Sparkles className="w-4 h-4" />
+                        التشغيل
+                      </Link>
+                    </div>
+                  )}
+                </div>
+
+                <Link
+                  href="/programs"
+                  className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
+                >
+                  برامجنا
+                  <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+                </Link>
+
+                <Link
+                  href="/news"
+                  className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
+                >
+                  الأخبار
+                  <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+                </Link>
+
+                <Link
+                  href="/careers"
+                  className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
+                >
+                  الفرص الوظيفية
+                  <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+                </Link>
+
+                <Link
+                  href="/governance"
+                  className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
+                >
+                  الحوكمة
+                  <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+                </Link>
+
+                <Link
+                  href="#contact"
+                  className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
+                >
+                  تواصل معنا
+                  <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+                </Link>
               </nav>
 
               <MobileMenu isScrolled={isScrolled} />
@@ -99,9 +170,7 @@ export default function HomePage() {
           </div>
         </header>
 
-        {/* Hero Section - Dramatically Enhanced */}
         <section id="home" className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-          {/* Animated Background Pattern */}
           <div className="absolute inset-0 pattern-grid opacity-30"></div>
           <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-[#08704C]/10 to-transparent rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tl from-[#7B4F28]/10 to-transparent rounded-full blur-3xl" style={{ animationDelay: "2s" }}></div>
@@ -173,7 +242,6 @@ export default function HomePage() {
                       <div className="absolute inset-0 pattern-diagonal"></div>
                       <Building2 className="w-40 h-40 text-[#08704C]/30 relative z-10" />
                       
-                      {/* Floating Stats Cards */}
                       <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl animate-float">
                         <div className="flex items-center gap-3">
                           <div className="w-12 h-12 bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-xl flex items-center justify-center">
@@ -208,7 +276,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Services Section - Bento Style */}
         <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
           <div className="absolute inset-0 pattern-dots opacity-20"></div>
           
@@ -239,10 +306,12 @@ export default function HomePage() {
                         نشرف على مشاريع بناء المساجد من التخطيط حتى التسليم بأعلى معايير الجودة والتصميم الإسلامي الأصيل
                       </p>
                     </div>
-                    <Button variant="ghost" className="text-[#08704C] hover:text-white hover:bg-[#08704C] p-0 h-auto font-bold group/btn">
-                      <span className="group-hover/btn:mr-2 transition-all">اعرف المزيد</span>
-                      <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:mr-0 transition-all" />
-                    </Button>
+                    <Link href="/services/construction">
+                      <Button variant="ghost" className="text-[#08704C] hover:text-white hover:bg-[#08704C] p-0 h-auto font-bold group/btn">
+                        <span className="group-hover/btn:mr-2 transition-all">اعرف المزيد</span>
+                        <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:mr-0 transition-all" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </ScrollReveal>
@@ -260,10 +329,12 @@ export default function HomePage() {
                         نوفر خدمات الصيانة الدورية والترميم الشامل للحفاظ على جمال المساجد وسلامتها الإنشائية
                       </p>
                     </div>
-                    <Button variant="ghost" className="text-[#7B4F28] hover:text-white hover:bg-[#7B4F28] p-0 h-auto font-bold group/btn">
-                      <span className="group-hover/btn:mr-2 transition-all">اعرف المزيد</span>
-                      <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:mr-0 transition-all" />
-                    </Button>
+                    <Link href="/services/maintenance">
+                      <Button variant="ghost" className="text-[#7B4F28] hover:text-white hover:bg-[#7B4F28] p-0 h-auto font-bold group/btn">
+                        <span className="group-hover/btn:mr-2 transition-all">اعرف المزيد</span>
+                        <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:mr-0 transition-all" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </ScrollReveal>
@@ -281,10 +352,12 @@ export default function HomePage() {
                         نتولى التشغيل الكامل والنظافة اليومية لتوفير بيئة نظيفة ومريحة للمصلين على مدار العام
                       </p>
                     </div>
-                    <Button variant="ghost" className="text-[#00A186] hover:text-white hover:bg-[#00A186] p-0 h-auto font-bold group/btn">
-                      <span className="group-hover/btn:mr-2 transition-all">اعرف المزيد</span>
-                      <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:mr-0 transition-all" />
-                    </Button>
+                    <Link href="/services/operation">
+                      <Button variant="ghost" className="text-[#00A186] hover:text-white hover:bg-[#00A186] p-0 h-auto font-bold group/btn">
+                        <span className="group-hover/btn:mr-2 transition-all">اعرف المزيد</span>
+                        <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:mr-0 transition-all" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </ScrollReveal>
@@ -292,7 +365,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Latest News Section */}
         <section id="news" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F8F4ED] to-white relative overflow-hidden">
           <div className="absolute inset-0 pattern-stars"></div>
           
@@ -317,7 +389,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Achievements Section - Enhanced */}
         <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#08704C] via-[#00A186] to-[#08704C] text-white relative overflow-hidden">
           <div className="absolute inset-0 pattern-grid opacity-10"></div>
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
@@ -354,10 +425,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
         <TestimonialsSection />
 
-        {/* Partners Section */}
         <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F4ED] relative overflow-hidden">
           <div className="absolute inset-0 pattern-diagonal opacity-30"></div>
           
@@ -380,7 +449,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Join Section - Enhanced */}
         <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
           <div className="absolute inset-0 pattern-dots opacity-20"></div>
           
@@ -452,7 +520,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Scroll to Top Button */}
         {showScrollTop && (
           <button
             onClick={scrollToTop}
@@ -463,10 +530,8 @@ export default function HomePage() {
           </button>
         )}
 
-        {/* WhatsApp Button - Always Visible */}
         <WhatsAppButton />
 
-        {/* Footer - Enhanced */}
         <footer id="contact" className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="absolute inset-0 pattern-grid opacity-5"></div>
           
