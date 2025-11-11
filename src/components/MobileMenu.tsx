@@ -1,6 +1,7 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Building2, Wrench, Newspaper, Info, Phone } from "lucide-react";
+import { Menu, X, Building2, Wrench, Sparkles, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 interface MobileMenuProps {
@@ -9,14 +10,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isScrolled }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
-
-  const menuItems = [
-    { label: "الرئيسية", href: "#home", icon: Building2 },
-    { label: "برامجنا", href: "#services", icon: Wrench },
-    { label: "الأخبار", href: "#news", icon: Newspaper },
-    { label: "من نحن", href: "#about", icon: Info },
-    { label: "تواصل معنا", href: "#contact", icon: Phone }
-  ];
+  const [showServicesSubmenu, setShowServicesSubmenu] = useState(false);
 
   return (
     <div className="lg:hidden">
@@ -37,23 +31,92 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
           />
           <div className="fixed top-20 left-0 right-0 bg-white shadow-2xl z-40 rounded-b-3xl border-t border-gray-200 max-h-[calc(100vh-6rem)] overflow-y-auto">
             <nav className="flex flex-col gap-1 p-3">
-              {[
-                { label: "الرئيسية", href: "/#home" },
-                { label: "برامجنا", href: "/programs" },
-                { label: "الأخبار", href: "/news" },
-                { label: "الحوكمة", href: "/governance" },
-                { label: "من نحن", href: "/#about" },
-                { label: "تواصل معنا", href: "/#contact" }
-              ].map((item, idx) => (
-                <Link
-                  key={idx}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
+              <Link
+                href="/"
+                onClick={() => setIsOpen(false)}
+                className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
+              >
+                الرئيسية
+              </Link>
+
+              <div>
+                <button
+                  onClick={() => setShowServicesSubmenu(!showServicesSubmenu)}
+                  className="w-full text-right text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl flex items-center justify-between"
                 >
-                  {item.label}
-                </Link>
-              ))}
+                  <span>خدماتنا</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${showServicesSubmenu ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {showServicesSubmenu && (
+                  <div className="mr-4 mt-1 space-y-1">
+                    <Link
+                      href="/services/construction"
+                      onClick={() => setIsOpen(false)}
+                      className="text-gray-600 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-medium py-2 px-4 rounded-xl flex items-center gap-3"
+                    >
+                      <Building2 className="w-4 h-4" />
+                      البناء
+                    </Link>
+                    <Link
+                      href="/services/maintenance"
+                      onClick={() => setIsOpen(false)}
+                      className="text-gray-600 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-medium py-2 px-4 rounded-xl flex items-center gap-3"
+                    >
+                      <Wrench className="w-4 h-4" />
+                      الصيانة
+                    </Link>
+                    <Link
+                      href="/services/operation"
+                      onClick={() => setIsOpen(false)}
+                      className="text-gray-600 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-medium py-2 px-4 rounded-xl flex items-center gap-3"
+                    >
+                      <Sparkles className="w-4 h-4" />
+                      التشغيل
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="/programs"
+                onClick={() => setIsOpen(false)}
+                className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
+              >
+                برامجنا
+              </Link>
+
+              <Link
+                href="/news"
+                onClick={() => setIsOpen(false)}
+                className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
+              >
+                الأخبار
+              </Link>
+
+              <Link
+                href="/careers"
+                onClick={() => setIsOpen(false)}
+                className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
+              >
+                الفرص الوظيفية
+              </Link>
+
+              <Link
+                href="/governance"
+                onClick={() => setIsOpen(false)}
+                className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
+              >
+                الحوكمة
+              </Link>
+
+              <Link
+                href="/#contact"
+                onClick={() => setIsOpen(false)}
+                className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
+              >
+                تواصل معنا
+              </Link>
             </nav>
             <div className="p-6 border-t border-gray-200">
               <Button className="w-full bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-xl py-6 text-lg">
