@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Building2, Wrench, Sparkles, ChevronDown } from "lucide-react";
@@ -92,6 +91,14 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
                 className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
               >
                 الأخبار
+              </Link>
+
+              <Link
+                href="/about"
+                onClick={() => setIsOpen(false)}
+                className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
+              >
+                عن يعمر
               </Link>
 
               <Link

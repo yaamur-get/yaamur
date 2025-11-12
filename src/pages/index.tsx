@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Button } from "@/components/ui/button";
@@ -129,6 +128,14 @@ export default function HomePage() {
                   className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
                 >
                   الأخبار
+                  <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+                </Link>
+
+                <Link
+                  href="/about"
+                  className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
+                >
+                  عن يعمر
                   <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
                 </Link>
 
