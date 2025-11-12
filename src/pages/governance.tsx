@@ -267,7 +267,7 @@ export default function GovernancePage() {
               <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                 <div className="relative h-16 w-auto">
                   <Image
-                    src="/logoyaamurtop.png"
+                    src="/شعار_يعمر_-_مطو_ر_-_نموذج_2.png"
                     alt="جمعية يعمر لعناية المساجد"
                     width={200}
                     height={64}
