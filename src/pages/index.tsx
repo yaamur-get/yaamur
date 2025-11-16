@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Wrench, Sparkles, ArrowRight, Phone, Mail, MapPin, ExternalLink, Users, Handshake, BookOpen, ArrowUp, ArrowLeft, CheckCircle, TrendingUp, ChevronDown } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
-import { MobileMenu } from "@/components/MobileMenu";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnersCarousel } from "@/components/PartnersCarousel";
 import { NewsSlider } from "@/components/NewsSlider";
@@ -15,13 +14,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function HomePage() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [showServicesMenu, setShowServicesMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
       setShowScrollTop(window.scrollY > 400);
     };
     window.addEventListener("scroll", handleScroll);
@@ -46,7 +42,7 @@ export default function HomePage() {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#7B4F28]/5 rounded-full blur-3xl"></div>
         </div>
 
-        <header 
+        {/* <header 
           className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
             isScrolled 
               ? "bg-white/90 backdrop-blur-xl shadow-lg border-b border-gray-100" 
@@ -56,13 +52,13 @@ export default function HomePage() {
           <div className="container mx-auto">
             <div className="flex items-center justify-between h-20">
               <div className="flex items-center gap-3">
-                <div className="relative h-16 w-auto">
+                <div className="relative h-full w-40 shrink-0">
                   <Image
-                    src="/شعار_يعمر_-_مطو_ر_-_نموذج_2.png"
+                    src="/yaamurlogoone.png"
                     alt="جمعية يعمر لعناية المساجد"
                     width={200}
-                    height={64}
-                    className="h-16 w-auto object-contain"
+                    height={40}
+                    className="object-contain object-center transition-all duration-300 hover:scale-105 bg-[length:200%_100%] hover:bg-rightجم "
                     priority
                   />
                 </div>
@@ -175,7 +171,7 @@ export default function HomePage() {
               </Button>
             </div>
           </div>
-        </header>
+        </header> */}
 
         <section id="home" className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
           <div className="absolute inset-0 pattern-grid opacity-30"></div>
@@ -185,27 +181,26 @@ export default function HomePage() {
           <div className="container mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-8">
-                <ScrollReveal>
-                  <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#08704C]/10 via-[#00A186]/10 to-[#08704C]/10 border border-[#08704C]/20 rounded-full">
-                    <CheckCircle className="w-4 h-4 text-[#08704C]" />
-                    <span className="text-[#08704C] font-bold text-sm">مساجدنا عامرة بفضل الله</span>
-                  </div>
-                </ScrollReveal>
+                
 
-                <ScrollReveal delay={100}>
-                  <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-tight">
-                    نعمر
-                    <span className="block mt-2 bg-gradient-to-l from-[#08704C] via-[#00A186] to-[#08704C] text-transparent bg-clip-text">بيوت الله</span>
-                    <span className="block mt-2 text-[#7B4F28]">بإتقان وإخلاص</span>
-                  </h2>
-                </ScrollReveal>
+                                        {/* تحت الآية مباشرة */}
+                        <div className="py-[50px] flex w-full justify-center">
+                          <Image
+                            src="/maidelog.png"   /* أو ضع صورتك الجديدة بـ public/hero-logo.png */
+                            alt="جمعية يعمر للعناية بالمساجد | Yaamur Association for Mosque Care"
+                            width={1000}
+                            height={360}
+                            className="mx-auto h-auto w-[min(90vw,640px)] object-contain"
+                            priority
+                          />
+                        </div>
 
                 <ScrollReveal delay={200}>
                   <p className="text-xl text-gray-700 leading-relaxed max-w-xl">
                     جمعية متخصصة في بناء وصيانة وتشغيل المساجد بالمنطقة الشرقية، نسعى لتوفير بيئة مثالية للعبادة والتعلم
                   </p>
                 </ScrollReveal>
-
+                    
                 <ScrollReveal delay={300}>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
@@ -215,6 +210,7 @@ export default function HomePage() {
                       <ExternalLink className="w-5 h-5 ml-2" />
                       تبرع الآن
                     </Button>
+                    <Link href="/about">
                     <Button 
                       size="lg" 
                       variant="outline" 
@@ -223,6 +219,8 @@ export default function HomePage() {
                       <BookOpen className="w-5 h-5 ml-2" />
                       رؤيتنا ورسالتنا
                     </Button>
+                    </Link>
+                    
                   </div>
                 </ScrollReveal>
 
@@ -412,6 +410,10 @@ export default function HomePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { number: 150, label: "مسجد تم بناؤه", suffix: "+", icon: Building2 },
+                { number: 500, label: "عملية صيانة", suffix: "+", icon: Wrench },
+                { number: 300, label: "مسجد قيد التشغيل", suffix: "+", icon: Sparkles },
+                { number: 50, label: "مشروع جاري", suffix: "+", icon: TrendingUp },
+                  { number: 150, label: "مسجد تم بناؤه", suffix: "+", icon: Building2 },
                 { number: 500, label: "عملية صيانة", suffix: "+", icon: Wrench },
                 { number: 300, label: "مسجد قيد التشغيل", suffix: "+", icon: Sparkles },
                 { number: 50, label: "مشروع جاري", suffix: "+", icon: TrendingUp }

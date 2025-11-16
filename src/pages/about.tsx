@@ -152,31 +152,7 @@ export default function AboutPage() {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#7B4F28]/5 rounded-full blur-3xl"></div>
         </div>
 
-        <header className="fixed top-0 right-0 left-0 z-50 bg-white/90 backdrop-blur-xl shadow-lg border-b border-gray-100">
-          <div className="container mx-auto">
-            <div className="flex items-center justify-between h-20">
-              <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <div className="relative h-16 w-auto">
-                  <Image
-                    src="/شعار_يعمر_-_مطو_ر_-_نموذج_2.png"
-                    alt="جمعية يعمر لعناية المساجد"
-                    width={200}
-                    height={64}
-                    className="h-16 w-auto object-contain"
-                    priority
-                  />
-                </div>
-              </Link>
-
-              <Link href="/">
-                <Button variant="ghost" className="gap-2">
-                  <ArrowLeft className="w-4 h-4" />
-                  العودة للرئيسية
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </header>
+        
 
         {/* Hero Section */}
         <section className="pt-32 pb-12 px-4 sm:px-6 lg:px-8 relative">
