@@ -173,7 +173,7 @@ export default function HomePage() {
           </div>
         </header> */}
 
-        <section id="home" className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section id="home" className="relative pt-20 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
           <div className="absolute inset-0 pattern-grid opacity-30"></div>
           <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-[#08704C]/10 to-transparent rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tl from-[#7B4F28]/10 to-transparent rounded-full blur-3xl" style={{ animationDelay: "2s" }}></div>
@@ -184,7 +184,7 @@ export default function HomePage() {
                 
 
                                         {/* تحت الآية مباشرة */}
-                        <div className="py-[50px] flex w-full justify-center">
+                        <div className="flex w-full justify-center">
                           <Image
                             src="/maidelog.png"   /* أو ضع صورتك الجديدة بـ public/hero-logo.png */
                             alt="جمعية يعمر للعناية بالمساجد | Yaamur Association for Mosque Care"
@@ -244,8 +244,7 @@ export default function HomePage() {
                 <div className="relative">
                   <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl card-elevated">
                     <div className="aspect-[4/3] bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 flex items-center justify-center relative">
-                      <div className="absolute inset-0 pattern-diagonal"></div>
-                      <Building2 className="w-40 h-40 text-[#08704C]/30 relative z-10" />
+                      
                       
                       <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl animate-float">
                         <div className="flex items-center gap-3">
