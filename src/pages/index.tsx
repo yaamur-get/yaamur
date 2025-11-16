@@ -243,7 +243,7 @@ export default function HomePage() {
               <ScrollReveal delay={200}>
                 <div className="relative">
                   <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl card-elevated">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 flex items-center justify-center relative">
+                    <div className="aspect-[4/4] bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 flex items-center justify-center relative">
                       
                       
                       <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl animate-float">
