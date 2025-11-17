@@ -238,6 +238,12 @@
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
   }
+  .baner{
+
+    background-size: cover;
+    background-position: center;
+  }
+    
   
   /* Glass morphism effect */
   .glass-effect {

@@ -27,9 +27,10 @@ export function SiteHeader() {
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-20">
+          {/*
           <div className="flex items-center gap-3">
             <div className="relative h-full w-40 shrink-0">
-              <Image
+             {/* <Image
                 src="/yaamurlogoone.png"
                 alt="شعار جمعية يعمر للعناية بالمساجد"
                 width={200}
@@ -37,13 +38,17 @@ export function SiteHeader() {
                 className="object-contain object-center transition-all duration-300 hover:scale-105"
                 priority
               />
+              
+              
             </div>
           </div>
+          */} 
+          
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-12 text-lg">
             <Link
               href="/"
-              className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group"
+              className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold  group"
             >
               الرئيسية
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
@@ -54,7 +59,7 @@ export function SiteHeader() {
               onMouseEnter={() => setShowServicesMenu(true)}
               onMouseLeave={() => setShowServicesMenu(false)}
             >
-              <button className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group flex items-center gap-1">
+              <button className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold group flex items-center gap-1">
                 خدماتنا
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showServicesMenu ? "rotate-180" : ""}`} />
                 <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
@@ -64,21 +69,21 @@ export function SiteHeader() {
                 <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border-2 border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
                   <Link
                     href="/services/construction"
-                    className="block px-4 py-3 text-gray-700 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"
+                    className="block px-4 py-3 text-gray-750 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"
                   >
                     <Building2 className="w-4 h-4" />
                     البناء
                   </Link>
                   <Link
                     href="/services/maintenance"
-                    className="block px-4 py-3 text-gray-700 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"
+                    className="block px-4 py-3 text-gray-750 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"
                   >
                     <Wrench className="w-4 h-4" />
                     الصيانة
                   </Link>
                   <Link
                     href="/services/operation"
-                    className="block px-4 py-3 text-gray-700 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"
+                    className="block px-4 py-3 text-gray-750 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"
                   >
                     <Sparkles className="w-4 h-4" />
                     التشغيل
@@ -87,27 +92,27 @@ export function SiteHeader() {
               )}
             </div>
 
-            <Link href="/programs" className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group">
+            <Link href="/programs" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">
               برامجنا
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="/news" className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group">
+            <Link href="/news" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">
               الأخبار
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="/about" className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group">
+            <Link href="/about" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">
               عن يعمر
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="/careers" className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group">
+            <Link href="/careers" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">
               الفرص الوظيفية
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="/governance" className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group">
+            <Link href="/governance" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">
               الحوكمة
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="/#contact" className="relative text-gray-700 hover:text-[#08704C] transition-colors font-semibold text-sm group">
+            <Link href="/#contact" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">
               تواصل معنا
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
             </Link>
@@ -120,7 +125,7 @@ export function SiteHeader() {
             size="lg"
           >
             <ExternalLink className="w-4 h-4 ml-2" />
-            المتجر الخيري
+            المتجر الإلكتروني
           </Button>
         </div>
       </div>

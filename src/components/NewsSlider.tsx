@@ -9,7 +9,7 @@ const newsItems = [
     id: 1,
     title: "افتتاح مسجد الرحمة الجديد",
     description:
-      "بحمد الله تم افتتاح مسجد الرحمة الجديد بحضور أكثر من 500 مصلي في حفل بهيج.",
+      "بحمد الله تم افتتاح مسجد الرحمة الجديد بحضور أكثر من 500 مصلٍ في حفل بهيج.",
     date: "2025-11-01"
   },
   {
@@ -23,7 +23,7 @@ const newsItems = [
     id: 3,
     title: "توقيع شراكة استراتيجية جديدة",
     description:
-      "شراكة مع مؤسسة الخير لدعم مشاريع بناء المساجد في المناطق النائية.",
+      "شراكة مع إحدى المؤسسات الخيرية لتعزيز مشاريع بناء وتشغيل المساجد.",
     date: "2025-10-25"
   },
   {
@@ -107,7 +107,7 @@ export function NewsSlider() {
 
   return (
     <div
-      className="relative max-w-5xl mx-auto px-4 sm:px-0"
+      className="relative w-full max-w-screen-2xl mx-auto px-4 sm:px-6"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -129,13 +129,13 @@ export function NewsSlider() {
             >
               <CardContent className="p-0">
                 <div className="flex flex-col md:flex-row">
-                  <div className="md:w-5/12 bg-gradient-to-br from-[#08704C]/15 via-[#00A186]/15 to-[#7B4F28]/15 flex items-center justify-center py-5 md:py-0">
+                  <div className="md:w-4/12 bg-gradient-to-br from-[#08704C]/15 via-[#00A186]/15 to-[#7B4F28]/15 flex items-center justify-center py-5 md:py-0">
                     <div className="w-14 h-14 md:w-16 md:h-16 bg-white/90 rounded-2xl flex items-center justify-center shadow-lg">
                       <Calendar className="w-7 h-7 md:w-8 md:h-8 text-[#08704C]" />
                     </div>
                   </div>
 
-                  <div className="md:w-7/12 p-4 md:p-5 flex flex-col justify-center space-y-3">
+                  <div className="md:w-8/12 p-5 md:p-6 flex flex-col justify-center space-y-4">
                     <div className="flex items-center gap-2 text-[#08704C]">
                       <Calendar className="w-4 h-4" />
                       <ClientOnly>
@@ -149,17 +149,17 @@ export function NewsSlider() {
                       </ClientOnly>
                     </div>
 
-                    <h3 className="text-lg md:text-2xl font-bold text-gray-900 leading-snug">
+                    <h3 className="text-xl md:text-3xl font-bold text-gray-900 leading-snug">
                       {news.title}
                     </h3>
 
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                       {news.description}
                     </p>
 
                     <Button
                       variant="ghost"
-                      className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto text-sm md:text-base font-bold group/btn transition-all duration-300"
+                      className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto text-sm md:text-base font-bold group/btn transition-all duration-300 mt-4 md:mt-6"
                     >
                       <span className="group-hover/btn:mr-2 transition-all duration-300">
                         اقرأ المزيد
@@ -174,42 +174,42 @@ export function NewsSlider() {
         </div>
       </div>
 
-      <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none z-10">
+      <div className="flex items-center justify-center gap-4 mt-6">
         <Button
           size="icon"
           variant="ghost"
           onClick={handlePrevious}
-          className="pointer-events-auto w-10 h-10 md:w-11 md:h-11 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-md hover:shadow-lg border border-gray-100 hover:border-[#08704C]/30 transition-all duration-200 hover:scale-105"
-          aria-label="الخبر السابق"
+          className="w-9 h-9 md:w-10 md:h-10 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-md hover:shadow-lg border border-gray-100 hover:border-[#08704C]/30 transition-all duration-200 hover:scale-105"
+          aria-label="السابق"
         >
           <ChevronRight className="w-5 h-5 text-[#08704C]" />
         </Button>
+
+        <div className="flex justify-center gap-3">
+          {Array.from({ length: totalSlides }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`h-2.5 rounded-full transition-all duration-500 ${
+                index === currentSlide
+                  ? "w-10 bg-gradient-to-r from-[#08704C] to-[#00A186] shadow-md"
+                  : "w-2.5 bg-gray-300 hover:bg-[#08704C]/50 hover:w-6"
+              }`}
+              aria-label={`الشريحة ${index + 1}`}
+            />
+          ))}
+        </div>
+
         <Button
           size="icon"
           variant="ghost"
           onClick={handleNext}
-          className="pointer-events-auto w-10 h-10 md:w-11 md:h-11 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-md hover:shadow-lg border border-gray-100 hover:border-[#08704C]/30 transition-all duration-200 hover:scale-105"
-          aria-label="الخبر التالي"
+          className="w-9 h-9 md:w-10 md:h-10 rounded-2xl bg-white/90 backdrop-blur-sm hover:bg-white shadow-md hover:shadow-lg border border-gray-100 hover:border-[#08704C]/30 transition-all duration-200 hover:scale-105"
+          aria-label="التالي"
         >
           <ChevronLeft className="w-5 h-5 text-[#08704C]" />
         </Button>
       </div>
-
-      <div className="flex justify-center gap-3 mt-6">
-        {Array.from({ length: totalSlides }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2.5 rounded-full transition-all duration-500 ${
-              index === currentSlide
-                ? "w-10 bg-gradient-to-r from-[#08704C] to-[#00A186] shadow-md"
-                : "w-2.5 bg-gray-300 hover:bg-[#08704C]/50 hover:w-6"
-            }`}
-            aria-label={`الذهاب إلى الشريحة ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }
-

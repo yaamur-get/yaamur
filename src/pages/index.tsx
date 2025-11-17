@@ -186,7 +186,7 @@ export default function HomePage() {
                                         {/* تحت الآية مباشرة */}
                         <div className="flex w-full justify-center">
                           <Image
-                            src="/maidelog.png"   /* أو ضع صورتك الجديدة بـ public/hero-logo.png */
+                            src="/maidelog.png"  
                             alt="جمعية يعمر للعناية بالمساجد | Yaamur Association for Mosque Care"
                             width={1000}
                             height={360}
@@ -289,7 +289,7 @@ export default function HomePage() {
                 <span className="inline-block px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-bold mb-4">
                   خدماتنا المتميزة
                 </span>
-                <h2 className="text-5xl font-black text-gray-900 mb-6">برامجنا وخدماتنا</h2>
+                <h2 className="text-5xl font-black text-gray-900 mb-6">خدماتنا</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   نقدم حلولاً شاملة ومتكاملة لرعاية المساجد بأعلى معايير الجودة والاحترافية
                 </p>
@@ -328,7 +328,7 @@ export default function HomePage() {
                       <Wrench className="w-10 h-10 text-white" />
                     </div>
                     <div className="space-y-3">
-                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#7B4F28] transition-colors">الصيانة والترميم</h3>
+                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#7B4F28] transition-colors">الصيانة</h3>
                       <p className="text-gray-600 leading-relaxed">
                         نوفر خدمات الصيانة الدورية والترميم الشامل للحفاظ على جمال المساجد وسلامتها الإنشائية
                       </p>
@@ -351,7 +351,7 @@ export default function HomePage() {
                       <Sparkles className="w-10 h-10 text-white" />
                     </div>
                     <div className="space-y-3">
-                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#00A186] transition-colors">التشغيل والنظافة</h3>
+                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#00A186] transition-colors">التشغيل</h3>
                       <p className="text-gray-600 leading-relaxed">
                         نتولى التشغيل الكامل والنظافة اليومية لتوفير بيئة نظيفة ومريحة للمصلين على مدار العام
                       </p>
@@ -385,11 +385,11 @@ export default function HomePage() {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={200}>
-              <div className="max-w-4xl mx-auto">
-                <NewsSlider />
-              </div>
-            </ScrollReveal>
+              <ScrollReveal delay={200}>
+                <div className="max-w-6xl lg:max-w-7xl mx-auto px-4 sm:px-6">
+                  <NewsSlider />
+                </div>
+              </ScrollReveal>
           </div>
         </section>
 
@@ -607,7 +607,7 @@ export default function HomePage() {
                 </p>
                 <Button className="w-full bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] shadow-xl hover:shadow-2xl transition-all">
                   <ExternalLink className="w-4 h-4 ml-2" />
-                  المتجر الخيري
+                  المتجر الإلكتروني
                 </Button>
               </div>
             </div>
