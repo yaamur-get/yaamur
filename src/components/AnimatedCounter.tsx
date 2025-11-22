@@ -69,7 +69,7 @@ export function AnimatedCounter({
   return (
     <div ref={counterRef} className="text-5xl font-black">
       {prefix}
-      {count.toLocaleString("ar-SA")}
+      {count.toLocaleString("ar-SA-u-nu-latn")}
       {suffix}
     </div>
   );

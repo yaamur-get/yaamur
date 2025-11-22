@@ -257,7 +257,7 @@ export default function ProgramsPage() {
                           </div>
                           <div className="flex items-center gap-2 text-sm text-gray-600">
                             <Calendar className="w-4 h-4 text-[#08704C]" />
-                            <span dir="ltr">{new Date(project.date).toLocaleDateString("ar-SA", { year: "numeric", month: "long", day: "numeric" })}</span>
+                            <span dir="ltr">{new Date(project.date).toLocaleDateString("ar-SA-u-nu-latn", { year: "numeric", month: "long", day: "numeric" })}</span>
                           </div>
                           <div className="flex items-center gap-2 text-sm text-gray-600">
                             <Users className="w-4 h-4 text-[#08704C]" />

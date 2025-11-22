@@ -249,7 +249,7 @@ export default function NewsPage() {
                             <Calendar className="w-4 h-4 text-[#08704C]" />
                             <ClientOnly>
                               <span dir="ltr">
-                                {new Date(news.date).toLocaleDateString("ar-SA", {
+                                {new Date(news.date).toLocaleDateString("ar-SA-u-nu-latn", {
                                   year: "numeric",
                                   month: "long",
                                   day: "numeric"
@@ -318,7 +318,7 @@ export default function NewsPage() {
                           <Calendar className="w-4 h-4 text-[#08704C]" />
                           <ClientOnly>
                             <span dir="ltr">
-                              {new Date(news.date).toLocaleDateString("ar-SA", {
+                              {new Date(news.date).toLocaleDateString("ar-SA-u-nu-latn", {
                                 year: "numeric",
                                 month: "long",
                                 day: "numeric"

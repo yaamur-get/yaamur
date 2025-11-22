@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, ChevronLeft, Calendar, ArrowLeft } from "lucide-react";
 import { ClientOnly } from "@/components/ClientOnly";
+import Image from "next/image";
 
 const newsItems = [
   {
@@ -10,28 +11,32 @@ const newsItems = [
     title: "افتتاح مسجد الرحمة الجديد",
     description:
       "بحمد الله تم افتتاح مسجد الرحمة الجديد بحضور أكثر من 500 مصلٍ في حفل بهيج.",
-    date: "2025-11-01"
+    date: "2025-11-01",
+    image: "/666.png"
   },
   {
     id: 2,
     title: "إطلاق حملة دعم بناء المساجد",
     description:
       "حملة جديدة لدعم بناء المساجد في القرى النائية بمشاركة أهل الخير.",
-    date: "2025-10-28"
+    date: "2025-10-28",
+    image: "/666.png"
   },
   {
     id: 3,
     title: "توقيع شراكة استراتيجية جديدة",
     description:
       "شراكة مع إحدى المؤسسات الخيرية لتعزيز مشاريع بناء وتشغيل المساجد.",
-    date: "2025-10-25"
+    date: "2025-10-25",
+    image: "/666.png"
   },
   {
     id: 4,
     title: "إنجاز 150 مسجداً في عامين",
     description:
       "نفخر بإنجاز بناء وتشغيل 150 مسجداً خلال عامين من العمل المتواصل.",
-    date: "2025-10-20"
+    date: "2025-10-20",
+    image: "/666.png"
   }
 ];
 
@@ -107,7 +112,7 @@ export function NewsSlider() {
 
   return (
     <div
-      className="relative w-full max-w-screen-2xl mx-auto px-4 sm:px-6"
+      className="relative w-full max-w-[1800px] mx-auto px-4 sm:px-6"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -121,26 +126,37 @@ export function NewsSlider() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
-          {visibleItems.map((news) => (
+        <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+          {visibleItems.map((news, index) => (
             <Card
               key={news.id}
-              className="border border-gray-100 overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white rounded-2xl"
+              className="border border-gray-100 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white rounded-3xl min-h-[320px] md:min-h-[360px]"
             >
               <CardContent className="p-0">
                 <div className="flex flex-col md:flex-row">
-                  <div className="md:w-4/12 bg-gradient-to-br from-[#08704C]/15 via-[#00A186]/15 to-[#7B4F28]/15 flex items-center justify-center py-5 md:py-0">
-                    <div className="w-14 h-14 md:w-16 md:h-16 bg-white/90 rounded-2xl flex items-center justify-center shadow-lg">
-                      <Calendar className="w-7 h-7 md:w-8 md:h-8 text-[#08704C]" />
+                  <div className="md:w-6/12 relative min-h-[220px] md:min-h-[360px] overflow-hidden">
+                    <Image
+                      src={news.image}
+                      alt={news.title}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 45vw, 90vw"
+                      priority={index === 0}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/15 via-black/5 to-black/10"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-2xl flex items-center justify-center shadow-lg">
+                        <Calendar className="w-8 h-8 md:w-10 md:h-10 text-[#08704C]" />
+                      </div>
                     </div>
                   </div>
 
-                  <div className="md:w-8/12 p-5 md:p-6 flex flex-col justify-center space-y-4">
+                  <div className="md:w-6/12 p-6 md:p-8 flex flex-col justify-center space-y-4">
                     <div className="flex items-center gap-2 text-[#08704C]">
                       <Calendar className="w-4 h-4" />
                       <ClientOnly>
-                        <span className="text-xs md:text-sm font-semibold" dir="ltr">
-                          {new Date(news.date).toLocaleDateString("ar-SA", {
+                        <span className="text-base md:text-lg font-semibold" dir="ltr">
+                          {new Date(news.date).toLocaleDateString("ar-SA-u-nu-latn", {
                             year: "numeric",
                             month: "long",
                             day: "numeric"
@@ -149,22 +165,22 @@ export function NewsSlider() {
                       </ClientOnly>
                     </div>
 
-                    <h3 className="text-xl md:text-3xl font-bold text-gray-900 leading-snug">
+                    <h3 className="text-2xl md:text-4xl font-bold text-gray-900 leading-snug">
                       {news.title}
                     </h3>
 
-                    <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                    <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
                       {news.description}
                     </p>
 
                     <Button
                       variant="ghost"
-                      className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto text-sm md:text-base font-bold group/btn transition-all duration-300 mt-4 md:mt-6"
+                      className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto text-base md:text-lg font-bold group/btn transition-all duration-300 mt-6"
                     >
                       <span className="group-hover/btn:mr-2 transition-all duration-300">
                         اقرأ المزيد
                       </span>
-                      <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 mr-2 group-hover/btn:mr-0 transition-all duration-300" />
+                      <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 mr-2 group-hover/btn:mr-0 transition-all duration-300" />
                     </Button>
                   </div>
                 </div>

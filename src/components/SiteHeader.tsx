@@ -93,7 +93,7 @@ export function SiteHeader() {
             </div>
 
             <Link href="/programs" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">
-              برامجنا
+              مشاريع يعمر
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link href="/news" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">

@@ -24,6 +24,14 @@
 }
 */
 
+@font-face {
+  font-family: 'DGShamael';
+  src: url('/font/DGShamael-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     /* Ya'mur Brand Colors */
@@ -93,7 +101,7 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     background-color: var(--brand-cream);
     /* Apply custom font - يمكنك تغيير font-arabic إلى CustomArabic إذا استخدمت ملفات خاصة */
-    font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
+    font-family: 'DGShamael', 'Cairo', 'Tajawal', system-ui, sans-serif;
   }
   
   /* RTL optimizations */
@@ -282,11 +290,11 @@
   
   /* Font utility classes - استخدم هذه الكلاسات لتطبيق خطوط مختلفة */
   .font-arabic {
-    font-family: 'Cairo', 'Tajawal', sans-serif;
+    font-family: 'DGShamael', 'Cairo', 'Tajawal', sans-serif;
   }
   
   .font-display {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'DGShamael', 'Cairo', sans-serif;
     font-weight: 700;
   }
   

@@ -173,7 +173,7 @@ export default function HomePage() {
           </div>
         </header> */}
 
-        <section id="home" className="relative pt-20 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section id="home" className="relative pt-6 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
           <div className="absolute inset-0 pattern-grid opacity-30"></div>
           <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-[#08704C]/10 to-transparent rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tl from-[#7B4F28]/10 to-transparent rounded-full blur-3xl" style={{ animationDelay: "2s" }}></div>
@@ -243,7 +243,14 @@ export default function HomePage() {
               <ScrollReveal delay={200}>
                 <div className="relative">
                   <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl card-elevated">
-                    <div className="aspect-[4/4] bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 flex items-center justify-center relative">
+                    <div
+                      className="aspect-[4/4] bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 flex items-center justify-center relative"
+                      style={{
+                        backgroundImage: "url('/666.png')",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    >
                       
                       
                       <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl animate-float">
@@ -369,7 +376,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="news" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F8F4ED] to-white relative overflow-hidden">
+        <section id="news" className="py-24 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[#F8F4ED] to-white relative overflow-hidden">
           <div className="absolute inset-0 pattern-stars"></div>
           
           <div className="container mx-auto relative z-10">
@@ -386,7 +393,7 @@ export default function HomePage() {
             </ScrollReveal>
 
               <ScrollReveal delay={200}>
-                <div className="max-w-6xl lg:max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="max-w-6xl lg:max-w-[1700px] mx-auto px-4 sm:px-6">
                   <NewsSlider />
                 </div>
               </ScrollReveal>
