@@ -3,6 +3,7 @@ import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Wrench, Sparkles, ArrowRight, Phone, Mail, MapPin, ExternalLink, Users, Handshake, BookOpen, ArrowUp, ArrowLeft, CheckCircle, TrendingUp, ChevronDown } from "lucide-react";
+import MosqueConstructionLogo from "@/components/icons/MosqueConstructionLogo";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnersCarousel } from "@/components/PartnersCarousel";
@@ -12,6 +13,8 @@ import { ClientOnly } from "@/components/ClientOnly";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Link from "next/link";
 import Image from "next/image";
+import SiteFooter from "@/components/SiteFooter";
+import { log } from "console";
 
 export default function HomePage() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -197,12 +200,17 @@ export default function HomePage() {
 
                 <ScrollReveal delay={200}>
                   <p className="text-xl text-gray-700 leading-relaxed max-w-xl">
-                    جمعية متخصصة في بناء وصيانة وتشغيل المساجد بالمنطقة الشرقية، نسعى لتوفير بيئة مثالية للعبادة والتعلم
+                              جمعية أهلية 
+                       تُعنى بتقديم خدمات العناية المتكاملة بالمساجد والجوامع من بناء وصيانة وتشغيل, صدر ترخيصها رقم 5161 بتاريخ 1444/08/17
+              
+    
+
                   </p>
                 </ScrollReveal>
                     
                 <ScrollReveal delay={300}>
                   <div className="flex flex-col sm:flex-row gap-4">
+                    <a href="https://store.yaamur.org.sa/">
                     <Button 
                       size="lg" 
                       className="bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-2xl text-lg px-10 py-7 hover:scale-105 transition-all duration-300"
@@ -210,6 +218,8 @@ export default function HomePage() {
                       <ExternalLink className="w-5 h-5 ml-2" />
                       تبرع الآن
                     </Button>
+                    </a>
+
                     <Link href="/about">
                     <Button 
                       size="lg" 
@@ -226,15 +236,18 @@ export default function HomePage() {
 
                 <ScrollReveal delay={400}>
                   <div className="flex items-center gap-8 pt-4">
-                    <div className="flex items-center gap-2">
-                      <div className="flex -space-x-2">
-                        {[1, 2, 3, 4].map((i) => (
-                          <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-[#08704C] to-[#00A186] border-2 border-white flex items-center justify-center text-white font-bold text-xs">
+                    <div className="flex items-center gap-4">
+                      <div className="flex -space-x-4">
+                        {[1, 2, 3, 4, 5].map((i) => (
+                          <div
+                            key={i}
+                            className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#08704C] to-[#00A186] border-2 border-white flex items-center justify-center text-white font-bold text-sm md:text-base shadow-md"
+                          >
                             {i}
                           </div>
                         ))}
                       </div>
-                      <span className="text-sm text-gray-600 font-medium">+150 مسجد تم بناؤه</span>
+                      <span className="text-sm md:text-base text-gray-600 font-medium">5+ عدد بناء المساجد جديدة</span>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -246,7 +259,7 @@ export default function HomePage() {
                     <div
                       className="aspect-[4/4] bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 flex items-center justify-center relative"
                       style={{
-                        backgroundImage: "url('/666.png')",
+                        backgroundImage: "url('/Picture24.jpg')",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}
@@ -259,7 +272,7 @@ export default function HomePage() {
                             <TrendingUp className="w-6 h-6 text-white" />
                           </div>
                           <div>
-                            <p className="text-2xl font-bold text-gray-900">500+</p>
+                            <p className="text-2xl font-bold text-gray-900">512+</p>
                             <p className="text-xs text-gray-600">عملية صيانة</p>
                           </div>
                         </div>
@@ -271,8 +284,8 @@ export default function HomePage() {
                             <Sparkles className="w-6 h-6 text-white" />
                           </div>
                           <div>
-                            <p className="text-2xl font-bold text-gray-900">300+</p>
-                            <p className="text-xs text-gray-600">مسجد قيد التشغيل</p>
+                            <p className="text-2xl font-bold text-gray-900">305+</p>
+                            <p className="text-xs text-gray-600">عدد المشاريع و المبادرات المنفذة</p>
                           </div>
                         </div>
                       </div>
@@ -293,9 +306,7 @@ export default function HomePage() {
           <div className="container mx-auto relative z-10">
             <ScrollReveal>
               <div className="text-center mb-20">
-                <span className="inline-block px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-bold mb-4">
-                  خدماتنا المتميزة
-                </span>
+                
                 <h2 className="text-5xl font-black text-gray-900 mb-6">خدماتنا</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   نقدم حلولاً شاملة ومتكاملة لرعاية المساجد بأعلى معايير الجودة والاحترافية
@@ -314,7 +325,7 @@ export default function HomePage() {
                     <div className="space-y-3">
                       <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#08704C] transition-colors">بناء المساجد</h3>
                       <p className="text-gray-600 leading-relaxed">
-                        نشرف على مشاريع بناء المساجد من التخطيط حتى التسليم بأعلى معايير الجودة والتصميم الإسلامي الأصيل
+                     إنشاء مساجد دائمة أو مؤقتة وفق المعايير الهندسيةالمعتمدة.
                       </p>
                     </div>
                     <Link href="/services/construction">
@@ -337,7 +348,7 @@ export default function HomePage() {
                     <div className="space-y-3">
                       <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#7B4F28] transition-colors">الصيانة</h3>
                       <p className="text-gray-600 leading-relaxed">
-                        نوفر خدمات الصيانة الدورية والترميم الشامل للحفاظ على جمال المساجد وسلامتها الإنشائية
+                    تنفيذأعمال الصيانة الدورية لضمان جاهزية المسجد.
                       </p>
                     </div>
                     <Link href="/services/maintenance">
@@ -360,7 +371,7 @@ export default function HomePage() {
                     <div className="space-y-3">
                       <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#00A186] transition-colors">التشغيل</h3>
                       <p className="text-gray-600 leading-relaxed">
-                        نتولى التشغيل الكامل والنظافة اليومية لتوفير بيئة نظيفة ومريحة للمصلين على مدار العام
+                      تأمين الاحتياجات التشغيلية اليومية التي تضمن راحة المصلين
                       </p>
                     </div>
                     <Link href="/services/operation">
@@ -377,14 +388,11 @@ export default function HomePage() {
         </section>
 
         <section id="news" className="py-24 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[#F8F4ED] to-white relative overflow-hidden">
-          <div className="absolute inset-0 pattern-stars"></div>
           
           <div className="container mx-auto relative z-10">
             <ScrollReveal>
               <div className="text-center mb-20">
-                <span className="inline-block px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-bold mb-4">
-                  تابع أخبارنا
-                </span>
+               
                 <h2 className="text-5xl font-black text-gray-900 mb-6">آخر الأخبار</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   تعرف على أحدث مشاريعنا وإنجازاتنا في خدمة بيوت الله
@@ -415,27 +423,44 @@ export default function HomePage() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { number: 150, label: "مسجد تم بناؤه", suffix: "+", icon: Building2 },
-                { number: 500, label: "عملية صيانة", suffix: "+", icon: Wrench },
-                { number: 300, label: "مسجد قيد التشغيل", suffix: "+", icon: Sparkles },
-                { number: 50, label: "مشروع جاري", suffix: "+", icon: TrendingUp },
-                  { number: 150, label: "مسجد تم بناؤه", suffix: "+", icon: Building2 },
-                { number: 500, label: "عملية صيانة", suffix: "+", icon: Wrench },
-                { number: 300, label: "مسجد قيد التشغيل", suffix: "+", icon: Sparkles },
-                { number: 50, label: "مشروع جاري", suffix: "+", icon: TrendingUp }
-              ].map((stat, index) => (
-                <ScrollReveal key={index} delay={index * 100}>
-                  <div className="text-center space-y-6 group">
-                    <div className="w-32 h-32 mx-auto bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center border-4 border-white/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl">
-                      <div className="text-center">
-                        <stat.icon className="w-8 h-8 mx-auto mb-2 text-white/80" />
-                        <AnimatedCounter end={stat.number} suffix={stat.suffix} />
+                { number: 210, label: "المساجد المخدومة", unit: "", icon: Building2, logo: 'مزلة33.png' },
+                { number: 82, label: "الأحياء المخدومة", unit: "", icon: TrendingUp, logo:'مزلة8.png' },
+                { number: 2020, label: "دورات المياه التي تم صيانتها", unit: "م²", icon: Wrench, logo: 'مزلة.png' },
+                { number: 454, label: "المكيفات التي تمت صيانتها", unit: "", icon: Sparkles, logo: 'مزلة4.png' },
+                { number: 239, label: "المكيفات التي تم غسلها", unit: "", icon: Wrench, logo: 'مزلة4.png' },
+                { number: 120, label: "المكيفات الجديدة", unit: "", icon: Building2, logo: 'مزلة4.png' },
+                { number: 2799, label: "الإضاءات التي تم تغييرها", unit: "", icon: Sparkles, logo: 'مزلة5.png' },
+                { number: 48894, label: "أمتر الفرش الذي تم غسله", unit: "م²", icon: TrendingUp, logo: 'مزلة3.png' },
+                { number: 17237, label: "أمتار الفرش الذي تم تغييره", unit: "م²", icon: Building2, logo: 'مزلة3.png' },
+                { number: 22986, label: "الأمتار المصبوغة", unit: "م²", icon: Wrench, logo: 'مزلة3.png' }
+              ].map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <ScrollReveal key={index} delay={index * 100}>
+                    <div className="text-center space-y-6 group">
+                      <div className="w-36 h-36 mx-auto bg-white/8 backdrop-blur-sm rounded-3xl flex flex-col items-center justify-center border-2 border-white/10 hover:scale-105 transition-all duration-300 shadow-md">
+                        {stat.logo ? (
+                          <div className="mb-2 flex items-center justify-center">
+                            <Image
+                              src={`/logoashe/${stat.logo}`}
+                              alt={stat.label}
+                              width={64}
+                              height={64}
+                              className="object-contain w-14 h-14 md:w-16 md:h-16"
+                            />
+                          </div>
+                        ) : (
+                          Icon && <Icon className="w-7 h-7 md:w-8 md:h-8 mb-2 text-white/90" />
+                        )}
+
+                        <AnimatedCounter end={stat.number} className="text-3xl md:text-4xl font-extrabold text-white" />
+                        {stat.unit && <span className="text-sm mt-1 text-white/90">{stat.unit}</span>}
                       </div>
+                      <p className="text-lg font-bold mt-3">{stat.label}</p>
                     </div>
-                    <p className="text-lg font-bold">{stat.label}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
+                  </ScrollReveal>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -470,9 +495,6 @@ export default function HomePage() {
           <div className="container mx-auto relative z-10">
             <ScrollReveal>
               <div className="text-center mb-20">
-                <span className="inline-block px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-bold mb-4">
-                  كن جزءاً منا
-                </span>
                 <h2 className="text-5xl font-black text-gray-900 mb-6">انضم إلينا</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   ساهم معنا في عمارة بيوت الله وكن شريكاً في الأجر
@@ -491,9 +513,11 @@ export default function HomePage() {
                     <p className="text-gray-600 leading-relaxed">
                       انضم إلى فريق المتطوعين وساهم في خدمة بيوت الله بوقتك وجهدك
                     </p>
+                    <a href="https://wa.me/966920011240?text=اريد%20الانضمام%20الى%20فريق%20المتطوعين">
                     <Button className="w-full bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-lg hover:shadow-xl transition-all">
                       سجل الآن
                     </Button>
+                    </a>
                   </CardContent>
                 </Card>
               </ScrollReveal>
@@ -508,9 +532,11 @@ export default function HomePage() {
                     <p className="text-gray-600 leading-relaxed">
                       شارك معنا في مشاريعنا وكن شريكاً استراتيجياً في الأجر والثواب
                     </p>
+                    <a href="https://wa.me/966920011240">
                     <Button className="w-full bg-gradient-to-r from-[#7B4F28] to-[#08704C] hover:from-[#08704C] hover:to-[#7B4F28] text-white shadow-lg hover:shadow-xl transition-all">
                       تواصل معنا
                     </Button>
+                    </a>
                   </CardContent>
                 </Card>
               </ScrollReveal>
@@ -525,9 +551,11 @@ export default function HomePage() {
                     <p className="text-gray-600 leading-relaxed">
                       تعرف على رؤيتنا ورسالتنا وإنجازاتنا في خدمة المساجد
                     </p>
+                    <Link href="/about ">
                     <Button className="w-full bg-gradient-to-r from-[#00A186] to-[#08704C] hover:from-[#08704C] hover:to-[#00A186] text-white shadow-lg hover:shadow-xl transition-all">
                       من نحن
                     </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </ScrollReveal>
@@ -547,88 +575,8 @@ export default function HomePage() {
 
         <WhatsAppButton />
 
-        <footer id="contact" className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          <div className="absolute inset-0 pattern-grid opacity-5"></div>
-          
-          <div className="container mx-auto relative z-10">
-            <div className="grid md:grid-cols-4 gap-12 mb-16">
-              <div className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-2xl flex items-center justify-center shadow-xl">
-                    <Building2 className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl">جمعية يعمر</h3>
-                    <p className="text-sm text-gray-400">لعناية المساجد</p>
-                  </div>
-                </div>
-                <p className="text-gray-400 leading-relaxed">
-                  نسعى لتحقيق التميز في خدمة بيوت الله من خلال البناء والصيانة والتشغيل المتقن
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="font-bold text-lg mb-6">روابط سريعة</h4>
-                <nav className="flex flex-col gap-3">
-                  {["الرئيسية", "برامجنا", "الأخبار", "من نحن"].map((item, idx) => (
-                    <a 
-                      key={idx}
-                      href={`#${["home", "services", "news", "about"][idx]}`} 
-                      className="text-gray-400 hover:text-[#00A186] transition-colors flex items-center gap-2 group"
-                    >
-                      <ArrowLeft className="w-4 h-4 group-hover:mr-1 transition-all" />
-                      {item}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="font-bold text-lg mb-6">تواصل معنا</h4>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group cursor-pointer">
-                    <div className="w-10 h-10 bg-[#00A186]/20 rounded-xl flex items-center justify-center group-hover:bg-[#00A186] transition-colors">
-                      <Phone className="w-5 h-5" />
-                    </div>
-                    <span dir="ltr">+966 50 123 4567</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group cursor-pointer">
-                    <div className="w-10 h-10 bg-[#00A186]/20 rounded-xl flex items-center justify-center group-hover:bg-[#00A186] transition-colors">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <span>info@yaamur.org</span>
-                  </div>
-                  <div className="flex items-start gap-3 text-gray-400 hover:text-white transition-colors group cursor-pointer">
-                    <div className="w-10 h-10 bg-[#00A186]/20 rounded-xl flex items-center justify-center group-hover:bg-[#00A186] transition-colors">
-                      <MapPin className="w-5 h-5" />
-                    </div>
-                    <span>المنطقة الشرقية، المملكة العربية السعودية</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <h4 className="font-bold text-lg">ساهم معنا</h4>
-                <p className="text-gray-400 text-sm">
-                  تبرعك يساهم في بناء وصيانة بيوت الله ويصل أجره إليك في كل صلاة
-                </p>
-                <Button className="w-full bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] shadow-xl hover:shadow-2xl transition-all">
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                  المتجر الإلكتروني
-                </Button>
-              </div>
-            </div>
-
-            <div className="border-t border-gray-700 pt-8 text-center space-y-3">
-              <p className="text-gray-400">
-                جميع الحقوق محفوظة © <ClientOnly>{new Date().getFullYear()}</ClientOnly> جمعية يعمر لعناية المساجد
-              </p>
-              <p className="text-gray-500 text-sm">
-                رقم الترخيص: 1234567890
-              </p>
-            </div>
-          </div>
-        </footer>
+        {/* Footer: use shared SiteFooter component */}
+        <SiteFooter />
       </div>
     </>
   );

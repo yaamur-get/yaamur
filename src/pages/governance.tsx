@@ -6,6 +6,7 @@ import { Building2, FileText, Download, Eye, ArrowLeft, Shield, Users, BarChart,
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Image from "next/image";
+import SiteFooter from "@/components/SiteFooter";
 
 interface Document {
   id: string;
@@ -399,22 +400,7 @@ export default function GovernancePage() {
 
         <WhatsAppButton />
 
-        <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto text-center">
-            <Link href="/" className="inline-flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-2xl flex items-center justify-center shadow-xl">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-right">
-                <h3 className="font-bold text-lg">جمعية يعمر</h3>
-                <p className="text-sm text-gray-400">لعناية المساجد</p>
-              </div>
-            </Link>
-            <p className="text-gray-400 mt-4">
-              جميع الحقوق محفوظة © {new Date().getFullYear()} جمعية يعمر لعناية المساجد
-            </p>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );

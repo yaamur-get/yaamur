@@ -17,9 +17,9 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
         variant="ghost"
         size="icon"
         onClick={() => setIsOpen(!isOpen)}
-        className={`relative z-50 ${isScrolled ? "text-gray-900" : "text-gray-700"}`}
+        className={`relative z-50 p-2 h-12 w-12 ${isScrolled ? "text-gray-900" : "text-gray-700"}`}
       >
-        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
       </Button>
 
       {isOpen && (

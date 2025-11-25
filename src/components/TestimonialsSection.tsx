@@ -1,28 +1,28 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Quote, Star } from "lucide-react";
+import { Quote } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 
 const testimonials = [
   {
     id: 1,
-    quote: "جمعية يعمر قامت ببناء مسجد حينا بكل احترافية وإتقان. المسجد أصبح قبلة للمصلين وبيئة مثالية للعبادة",
-    author: "عبدالله السالم",
-    role: "إمام مسجد النور",
+    quote: " رأيت في يعمر ما أثلج صدري من التميز في العمل والإتقان في الأداء والتكامل مع بقية المؤسسات المماثلة والتنسيق المستمر مع فرع وزارة الشؤون الإسلامية مما كان له بالغ الأثر في مخرجات عمل الجمعية، فالشكر للقائمين على الجمعية على هذه الجهود المباركة ونسأل الله للجميع التوفيق والسداد.",
+    author: "الشيخ عمر الدويش",
+    role: "مدير ​عام فرع وزارة الشؤون الإسلامية بالمنطقة الشرقية ",
     rating: 5
   },
   {
     id: 2,
-    quote: "الصيانة الدورية والاهتمام بأدق التفاصيل يظهر حرص الجمعية على راحة المصلين وجودة الخدمات",
-    author: "محمد العتيبي",
-    role: "متبرع ومؤسس شريك",
+    quote: "قد أبهجني المستوى الراقي والتنظيم الرائع في جمعية يعمر للعناية بالمساجد، كما أسعدني كثيراً رؤية الأبطال من منسوبي الجمعية. أتمنى كل التوفيق والنجاح والسداد لهذه الجمعية الرائدة.",
+    author: "م. وليد محمد الفوزان",
+    role: "",
     rating: 5
   },
   {
     id: 3,
-    quote: "فريق متميز ومحترف في التعامل. كل التقدير لجهودهم المبذولة في خدمة بيوت الله",
-    author: "فاطمة الدوسري",
-    role: "متطوعة في الجمعية",
+    quote: "في هذا اليوم المبارك سعدت كثيرا في لقائي مع جمعية يعمر للعناية بالمساجد، هذه الجمعية المميزة في جهودها وعطائها وتفانيها لخدمة مساجد وبيوت الله.",
+    author: "أ.سالم العجيمي",
+    role: "",
     rating: 5
   }
 ];
@@ -37,9 +37,7 @@ export function TestimonialsSection() {
       <div className="container mx-auto relative z-10">
         <ScrollReveal>
           <div className="text-center mb-20">
-            <span className="inline-block px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-bold mb-4">
-              شهادات العملاء
-            </span>
+            
             <h2 className="text-5xl font-black text-gray-900 mb-6">قالوا عنا</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               نفخر بثقة شركائنا ومجتمعنا في خدماتنا المتميزة
@@ -55,9 +53,7 @@ export function TestimonialsSection() {
                   <div className="flex items-start justify-between">
                     <Quote className="w-12 h-12 text-[#08704C]/20 group-hover:text-[#08704C]/40 transition-colors" />
                     <div className="flex gap-1">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-[#00A186] text-[#00A186]" />
-                      ))}
+                     
                     </div>
                   </div>
                   

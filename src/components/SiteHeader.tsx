@@ -118,15 +118,31 @@ export function SiteHeader() {
             </Link>
           </nav>
 
+          {/* Mobile store button (left on small screens) */}
+          <a href="https://store.yaamur.org.sa/" className="lg:hidden order-last">
+            <Button
+              className={`mr-2 h-12 w-40 p-0 rounded-md flex flex-col items-center justify-center shadow-lg overflow-hidden ${
+                isScrolled
+                  ? "bg-white text-[#08704C]"
+                  : "bg-gradient-to-r from-[#08704C] via-[#00A186] to-[#08704C] text-white"
+              }`}
+            >
+              
+            <span className="text-xl leading-tight text-center">تبرع </span>
+            </Button>
+          </a>
+
           <MobileMenu isScrolled={isScrolled} />
 
-          <Button
-            className="hidden sm:flex bg-gradient-to-r from-[#08704C] via-[#00A186] to-[#08704C] hover:shadow-2xl text-white shadow-lg transition-all duration-300 hover:scale-105 bg-[length:200%_100%] hover:bg-right"
-            size="lg"
-          >
-            <ExternalLink className="w-4 h-4 ml-2" />
-            المتجر الإلكتروني
-          </Button>
+          <a href="https://store.yaamur.org.sa/">
+            <Button
+              className="hidden sm:flex bg-gradient-to-r from-[#08704C] via-[#00A186] to-[#08704C] hover:shadow-2xl text-white shadow-lg transition-all duration-300 hover:scale-105 bg-[length:200%_100%] hover:bg-right"
+              size="lg"
+            >
+              <ExternalLink className="w-4 h-4 ml-2" />
+              المتجر الإلكتروني
+            </Button>
+          </a>
         </div>
       </div>
     </header>

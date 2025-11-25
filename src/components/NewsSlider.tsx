@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, TouchEvent } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { ChevronRight, ChevronLeft, Calendar, ArrowLeft } from "lucide-react";
 import { ClientOnly } from "@/components/ClientOnly";
 import Image from "next/image";
@@ -8,56 +9,61 @@ import Image from "next/image";
 const newsItems = [
   {
     id: 1,
-    title: "افتتاح مسجد الرحمة الجديد",
+    title: "تجربة نوعية",
     description:
-      "بحمد الله تم افتتاح مسجد الرحمة الجديد بحضور أكثر من 500 مصلٍ في حفل بهيج.",
-    date: "2025-11-01",
-    image: "/666.png"
+      "نفّذت #جمعية_يعمر للعناية بالمساجد بالتعاون مع @SaudiRedCrescent محاكاةً واقعية لحالة توقف قلب داخل مقرها بالدمام، نفّذها فريق يعمر بعد تلقيه التدريب الإسعافي.",
+    date: "2025-11-05",
+    image: "/hart.jpg",
+    moreUrl: "https://x.com/Yaamurorg/status/1986043268635750642"
   },
   {
     id: 2,
-    title: "إطلاق حملة دعم بناء المساجد",
+    title: "يعمر والتميمي للطاقة.",
     description:
-      "حملة جديدة لدعم بناء المساجد في القرى النائية بمشاركة أهل الخير.",
+      "وقّعت جمعية يعمر للعناية بالمساجد اتفاقية تعاون مع شركة التميمي للطاقة، تهدف إلى التعاون في مجالات دعم واستدامة مشاريع العناية ببيوت الله.",
     date: "2025-10-28",
-    image: "/666.png"
+    image: "/tammamy.jpg",
+    moreUrl: "https://x.com/Yaamurorg/status/1980949618113343675"
   },
   {
     id: 3,
-    title: "توقيع شراكة استراتيجية جديدة",
+    title: "بروحٍ واحدة وولاءٍ متجدد ",
     description:
-      "شراكة مع إحدى المؤسسات الخيرية لتعزيز مشاريع بناء وتشغيل المساجد.",
+      "احتفى موظفو #جمعية_يعمر للعناية بالمساجد باليوم الوطني السعودي الـ95، تجديدًا للعهد والوفاء، وفخرًا بالمسيرة المباركة التي وحّدها المؤسس.",
     date: "2025-10-25",
-    image: "/666.png"
+    image: "/dayksa.jpg",
+    // ضع هنا رابط التغريدة أو موضوع تويتر تريد فتحه عند الضغط "اقرأ المزيد"
+    moreUrl: "https://x.com/Yaamurorg/status/1970805024243474541"
   },
   {
     id: 4,
-    title: "إنجاز 150 مسجداً في عامين",
+    title: "فتتاح المقر الجديد",
     description:
-      "نفخر بإنجاز بناء وتشغيل 150 مسجداً خلال عامين من العمل المتواصل.",
+      "دشن مدير عام فرع وزارة الشؤون الإسلامية والدعوة والإرشاد بالمنطقة الشرقية، فضيلة الشيخ/ عمر بن فيصل الدويش مقر جمعية يعمر للعناية بالمساجد في المنطقة الشرقية وذلك بحضور رئيس مجلس إدارة الجمعية الدكتور صالح الرشيد وعدد من الداعمين والمهتمين بالعمل الخيري والمجتمعي.",
     date: "2025-10-20",
-    image: "/666.png"
+    image: "/yaamur_go.jpg",
+    moreUrl: "https://x.com/Yaamurorg/status/1965356817011122643"
   }
 ];
 
+// Format date as DD/MM/YYYY using Gregorian calendar and Latin numerals
+function formatDMY(isoDate: string) {
+  const d = new Date(isoDate);
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const year = d.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
 export function NewsSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [itemsPerSlide, setItemsPerSlide] = useState(1);
+  const itemsPerSlide = 1; // always show one full-width card
   const [isPaused, setIsPaused] = useState(false);
 
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
-  useEffect(() => {
-    const updateItemsPerSlide = () => {
-      if (typeof window === "undefined") return;
-      setItemsPerSlide(window.innerWidth >= 1024 ? 2 : 1);
-    };
-
-    updateItemsPerSlide();
-    window.addEventListener("resize", updateItemsPerSlide);
-    return () => window.removeEventListener("resize", updateItemsPerSlide);
-  }, []);
+  // itemsPerSlide is fixed to 1 to show a single full-width card per slide
 
   const totalSlides = Math.ceil(newsItems.length / itemsPerSlide);
 
@@ -73,7 +79,7 @@ export function NewsSlider() {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 5000);
+    }, 1900);
 
     return () => clearInterval(interval);
   }, [isPaused, totalSlides]);
@@ -126,7 +132,7 @@ export function NewsSlider() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+        <div className="grid gap-6 grid-cols-1">
           {visibleItems.map((news, index) => (
             <Card
               key={news.id}
@@ -145,9 +151,7 @@ export function NewsSlider() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-black/15 via-black/5 to-black/10"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 rounded-2xl flex items-center justify-center shadow-lg">
-                        <Calendar className="w-8 h-8 md:w-10 md:h-10 text-[#08704C]" />
-                      </div>
+                      
                     </div>
                   </div>
 
@@ -156,11 +160,7 @@ export function NewsSlider() {
                       <Calendar className="w-4 h-4" />
                       <ClientOnly>
                         <span className="text-base md:text-lg font-semibold" dir="ltr">
-                          {new Date(news.date).toLocaleDateString("ar-SA-u-nu-latn", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric"
-                          })}
+                          {formatDMY(news.date)}
                         </span>
                       </ClientOnly>
                     </div>
@@ -173,15 +173,50 @@ export function NewsSlider() {
                       {news.description}
                     </p>
 
-                    <Button
-                      variant="ghost"
-                      className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto text-base md:text-lg font-bold group/btn transition-all duration-300 mt-6"
-                    >
-                      <span className="group-hover/btn:mr-2 transition-all duration-300">
-                        اقرأ المزيد
-                      </span>
-                      <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 mr-2 group-hover/btn:mr-0 transition-all duration-300" />
-                    </Button>
+                    {news.moreUrl ? (
+                      /^https?:\/\//i.test(news.moreUrl) ? (
+                        <a
+                          href={news.moreUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block mt-6"
+                        >
+                          <Button
+                            variant="ghost"
+                            className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto text-base md:text-lg font-bold group/btn transition-all duration-300"
+                          >
+                            <span className="group-hover/btn:mr-2 transition-all duration-300">
+                              اقرأ المزيد
+                            </span>
+                            <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 mr-2 group-hover/btn:mr-0 transition-all duration-300" />
+                          </Button>
+                        </a>
+                      ) : (
+                        <Link href={news.moreUrl} className="inline-block mt-6">
+                          <Button
+                            variant="ghost"
+                            className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto text-base md:text-lg font-bold group/btn transition-all duration-300"
+                          >
+                            <span className="group-hover/btn:mr-2 transition-all duration-300">
+                              اقرأ المزيد
+                            </span>
+                            <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 mr-2 group-hover/btn:mr-0 transition-all duration-300" />
+                          </Button>
+                        </Link>
+                      )
+                    ) : (
+                      <Link href={`/news/${news.id}`} className="inline-block mt-6">
+                        <Button
+                          variant="ghost"
+                          className="text-[#08704C] hover:text-white hover:bg-[#08704C] w-fit p-0 h-auto text-base md:text-lg font-bold group/btn transition-all duration-300"
+                        >
+                          <span className="group-hover/btn:mr-2 transition-all duration-300">
+                            اقرأ المزيد
+                          </span>
+                          <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 mr-2 group-hover/btn:mr-0 transition-all duration-300" />
+                        </Button>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </CardContent>

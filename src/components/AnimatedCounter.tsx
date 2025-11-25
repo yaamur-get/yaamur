@@ -6,6 +6,7 @@ interface AnimatedCounterProps {
   duration?: number;
   suffix?: string;
   prefix?: string;
+  className?: string;
 }
 
 export function AnimatedCounter({ 
@@ -13,6 +14,7 @@ export function AnimatedCounter({
   duration = 2000, 
   suffix = "", 
   prefix = "" 
+  , className = "text-5xl font-black" 
 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -67,7 +69,7 @@ export function AnimatedCounter({
   }, [end, duration, isVisible]);
 
   return (
-    <div ref={counterRef} className="text-5xl font-black">
+    <div ref={counterRef} className={className}>
       {prefix}
       {count.toLocaleString("ar-SA-u-nu-latn")}
       {suffix}

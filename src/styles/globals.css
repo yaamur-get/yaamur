@@ -198,13 +198,7 @@
     );
   }
   
-  .pattern-stars {
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgba(8, 112, 76, 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(123, 79, 40, 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 40% 20%, rgba(0, 161, 134, 0.04) 0%, transparent 50%);
-    background-size: 100px 100px, 150px 150px, 120px 120px;
-  }
+  /* .pattern-stars removed as per request to delete star-shaped background */
   
   /* Gradient overlays */
   .gradient-overlay {
