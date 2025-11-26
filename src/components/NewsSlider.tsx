@@ -6,7 +6,7 @@ import { ChevronRight, ChevronLeft, Calendar, ArrowLeft } from "lucide-react";
 import { ClientOnly } from "@/components/ClientOnly";
 import Image from "next/image";
 
-const newsItems = [
+export const sliderNewsItems = [
   {
     id: 1,
     title: "تجربة نوعية",
@@ -45,6 +45,9 @@ const newsItems = [
     moreUrl: "https://x.com/Yaamurorg/status/1965356817011122643"
   }
 ];
+
+// Reuse the same data in this component
+const newsItems = sliderNewsItems;
 
 // Format date as DD/MM/YYYY using Gregorian calendar and Latin numerals
 function formatDMY(isoDate: string) {

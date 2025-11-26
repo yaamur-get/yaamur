@@ -21,16 +21,10 @@ export default function MaintenancePage() {
 
   const maintenanceTypes = [
     {
-      title: "الصيانة الدورية",
-      description: "فحص وصيانة شاملة كل 3 أشهر",
+      title: "الصيانة ",
+      description: "فحص وصيانة",
       icon: Clock,
-      features: ["فحص المبنى", "صيانة المرافق", "تنظيف شامل", "تقرير مفصل"]
-    },
-    {
-      title: "الترميم الشامل",
-      description: "إعادة تأهيل المساجد القديمة",
-      icon: Wrench,
-      features: ["تقييم الأضرار", "خطة ترميم", "تنفيذ محترف", "ضمان طويل"]
+      features: ["فحص المبنى", "صيانة المرافق",  "تقرير مفصل"]
     },
     {
       title: "الصيانة الطارئة",
@@ -59,9 +53,7 @@ export default function MaintenancePage() {
           <div className="container mx-auto relative z-10">
             <ScrollReveal>
               <div className="text-center max-w-4xl mx-auto mb-12">
-                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#7B4F28] to-[#08704C] rounded-3xl flex items-center justify-center mb-6 shadow-xl">
-                  <Wrench className="w-10 h-10 text-white" />
-                </div>
+                
                 <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-6">
                   الصيانة والترميم
                 </h1>
@@ -96,11 +88,17 @@ export default function MaintenancePage() {
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
-                <div className="aspect-[4/3] bg-gradient-to-br from-[#7B4F28]/20 to-[#08704C]/20 rounded-3xl relative overflow-hidden">
-                  <div className="absolute inset-0 pattern-diagonal"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Wrench className="w-40 h-40 text-[#7B4F28]/30" />
+                <div className="aspect-[4/4] rounded-3xl relative overflow-hidden">
+                  {/* background image */}
+                  <div className="absolute inset-0">
+                    <Image src="/iamge/yaamur_mint.jpg" alt="مشروع بناء - جمعية يعمر" fill className="object-cover object-center" />
                   </div>
+
+                  {/* subtle overlay and pattern */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#08704C]/20 to-[#00A186]/20 mix-blend-multiply"></div>
+                  <div className="absolute inset-0 pattern-diagonal opacity-40"></div>
+
+                  {/* optional centered icon removed to let image show */}
                 </div>
               </ScrollReveal>
             </div>
@@ -109,7 +107,7 @@ export default function MaintenancePage() {
               <h2 className="text-3xl font-black text-gray-900 mb-8 text-center">أنواع خدمات الصيانة</h2>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 ju">
               {maintenanceTypes.map((type, idx) => (
                 <ScrollReveal key={idx} delay={idx * 100}>
                   <Card className="group hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-[#7B4F28]/30 h-full bg-white">
@@ -118,7 +116,7 @@ export default function MaintenancePage() {
                         <type.icon className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#7B4F28] transition-colors">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#7B4F28] transition-colors ">
                           {type.title}
                         </h3>
                         <p className="text-gray-600">{type.description}</p>
@@ -142,19 +140,14 @@ export default function MaintenancePage() {
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#7B4F28] via-[#08704C] to-[#7B4F28] text-white relative overflow-hidden">
           <div className="absolute inset-0 pattern-grid opacity-10"></div>
           <div className="container mx-auto relative z-10">
-            <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div className="grid md:grid-cols-3 gap-8 text-center">
               <ScrollReveal>
                 <div>
-                  <div className="text-4xl font-black mb-2">500+</div>
+                  <div className="text-4xl font-black mb-2">512+</div>
                   <p className="text-lg">عملية صيانة</p>
                 </div>
               </ScrollReveal>
-              <ScrollReveal delay={100}>
-                <div>
-                  <div className="text-4xl font-black mb-2">50+</div>
-                  <p className="text-lg">مسجد تم ترميمه</p>
-                </div>
-              </ScrollReveal>
+              
               <ScrollReveal delay={200}>
                 <div>
                   <div className="text-4xl font-black mb-2">24/7</div>
@@ -176,18 +169,21 @@ export default function MaintenancePage() {
             <ScrollReveal>
               <h2 className="text-4xl font-black text-gray-900 mb-6">هل مسجدك بحاجة للصيانة؟</h2>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                تواصل معنا الآن للحصول على استشارة مجانية وتقييم شامل
+             تواصل معنا الآن
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/966920011240">
                 <Button size="lg" className="bg-gradient-to-r from-[#7B4F28] to-[#08704C] hover:from-[#08704C] hover:to-[#7B4F28] text-white shadow-xl text-lg px-10">
-                  احجز استشارة مجانية
+                  احجز موعد معينة 
                   <ArrowLeft className="w-5 h-5 mr-2" />
                 </Button>
-                <Link href="/#contact">
+                </a>
+                
+                <a href="https://wa.me/966920011240">
                   <Button size="lg" variant="outline" className="border-2 border-[#7B4F28] text-[#7B4F28] hover:bg-[#7B4F28] hover:text-white text-lg px-10">
                     تواصل معنا
                   </Button>
-                </Link>
+                </a>
               </div>
             </ScrollReveal>
           </div>

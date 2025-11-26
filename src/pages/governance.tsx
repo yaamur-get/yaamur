@@ -252,7 +252,7 @@ export default function GovernancePage() {
   return (
     <>
       <Head>
-        <title>الحوكمة والشفافية | جمعية يعمر لعناية المساجد</title>
+        <title>الحوكمة  | جمعية يعمر لعناية المساجد</title>
         <meta name="description" content="وثائق الحوكمة والشفافية - اللوائح، السياسات، الآليات، الإفصاح، والتقارير المالية" />
       </Head>
 
@@ -268,14 +268,12 @@ export default function GovernancePage() {
           <div className="container mx-auto relative z-10">
             <ScrollReveal>
               <div className="text-center max-w-4xl mx-auto mb-12">
-                <span className="inline-block px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-bold mb-4">
-                  الحوكمة والشفافية
-                </span>
+            
                 <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-6">
                   الحوكمة والشفافية
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  نلتزم بأعلى معايير الشفافية والحوكمة الرشيدة. جميع الوثائق والبيانات متاحة للاطلاع والتحميل
+                  نلتزم بأعلى معايير الشفافية والحوكمة . جميع الوثائق والبيانات متاحة للاطلاع والتحميل
                 </p>
               </div>
             </ScrollReveal>

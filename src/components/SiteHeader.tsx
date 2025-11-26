@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ import { Building2, Wrench, Sparkles, ChevronDown, ExternalLink } from "lucide-r
 export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showServicesMenu, setShowServicesMenu] = useState(false);
+  const hideTimeout = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -15,6 +16,32 @@ export function SiteHeader() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    return () => {
+      if (hideTimeout.current) {
+        clearTimeout(hideTimeout.current);
+        hideTimeout.current = null;
+      }
+    };
+  }, []);
+
+  const openServices = () => {
+    if (hideTimeout.current) {
+      clearTimeout(hideTimeout.current);
+      hideTimeout.current = null;
+    }
+    setShowServicesMenu(true);
+  };
+
+  const closeServicesWithDelay = (delay = 300) => {
+    if (hideTimeout.current) clearTimeout(hideTimeout.current);
+    // @ts-ignore window.setTimeout typing
+    hideTimeout.current = window.setTimeout(() => {
+      setShowServicesMenu(false);
+      hideTimeout.current = null;
+    }, delay);
+  };
 
   return (
     <header
@@ -56,8 +83,8 @@ export function SiteHeader() {
 
             <div
               className="relative"
-              onMouseEnter={() => setShowServicesMenu(true)}
-              onMouseLeave={() => setShowServicesMenu(false)}
+              onMouseEnter={openServices}
+              onMouseLeave={() => closeServicesWithDelay(300)}
             >
               <button className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold group flex items-center gap-1">
                 خدماتنا
@@ -66,7 +93,11 @@ export function SiteHeader() {
               </button>
 
               {showServicesMenu && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border-2 border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div
+                  className="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border-2 border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200"
+                  onMouseEnter={openServices}
+                  onMouseLeave={() => closeServicesWithDelay(300)}
+                >
                   <Link
                     href="/services/construction"
                     className="block px-4 py-3 text-gray-750 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold flex items-center gap-3"

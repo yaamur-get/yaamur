@@ -30,114 +30,187 @@ interface Employee {
 // بيانات مجلس الإدارة
 const boardMembers: BoardMember[] = [
   {
-    id: 1,
-    name: "عبدالله بن محمد السعيد",
-    position: "رئيس مجلس الإدارة",
-    image: "/team/board-1.jpg",
-    email: "chairman@yaamur.org",
-    phone: "+966501234567"
+    "id": 1,
+    "name": "م. عبدالله بن صالح العباد",
+    "position": "نائب رئيس مجلس الإدارة",
+    "image": "/iamge/bordmambr/abad.png",
+    "email": "",
+    "phone": ""
   },
   {
-    id: 2,
-    name: "خالد بن أحمد العتيبي",
-    position: "نائب رئيس المجلس",
-    image: "/team/board-2.jpg",
-    email: "vice.chairman@yaamur.org"
+    "id": 2,
+    "name": "د. صالح بن سليمان الرشيد",
+    "position": "رئيس مجلس الإدارة",
+    "image": "/iamge/bordmambr/salha.png",
+    "email": "",
+    "phone": ""
   },
   {
-    id: 3,
-    name: "سعد بن علي القحطاني",
-    position: "أمين الصندوق",
-    image: "/team/board-3.jpg",
-    email: "treasurer@yaamur.org"
+    "id": 3,
+    "name": "أ. صلاح بن محمد السويدان",
+    "position": "عضو مجلس الإدارة",
+    "image": "/iamge/bordmambr/swedan.png",
+    "email": "",
+    "phone": ""
   },
   {
-    id: 4,
-    name: "فهد بن سليمان الدوسري",
-    position: "عضو مجلس الإدارة",
-    image: "/team/board-4.jpg"
+    "id": 4,
+    "name": "أ. رامي بن زبب الزهراني",
+    "position": "عضو مجلس الإدارة",
+    "image": "/iamge/bordmambr/ramy.png",
+    "email": "",
+    "phone": ""
   },
   {
-    id: 5,
-    name: "محمد بن ناصر الشمري",
-    position: "عضو مجلس الإدارة",
-    image: "/team/board-5.jpg"
+    "id": 5,
+    "name": "م. يوسف بن عبدالله العبيدي",
+    "position": "المشرف المالي",
+    "image": "/iamge/bordmambr/yousefady.png",
+    "email": "",
+    "phone": ""
   },
   {
-    id: 6,
-    name: "عبدالرحمن بن عبدالعزيز المطيري",
-    position: "عضو مجلس الإدارة",
-    image: "/team/board-6.jpg"
+    "id": 6,
+    "name": "د. عادل بن علي القحطاني",
+    "position": "عضو مجلس الإدارة",
+    "image": "/iamge/bordmambr/qhtiny.png",
+    "email": "",
+    "phone": ""
+  },
+  {
+    "id": 7,
+    "name": "م. عبدالله بن فهد العويمري",
+    "position": "عضو مجلس الإدارة",
+    "image": "/iamge/bordmambr/unknow.jpeg",
+    "email": "",
+    "phone": ""
   }
 ];
 
 // بيانات موظفي الجمعية
 const employees: Employee[] = [
   {
-    id: 1,
-    name: "أحمد بن سعد الغامدي",
-    position: "المدير التنفيذي",
-    department: "الإدارة العليا",
-    image: "/team/employee-1.jpg",
-    email: "ceo@yaamur.org"
+    "id": 1,
+    "name": "عبدالله جاسم البنعلي",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
   },
   {
-    id: 2,
-    name: "عمر بن فهد الزهراني",
-    position: "مدير قسم البناء والإنشاءات",
-    department: "البناء والإنشاءات",
-    image: "/team/employee-2.jpg",
-    email: "construction@yaamur.org"
+    "id": 2,
+    "name": "حمزة رشيد السعيد",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
   },
   {
-    id: 3,
-    name: "ياسر بن محمد الحربي",
-    position: "مدير قسم الصيانة",
-    department: "الصيانة",
-    image: "/team/employee-3.jpg",
-    email: "maintenance@yaamur.org"
+    "id": 3,
+    "name": "عبدالعزيز محمد عبدالرحيم",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
   },
   {
-    id: 4,
-    name: "طارق بن عبدالله السبيعي",
-    position: "مدير قسم التشغيل",
-    department: "التشغيل",
-    image: "/team/employee-4.jpg",
-    email: "operations@yaamur.org"
+    "id": 4,
+    "name": "سليمان فهد البيشي",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
   },
   {
-    id: 5,
-    name: "نواف بن صالح العنزي",
-    position: "مدير القسم المالي",
-    department: "الشؤون المالية",
-    image: "/team/employee-5.jpg",
-    email: "finance@yaamur.org"
+    "id": 5,
+    "name": "عبدالرحمن حسن العطاس",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
   },
   {
-    id: 6,
-    name: "بندر بن خالد المالكي",
-    position: "مدير التسويق والعلاقات العامة",
-    department: "التسويق والعلاقات",
-    image: "/team/employee-6.jpg",
-    email: "marketing@yaamur.org"
+    "id": 6,
+    "name": "عبدالله موسى البارقي",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
   },
   {
-    id: 7,
-    name: "ماجد بن عبدالرحمن الشهري",
-    position: "مدير الموارد البشرية",
-    department: "الموارد البشرية",
-    image: "/team/employee-7.jpg",
-    email: "hr@yaamur.org"
+    "id": 7,
+    "name": "عبدالعزيز فؤاد البارقي",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
   },
   {
-    id: 8,
-    name: "سلطان بن محمد القرني",
-    position: "مدير قسم التقنية",
-    department: "التقنية والمعلومات",
-    image: "/team/employee-8.jpg",
-    email: "it@yaamur.org"
+    "id": 8,
+    "name": "يوسف حسن البارقي",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
+  },
+  {
+    "id": 9,
+    "name": "خالد عبدالله الشمراني",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
+  },
+  {
+    "id": 10,
+    "name": "فارس إبراهيم الدخيل",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
+  },
+  {
+    "id": 11,
+    "name": "علي إبراهيم العقل",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
+  },
+  {
+    "id": 12,
+    "name": "أحمد عبدالله بونيس",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
+  },
+  {
+    "id": 13,
+    "name": "حمدان فهد الودعاني",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
+  },
+   {
+    "id": 14,
+    "name": "منير محمد الزهراني",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
+  },
+  {
+    "id": 14,
+    "name": "عبدالعزيز السرحاني",
+    "position": "",
+    "department": "",
+    "image": "",
+    "email": ""
   }
 ];
+
 
 export default function AboutPage() {
   return (
@@ -160,9 +233,7 @@ export default function AboutPage() {
           <div className="container mx-auto relative z-10">
             <ScrollReveal>
               <div className="text-center max-w-4xl mx-auto mb-12">
-                <span className="inline-block px-4 py-2 bg-[#08704C]/10 text-[#08704C] rounded-full text-sm font-bold mb-4">
-                  من نحن
-                </span>
+                
                 <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-6">
                   عن جمعية يعمر
                 </h1>
@@ -186,7 +257,7 @@ export default function AboutPage() {
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">رؤيتنا</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      أن نكون الجمعية الرائدة في عناية المساجد بالمملكة، ونموذجاً يحتذى في خدمة بيوت الله بإتقان وإخلاص
+                     مساجد عامرة ونموذجيه
                     </p>
                   </CardContent>
                 </Card>
@@ -200,7 +271,7 @@ export default function AboutPage() {
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">رسالتنا</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      تقديم خدمات متميزة في بناء وصيانة وتشغيل المساجد، وتوفير بيئة مثالية للعبادة والتعلم، والمساهمة في نشر العلم الشرعي
+                     جمعية أهلية تسعى للعناية ببيوت الله عز وجل, من خلال تطبيق الممارسات الفضلى لتحقيق استدامتها
                     </p>
                   </CardContent>
                 </Card>
@@ -214,7 +285,9 @@ export default function AboutPage() {
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">قيمنا</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      الإخلاص في العمل، الإتقان والجودة، الشفافية والمساءلة، الابتكار والتطوير، الشراكة المجتمعية
+                     الجودة - الشراكة- الإخلاص - الإحسان - الاستدامة
+
+
                     </p>
                   </CardContent>
                 </Card>
@@ -226,29 +299,39 @@ export default function AboutPage() {
                 <CardContent className="p-8 md:p-12">
                   <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div className="space-y-6">
+                      <Image 
+                        src="/yaamurlogoone.png" 
+                        alt="شعار جمعية يعمر" 
+                        width={150}
+                        height={150}
+                        />
+
                       <h2 className="text-4xl font-black text-gray-900">نبذة عن الجمعية</h2>
                       <p className="text-lg text-gray-600 leading-relaxed">
-                        جمعية يعمر لعناية المساجد هي جمعية خيرية متخصصة تأسست عام 2020م بالمنطقة الشرقية، بهدف خدمة بيوت الله من خلال ثلاثة محاور رئيسية: البناء والصيانة والتشغيل.
+                          جمعية خيرية تأسست عام 2023م بالمنطقة الشرقية، بهدف خدمة بيوت الله من خلال ثلاثة محاور رئيسية: البناء والصيانة والتشغيل.
                       </p>
                       <p className="text-lg text-gray-600 leading-relaxed">
-                        نعمل على توفير بيئة مثالية للعبادة والتعلم في المساجد، من خلال فريق متخصص من المهندسين والفنيين والإداريين، ونلتزم بأعلى معايير الجودة والشفافية في جميع أعمالنا.
+                        نعمل على توفير بيئة مثالية للعبادة في المساجد، من خلال فريق متخصص من المهندسين والفنيين والإداريين، ونلتزم بأعلى معايير الجودة والشفافية في جميع أعمالنا.
                       </p>
                       <div className="grid grid-cols-2 gap-4 pt-4">
                         <div className="text-center p-4 bg-[#08704C]/10 rounded-2xl">
-                          <div className="text-3xl font-black text-[#08704C] mb-2">2020</div>
+                          <div className="text-3xl font-black text-[#08704C] mb-2">2023</div>
                           <div className="text-sm text-gray-600">سنة التأسيس</div>
                         </div>
                         <div className="text-center p-4 bg-[#08704C]/10 rounded-2xl">
-                          <div className="text-3xl font-black text-[#08704C] mb-2">150+</div>
-                          <div className="text-sm text-gray-600">مسجد تم بناؤه</div>
+                          <div className="text-3xl font-black text-[#08704C] mb-2">305+</div>
+                          <div className="text-sm text-gray-600">مسجد تم خدمته</div>
                         </div>
                       </div>
                     </div>
                     <div className="aspect-square bg-gradient-to-br from-[#08704C]/20 to-[#00A186]/20 rounded-3xl relative overflow-hidden">
-                      <div className="absolute inset-0 pattern-diagonal"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Building2 className="w-40 h-40 text-[#08704C]/30" />
-                      </div>
+                      <Image
+                        src="/iamge/yaamurabout.jpg"
+                        alt="نبذة عن الجمعية"
+                        fill
+                        className="object-cover"
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                      />
                     </div>
                   </div>
                 </CardContent>
@@ -280,11 +363,12 @@ export default function AboutPage() {
                     <CardContent className="p-0">
                       <div className="aspect-square bg-gradient-to-br from-[#08704C]/20 to-[#00A186]/20 relative overflow-hidden">
                         <div className="absolute inset-0 pattern-diagonal opacity-30"></div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-32 h-32 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                            <Users className="w-16 h-16 text-[#08704C]" />
-                          </div>
-                        </div>
+                        <Image
+                          src={member.image || "/image/placeholder-profile.png"}
+                          alt={member.name}
+                          width={900}
+                          height={1000}
+                          />
                       </div>
                       
                       <div className="p-6 space-y-4">

@@ -26,33 +26,31 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "مسجد الرحمة",
-    description: "بناء مسجد حديث بمساحة 500 متر مربع يتسع لـ 300 مصلي",
-    location: "الدمام، المنطقة الشرقية",
-    date: "2024-03-15",
-    category: "construction",
-    image: "/placeholder-mosque-1.jpg",
+    title: "مسجد عائشة بنت الصديق",
+    description: "صيانة نظام التبريد",
+    location: "ام الساهك – الحزم",
+    date: "2024-06-06",
+    category: "maintenance",
+    image: "/iamge/moasq/ashah.png",
     beneficiaries: 300,
     status: "completed",
     details: [
-      "مساحة البناء: 500 متر مربع",
       "الطاقة الاستيعابية: 300 مصلي",
-      "يشمل مصلى للنساء ومكتبة إسلامية",
       "تجهيزات حديثة ومكيفات بأحدث التقنيات"
     ]
   },
   {
     id: 2,
-    title: "مسجد النور",
-    description: "ترميم وصيانة شاملة لمسجد تاريخي بعمر 40 عاماً",
-    location: "الخبر، المنطقة الشرقية",
+    title: "مسجد ماجد الحارثي",
+    description: "ترميم المسجد بسبب الحريق",
+    location: "الدمام-النورس",
     date: "2024-05-20",
     category: "maintenance",
-    image: "/placeholder-mosque-2.jpg",
+    image: "/iamge/moasq/majd.jpg",
     beneficiaries: 250,
     status: "completed",
     details: [
-      "ترميم كامل للواجهات والمآذن",
+      "ترميم كامل",
       "تجديد الأرضيات والإضاءة",
       "صيانة أنظمة التكييف والصوت",
       "إعادة دهان كامل المبنى"
@@ -60,21 +58,20 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "مسجد الفاروق",
-    description: "تشغيل وإدارة مسجد حديث مع تأمين جميع الخدمات",
-    location: "القطيف، المنطقة الشرقية",
+    title: "جامع رفيع الجابري",
+    description: "عطل في احد وحدات التكييف المركزي",
+    location: "الدمام-طيبة",
     date: "2024-07-10",
-    category: "operation",
-    image: "/placeholder-mosque-3.jpg",
+    category: "maintenance",
+    image: "/iamge/moasq/rfay.jpeg",
     beneficiaries: 400,
     status: "ongoing",
     details: [
-      "تأمين إمام وموظفين",
-      "النظافة اليومية والصيانة الدورية",
-      "إدارة الحلقات القرآنية والدروس",
-      "تنظيم الفعاليات الدينية"
+      "توريد قطع التكييف",
+      "فحص واحدات التكييف",
     ]
   },
+  /*
   {
     id: 4,
     title: "مسجد السلام",
@@ -82,7 +79,7 @@ const projects: Project[] = [
     location: "الجبيل، المنطقة الشرقية",
     date: "2024-09-05",
     category: "construction",
-    image: "/placeholder-mosque-4.jpg",
+    image: "",
     beneficiaries: 500,
     status: "ongoing",
     details: [
@@ -125,7 +122,9 @@ const projects: Project[] = [
       "مكتبة إسلامية شاملة",
       "خدمات إرشادية ودعوية"
     ]
-  }
+      
+       }
+    */
 ];
 
 const categories = [
@@ -134,6 +133,16 @@ const categories = [
   { id: "maintenance", label: "الصيانة والترميم", icon: Wrench },
   { id: "operation", label: "التشغيل والإدارة", icon: Sparkles }
 ];
+
+const gregorianEnFormatter = new Intl.DateTimeFormat("en-GB", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  calendar: "gregory",
+  timeZone: "UTC"
+});
+
+const formatDateEn = (isoDate: string) => gregorianEnFormatter.format(new Date(isoDate));
 
 const categoryColors = {
   construction: { bg: "bg-[#08704C]/10", text: "text-[#08704C]", border: "border-[#08704C]/30" },
@@ -219,15 +228,17 @@ export default function ProgramsPage() {
                 return (
                   <ScrollReveal key={project.id} delay={index * 100}>
                     <Card className="group overflow-hidden border-2 border-gray-100 hover:border-[#08704C]/30 transition-all duration-500 h-full bg-white hover:shadow-2xl">
-                      <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#08704C]/10 to-[#7B4F28]/10">
-                        <div className="absolute inset-0 pattern-diagonal opacity-30"></div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-24 h-24 bg-white/90 backdrop-blur-sm rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-2xl">
-                            {project.category === "construction" && <Building2 className="w-12 h-12 text-[#08704C]" />}
-                            {project.category === "maintenance" && <Wrench className="w-12 h-12 text-[#7B4F28]" />}
-                            {project.category === "operation" && <Sparkles className="w-12 h-12 text-[#00A186]" />}
-                          </div>
-                        </div>
+                      <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[]/10 to-[#7B4F28]/10">
+                         {/* background image */}
+                                          <div className="absolute inset-0">
+                                            <Image src={project.image} alt="مشروع بناء - جمعية يعمر" fill className="object-cover object-center" />
+                                          </div>
+                        
+                                          {/* subtle overlay and pattern */}
+                                          <div className="absolute inset-0 bg-gradient-to-br from-[#08704C]/20 to-[#00A186]/20 mix-blend-multiply"></div>
+                                          <div className="absolute inset-0 pattern-diagonal opacity-40"></div>
+                        
+                                          {/* optional centered icon removed to let image show */}
                         
                         <div className="absolute top-4 right-4 flex gap-2">
                           <Badge className={`${colors.bg} ${colors.text} border ${colors.border} font-bold`}>
@@ -258,7 +269,7 @@ export default function ProgramsPage() {
                           </div>
                           <div className="flex items-center gap-2 text-sm text-gray-600">
                             <Calendar className="w-4 h-4 text-[#08704C]" />
-                            <span dir="ltr">{new Date(project.date).toLocaleDateString("ar-SA-u-nu-latn", { year: "numeric", month: "long", day: "numeric" })}</span>
+                            <span dir="ltr">{formatDateEn(project.date)}</span>
                           </div>
                           <div className="flex items-center gap-2 text-sm text-gray-600">
                             <Users className="w-4 h-4 text-[#08704C]" />
@@ -313,15 +324,19 @@ export default function ProgramsPage() {
                 كن شريكاً في الأجر والثواب بدعم مشاريعنا في بناء وصيانة وتشغيل المساجد
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://store.yaamur.org.sa/">
                 <Button size="lg" className="bg-white text-[#08704C] hover:bg-gray-100 shadow-xl text-lg px-10">
                   تبرع الآن
                   <ArrowLeft className="w-5 h-5 mr-2" />
                 </Button>
-                <Link href="/#contact">
+                </a>
+                
+                 <a href="https://wa.me/966920011240">
                   <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#08704C] text-lg px-10">
                     تواصل معنا
                   </Button>
-                </Link>
+                  </a>
+                
               </div>
             </ScrollReveal>
           </div>

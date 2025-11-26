@@ -8,6 +8,7 @@ import { Building2, Calendar, ArrowLeft, Filter, Newspaper, Award, Users, Trendi
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ClientOnly } from "@/components/ClientOnly";
+import { sliderNewsItems } from "@/components/NewsSlider";
 import Image from "next/image";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -21,20 +22,11 @@ interface NewsItem {
   image: string;
   author: string;
   featured: boolean;
+  url:string
 }
 
-const newsItems: NewsItem[] = [
-  {
-    id: 1,
-    title: "افتتاح مسجد الرحمة الجديد بحضور 500 مصلي",
-    description: "بحمد الله تم افتتاح مسجد الرحمة الجديد في حفل بهيج حضره أكثر من 500 مصلي من أهالي الحي والمنطقة",
-    content: "في جو إيماني مهيب، تم افتتاح مسجد الرحمة الجديد الذي يعد إضافة نوعية لمساجد المنطقة الشرقية. المسجد يتسع لـ 300 مصلي ويشمل مرافق حديثة ومتكاملة.",
-    date: "2025-11-01",
-    category: "projects",
-    image: "/placeholder-mosque-1.jpg",
-    author: "فريق التحرير",
-    featured: true
-  },
+const baseNewsItems: NewsItem[] = [
+  /*
   {
     id: 2,
     title: "إطلاق برنامج الصيانة الشاملة لـ 50 مسجداً",
@@ -123,7 +115,23 @@ const newsItems: NewsItem[] = [
     author: "قسم التقنية",
     featured: false
   }
+    */
 ];
+
+const sliderNewsAsNewsPageItems: NewsItem[] = sliderNewsItems.map((item) => ({
+  id: 100 + item.id,
+  title: item.title,
+  description: item.description,
+  content: item.description,
+  url: item.moreUrl,
+  date: item.date,
+  category: "general",
+  image: item.image,
+  author: "جمعية يعمر",
+  featured: true
+}));
+
+const newsItems: NewsItem[] = [...baseNewsItems, ...sliderNewsAsNewsPageItems];
 
 const categories = [
   { id: "all", label: "جميع الأخبار", icon: Newspaper },
@@ -131,6 +139,16 @@ const categories = [
   { id: "events", label: "الفعاليات", icon: Users },
   { id: "achievements", label: "الإنجازات", icon: Award }
 ];
+
+const gregorianEnFormatter = new Intl.DateTimeFormat("en-GB", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  calendar: "gregory",
+  timeZone: "UTC"
+});
+
+const formatDateEn = (isoDate: string) => gregorianEnFormatter.format(new Date(isoDate));
 
 const categoryColors = {
   projects: { bg: "bg-[#08704C]/10", text: "text-[#08704C]", border: "border-[#08704C]/30" },
@@ -227,10 +245,14 @@ export default function NewsPage() {
                     <ScrollReveal key={news.id} delay={index * 100}>
                       <Card className="group overflow-hidden border-2 border-gray-100 hover:border-[#08704C]/30 transition-all duration-500 h-full bg-white hover:shadow-2xl">
                         <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-[#08704C]/10 to-[#7B4F28]/10">
-                          <div className="absolute inset-0 pattern-diagonal opacity-30"></div>
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <Newspaper className="w-20 h-20 text-[#08704C]/20" />
-                          </div>
+                          <Image
+                                                src={news.image}
+                                                alt={news.title}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(min-width: 1024px) 45vw, 90vw"
+                                                priority={index === 0}
+                                              />
                           
                           <div className="absolute top-4 right-4">
                             <Badge className={`${colors.bg} ${colors.text} border ${colors.border} font-bold`}>
@@ -250,11 +272,7 @@ export default function NewsPage() {
                             <Calendar className="w-4 h-4 text-[#08704C]" />
                             <ClientOnly>
                               <span dir="ltr">
-                                {new Date(news.date).toLocaleDateString("ar-SA-u-nu-latn", {
-                                  year: "numeric",
-                                  month: "long",
-                                  day: "numeric"
-                                })}
+                                {formatDateEn(news.date)}
                               </span>
                             </ClientOnly>
                           </div>
@@ -269,6 +287,7 @@ export default function NewsPage() {
 
                           <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                             <span className="text-sm text-gray-500">{news.author}</span>
+                            <a href={news.url}>
                             <Button
                               variant="ghost"
                               className="text-[#08704C] hover:text-white hover:bg-[#08704C] p-0 h-auto font-bold group/btn"
@@ -276,6 +295,7 @@ export default function NewsPage() {
                               <span className="group-hover/btn:mr-2 transition-all">اقرأ المزيد</span>
                               <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:mr-0 transition-all" />
                             </Button>
+                            </a>
                           </div>
                         </CardContent>
                       </Card>
@@ -319,11 +339,7 @@ export default function NewsPage() {
                           <Calendar className="w-4 h-4 text-[#08704C]" />
                           <ClientOnly>
                             <span dir="ltr">
-                              {new Date(news.date).toLocaleDateString("ar-SA-u-nu-latn", {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric"
-                              })}
+                              {formatDateEn(news.date)}
                             </span>
                           </ClientOnly>
                         </div>
@@ -338,6 +354,7 @@ export default function NewsPage() {
 
                         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                           <span className="text-sm text-gray-500">{news.author}</span>
+                          <a href={news.url} >
                           <Button
                             variant="ghost"
                             className="text-[#08704C] hover:text-white hover:bg-[#08704C] p-0 h-auto font-bold group/btn"
@@ -345,6 +362,8 @@ export default function NewsPage() {
                             <span className="group-hover/btn:mr-2 transition-all">اقرأ المزيد</span>
                             <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:mr-0 transition-all" />
                           </Button>
+                          </a>
+                          
                         </div>
                       </CardContent>
                     </Card>
@@ -374,16 +393,22 @@ export default function NewsPage() {
                 لا تفوت آخر الأخبار والفعاليات - تابعنا على حساباتنا الرسمية
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://x.com/Yaamurorg">
                 <Button size="lg" className="bg-white text-[#08704C] hover:bg-gray-100 shadow-xl text-lg px-10">
                   تويتر
                   <TrendingUp className="w-5 h-5 mr-2" />
                 </Button>
+                </a>
+                <a href="https://wa.me/966920011240">
                 <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#08704C] text-lg px-10">
                   واتساب
                 </Button>
+                </a>
+                <a href="https://www.instagram.com/yaamurorg/?hl=ar">
                 <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#08704C] text-lg px-10">
-                  تيليجرام
+                 إنستجرام
                 </Button>
+                </a>
               </div>
             </ScrollReveal>
           </div>

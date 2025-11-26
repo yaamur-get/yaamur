@@ -12,11 +12,7 @@ import SiteFooter from "@/components/SiteFooter";
 export default function OperationPage() {
   const services = [
     "إدارة وتشغيل المساجد بالكامل",
-    "تأمين الأئمة والمؤذنين",
-    "النظافة اليومية الشاملة",
-    "إدارة الحلقات القرآنية",
-    "تنظيم الدروس والفعاليات",
-    "خدمات المكتبة الإسلامية"
+   
   ];
 
   const operationAspects = [
@@ -43,7 +39,7 @@ export default function OperationPage() {
   return (
     <>
       <Head>
-        <title>التشغيل والإدارة | جمعية يعمر لعناية المساجد</title>
+        <title>التشغيل جمعية يعمر لعناية المساجد</title>
         <meta name="description" content="خدمات التشغيل والإدارة الشاملة للمساجد مع برامج تعليمية ودعوية متميزة" />
       </Head>
 
@@ -58,11 +54,9 @@ export default function OperationPage() {
           <div className="container mx-auto relative z-10">
             <ScrollReveal>
               <div className="text-center max-w-4xl mx-auto mb-12">
-                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#00A186] to-[#08704C] rounded-3xl flex items-center justify-center mb-6 shadow-xl">
-                  <Sparkles className="w-10 h-10 text-white" />
-                </div>
+                
                 <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-6">
-                  التشغيل والإدارة
+                  التشغيل
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   نتولى التشغيل الكامل للمساجد وإدارتها بشكل احترافي، مع توفير برامج تعليمية ودعوية متميزة تخدم المصلين والمجتمع
@@ -93,128 +87,34 @@ export default function OperationPage() {
                   </ul>
                 </div>
               </ScrollReveal>
-
-              <ScrollReveal delay={200}>
-                <div className="aspect-[4/3] bg-gradient-to-br from-[#00A186]/20 to-[#08704C]/20 rounded-3xl relative overflow-hidden">
-                  <div className="absolute inset-0 pattern-diagonal"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Sparkles className="w-40 h-40 text-[#00A186]/30" />
+                  <ScrollReveal delay={200}>
+                <div className="aspect-[4/4] rounded-3xl relative overflow-hidden">
+                  {/* background image */}
+                  <div className="absolute inset-0">
+                    <Image src="/iamge/yaamur_runing.jpg" alt="مشروع بناء - جمعية يعمر" fill className="object-cover object-center" />
                   </div>
+
+                  {/* subtle overlay and pattern */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#08704C]/20 to-[#00A186]/20 mix-blend-multiply"></div>
+                  <div className="absolute inset-0 pattern-diagonal opacity-40"></div>
+
+                  {/* optional centered icon removed to let image show */}
                 </div>
               </ScrollReveal>
             </div>
 
-            <ScrollReveal>
-              <h2 className="text-3xl font-black text-gray-900 mb-8 text-center">جوانب خدمات التشغيل</h2>
-            </ScrollReveal>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {operationAspects.map((aspect, idx) => (
-                <ScrollReveal key={idx} delay={idx * 100}>
-                  <Card className="group hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-[#00A186]/30 h-full bg-white">
-                    <CardContent className="p-8 space-y-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-[#00A186] to-[#08704C] rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-xl">
-                        <aspect.icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#00A186] transition-colors">
-                          {aspect.title}
-                        </h3>
-                        <p className="text-gray-600">{aspect.description}</p>
-                      </div>
-                      <ul className="space-y-2">
-                        {aspect.features.map((feature, fIdx) => (
-                          <li key={fIdx} className="flex items-center gap-2 text-sm text-gray-600">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#00A186]"></div>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </ScrollReveal>
-              ))}
-            </div>
+          
           </div>
         </section>
 
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#00A186] via-[#08704C] to-[#00A186] text-white relative overflow-hidden">
-          <div className="absolute inset-0 pattern-grid opacity-10"></div>
-          <div className="container mx-auto relative z-10">
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              <ScrollReveal>
-                <div>
-                  <div className="text-4xl font-black mb-2">300+</div>
-                  <p className="text-lg">مسجد نديره</p>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={100}>
-                <div>
-                  <div className="text-4xl font-black mb-2">150+</div>
-                  <p className="text-lg">إمام ومؤذن</p>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={200}>
-                <div>
-                  <div className="text-4xl font-black mb-2">50+</div>
-                  <p className="text-lg">حلقة قرآنية</p>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={300}>
-                <div>
-                  <div className="text-4xl font-black mb-2">1000+</div>
-                  <p className="text-lg">طالب وطالبة</p>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
+    
 
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="container mx-auto">
-            <ScrollReveal>
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-black text-gray-900 mb-6">برامجنا التعليمية والدعوية</h2>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                  نوفر مجموعة متنوعة من البرامج التعليمية والدعوية التي تخدم جميع فئات المجتمع
-                </p>
-              </div>
-            </ScrollReveal>
+          
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              {[
-                { title: "حلقات التحفيظ", desc: "برامج متخصصة لحفظ القرآن الكريم", icon: "📖" },
-                { title: "الدروس العلمية", desc: "دروس في الفقه والعقيدة والحديث", icon: "📚" },
-                { title: "المحاضرات", desc: "محاضرات دينية وتوعوية منتظمة", icon: "🎤" },
-                { title: "دورات متخصصة", desc: "دورات في العلوم الشرعية المختلفة", icon: "🎓" }
-              ].map((program, idx) => (
-                <ScrollReveal key={idx} delay={idx * 100}>
-                  <Card className="hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-[#00A186]/30 bg-white">
-                    <CardContent className="p-6 text-center">
-                      <div className="text-4xl mb-4">{program.icon}</div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{program.title}</h3>
-                      <p className="text-gray-600 text-sm">{program.desc}</p>
-                    </CardContent>
-                  </Card>
-                </ScrollReveal>
-              ))}
-            </div>
+        
 
-            <ScrollReveal>
-              <div className="text-center">
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-gradient-to-r from-[#00A186] to-[#08704C] hover:from-[#08704C] hover:to-[#00A186] text-white shadow-xl text-lg px-10">
-                    انضم لبرامجنا
-                    <ArrowLeft className="w-5 h-5 mr-2" />
-                  </Button>
-                  <Link href="/#contact">
-                    <Button size="lg" variant="outline" className="border-2 border-[#00A186] text-[#00A186] hover:bg-[#00A186] hover:text-white text-lg px-10">
-                      استفسر عن البرامج
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
         </section>
 

@@ -19,9 +19,9 @@ export default function ConstructionPage() {
   ];
 
   const projects = [
-    { name: "مسجد الرحمة", location: "الدمام", capacity: "300 مصلي", status: "مكتمل" },
-    { name: "مسجد السلام", location: "الجبيل", capacity: "500 مصلي", status: "قيد التنفيذ" },
-    { name: "مسجد النور", location: "الخبر", capacity: "400 مصلي", status: "مكتمل" }
+    { name: "مسجد العروبة", location: "الدمام", capacity: "300 مصلي", status: "قيد النفيذ" },
+    { name: "مسجد الضاحية", location: "الدمام", capacity: "500 مصلي", status: "قيد التنفيذ" },
+    { name: "مسجد الأطباء", location: "الدمام", capacity: "400 مصلي", status: "قيد التنفيذ" }
   ];
 
   return (
@@ -43,9 +43,7 @@ export default function ConstructionPage() {
           <div className="container mx-auto relative z-10">
             <ScrollReveal>
               <div className="text-center max-w-4xl mx-auto mb-12">
-                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#08704C] to-[#00A186] rounded-3xl flex items-center justify-center mb-6 shadow-xl">
-                  <Building2 className="w-10 h-10 text-white" />
-                </div>
+                
                 <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-6">
                   بناء المساجد
                 </h1>
@@ -80,11 +78,17 @@ export default function ConstructionPage() {
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
-                <div className="aspect-[4/3] bg-gradient-to-br from-[#08704C]/20 to-[#00A186]/20 rounded-3xl relative overflow-hidden">
-                  <div className="absolute inset-0 pattern-diagonal"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Building2 className="w-40 h-40 text-[#08704C]/30" />
+                <div className="aspect-[4/4] rounded-3xl relative overflow-hidden">
+                  {/* background image */}
+                  <div className="absolute inset-0">
+                    <Image src="/iamge/yaamur_bulding.jpg" alt="مشروع بناء - جمعية يعمر" fill className="object-cover object-center" />
                   </div>
+
+                  {/* subtle overlay and pattern */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#08704C]/20 to-[#00A186]/20 mix-blend-multiply"></div>
+                  <div className="absolute inset-0 pattern-diagonal opacity-40"></div>
+
+                  {/* optional centered icon removed to let image show */}
                 </div>
               </ScrollReveal>
             </div>
@@ -126,8 +130,8 @@ export default function ConstructionPage() {
                   <div className="w-20 h-20 mx-auto bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mb-4">
                     <Building2 className="w-10 h-10 text-white" />
                   </div>
-                  <div className="text-4xl font-black mb-2">150+</div>
-                  <p className="text-lg">مسجد تم بناؤه</p>
+                  <div className="text-4xl font-black mb-2">5+</div>
+                  <p className="text-lg">مسجد قيد الانشاء</p>
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={100}>
@@ -135,7 +139,7 @@ export default function ConstructionPage() {
                   <div className="w-20 h-20 mx-auto bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mb-4">
                     <Users className="w-10 h-10 text-white" />
                   </div>
-                  <div className="text-4xl font-black mb-2">50K+</div>
+                  <div className="text-4xl font-black mb-2">1200+</div>
                   <p className="text-lg">مصلي مستفيد</p>
                 </div>
               </ScrollReveal>
@@ -160,15 +164,17 @@ export default function ConstructionPage() {
                 شارك في الأجر والثواب ببناء بيت من بيوت الله
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                 <a href="https://store.yaamur.org.sa/">
                 <Button size="lg" className="bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-xl text-lg px-10">
                   تبرع الآن
                   <ArrowLeft className="w-5 h-5 mr-2" />
                 </Button>
-                <Link href="/#contact">
+                </a>
+                <a href="https://wa.me/966920011240">
                   <Button size="lg" variant="outline" className="border-2 border-[#08704C] text-[#08704C] hover:bg-[#08704C] hover:text-white text-lg px-10">
                     استفسر عن المشاريع
                   </Button>
-                </Link>
+                </a>
               </div>
             </ScrollReveal>
           </div>
