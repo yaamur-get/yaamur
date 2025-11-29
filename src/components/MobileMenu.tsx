@@ -83,7 +83,7 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
                 onClick={() => setIsOpen(false)}
                 className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
               >
-                برامجنا
+                مشاريع يعمر 
               </Link>
 
               <Link

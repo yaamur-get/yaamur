@@ -210,12 +210,12 @@ export function SiteHeader() {
             <Button
               className={`mr-2 h-12 w-40 p-0 rounded-md flex flex-col items-center justify-center shadow-lg overflow-hidden ${
                 isScrolled
-                  ? "bg-white text-[#08704C]"
+                  ? "bg-gradient-to-r from-[#08704C] via-[#00A186] to-[#08704C] text-white"
                   : "bg-gradient-to-r from-[#08704C] via-[#00A186] to-[#08704C] text-white"
               }`}
             >
               
-            <span className="text-xl leading-tight text-center">تبرع </span>
+            <span className="text-xl leading-tight text-cenىter">تبرع </span>
             </Button>
           </a>
 
