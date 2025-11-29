@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, ArrowLeft, Users, Award, Target, Eye, Mail, Phone } from "lucide-react";
+import { ArrowLeft, Users, Award, Target, Eye, Mail, Phone } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Image from "next/image";

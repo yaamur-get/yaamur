@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building2, Wrench, Sparkles, ArrowRight, Calendar, MapPin, Users, Filter, ArrowLeft } from "lucide-react";
+import { Building2, Wrench, Sparkles, Calendar, MapPin, Users, Filter, ArrowLeft } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Image from "next/image";

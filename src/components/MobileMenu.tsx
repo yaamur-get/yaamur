@@ -10,6 +10,7 @@ interface MobileMenuProps {
 export function MobileMenu({ isScrolled }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showServicesSubmenu, setShowServicesSubmenu] = useState(false);
+  const [showGovernanceSubmenu, setShowGovernanceSubmenu] = useState(false);
 
   return (
     <div className="lg:hidden">
@@ -109,13 +110,55 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
                 الفرص الوظيفية
               </Link>
 
-              <Link
-                href="/governance"
-                onClick={() => setIsOpen(false)}
-                className="text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl"
-              >
-                الحوكمة
-              </Link>
+              <div>
+                <button
+                  onClick={() => setShowGovernanceSubmenu(!showGovernanceSubmenu)}
+                  className="w-full text-right text-gray-700 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-semibold py-3 px-4 rounded-xl flex items-center justify-between"
+                >
+                  <span>الحوكمة</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${showGovernanceSubmenu ? 'rotate-180' : ''}`} />
+                </button>
+
+                {showGovernanceSubmenu && (
+                  <div className="mr-4 mt-1 space-y-1">
+                    <Link
+                      href="/governance#bylaws"
+                      onClick={() => setIsOpen(false)}
+                      className="block text-gray-600 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-medium py-2 px-4 rounded-xl"
+                    >
+                      اللائحة الأساسية
+                    </Link>
+                    <Link
+                      href="/governance#policies"
+                      onClick={() => setIsOpen(false)}
+                      className="block text-gray-600 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-medium py-2 px-4 rounded-xl"
+                    >
+                      السياسات
+                    </Link>
+                    <Link
+                      href="/governance#procedures"
+                      onClick={() => setIsOpen(false)}
+                      className="block text-gray-600 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-medium py-2 px-4 rounded-xl"
+                    >
+                      الآليات والإجراءات
+                    </Link>
+                    <Link
+                      href="/governance#disclosure"
+                      onClick={() => setIsOpen(false)}
+                      className="block text-gray-600 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-medium py-2 px-4 rounded-xl"
+                    >
+                      الإفصاح والبيانات التنظيمية
+                    </Link>
+                    <Link
+                      href="/governance#reports"
+                      onClick={() => setIsOpen(false)}
+                      className="block text-gray-600 hover:text-[#08704C] hover:bg-[#08704C]/5 transition-all font-medium py-2 px-4 rounded-xl"
+                    >
+                      التقارير والبيانات المالية
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               <Link
                 href="/#contact"
@@ -126,9 +169,11 @@ export function MobileMenu({ isScrolled }: MobileMenuProps) {
               </Link>
             </nav>
             <div className="p-6 border-t border-gray-200">
+              <a href="https://store.yaamur.org.sa/">
               <Button className="w-full bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-xl py-6 text-lg">
-                المتجر الخيري
+                تبرع الآن
               </Button>
+              </a>
             </div>
           </div>
         </>

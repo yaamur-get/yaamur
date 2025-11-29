@@ -2,17 +2,17 @@ import Head from "next/head";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building2, FileText, Download, Eye, ArrowLeft, Shield, Users, BarChart, FileCheck, Scale, UserCheck, AlertCircle, Lock, Trash2, ClipboardList, MessageSquare, ThumbsUp, FileBarChart, TrendingUp, DollarSign, Archive } from "lucide-react";
+import { FileText, Download, Eye, ArrowLeft, Shield, Users, BarChart, FileCheck, Scale, UserCheck, AlertCircle, Lock, ClipboardList, MessageSquare, ThumbsUp, FileBarChart, DollarSign, Archive } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import Image from "next/image";
 import SiteFooter from "@/components/SiteFooter";
 
 interface Document {
   id: string;
   title: string;
   description?: string;
-  icon: any;
+  icon: LucideIcon;
   filePath: string;
 }
 
@@ -20,7 +20,7 @@ interface Section {
   id: string;
   title: string;
   description: string;
-  icon: any;
+  icon: LucideIcon;
   documents: Document[];
 }
 
@@ -34,9 +34,9 @@ const governanceSections: Section[] = [
       {
         id: "main-bylaws",
         title: "اللائحة الأساسية للجمعية",
-        description: "النسخة المعتمدة مع إخفاء بيانات الهوية الوطنية للأعضاء",
+        description: "النسخة المعتمدة ",
         icon: FileText,
-        filePath: "/governance/bylaws/main-bylaws.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/10/اللائحة-الاساسية-اعضاء-الجمعية-العمومية.pdf"
       }
     ]
   },
@@ -51,49 +51,49 @@ const governanceSections: Section[] = [
         title: "سياسة جمع التبرعات",
         description: "القواعد والإجراءات المتبعة في جمع التبرعات",
         icon: DollarSign,
-        filePath: "/governance/policies/fundraising-policy.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/12/8.سياسة-جمع-التبرعات-1.pdf"
       },
       {
         id: "policy-beneficiaries",
         title: "سياسة تنظيم العلاقة مع المستفيدين وتقديم الخدمات",
         description: "معايير وإجراءات تقديم الخدمات للمستفيدين",
         icon: Users,
-        filePath: "/governance/policies/beneficiaries-policy.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/12/9.سياسة-تنظيم-العلاقة-مع-المستفيدين-1.pdf"
       },
       {
         id: "policy-volunteers",
         title: "سياسة إدارة المتطوعين",
         description: "تنظيم العلاقة مع المتطوعين وإدارتهم",
         icon: UserCheck,
-        filePath: "/governance/policies/volunteers-policy.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/12/10.آلية-إدارة-المتطوعين.pdf"
       },
       {
         id: "policy-conflict",
         title: "سياسة تعارض المصالح",
         description: "الضوابط لتجنب تعارض المصالح في عمل الجمعية",
         icon: AlertCircle,
-        filePath: "/governance/policies/conflict-of-interest-policy.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/12/4.سياسة-تعارض-المصالح-1.pdf"
       },
       {
         id: "policy-whistleblowing",
         title: "سياسة البلاغات عن المخالفات وحماية مقدمي البلاغات",
         description: "آلية الإبلاغ عن المخالفات وحماية المبلغين",
         icon: Shield,
-        filePath: "/governance/policies/whistleblowing-policy.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/12/5.سياسة-الإبلاغ-عن-المخالفات-وحماية-مقدمي-البلاغات.pdf"
       },
       {
         id: "policy-privacy",
         title: "سياسة خصوصية البيانات",
         description: "حماية البيانات الشخصية والمعلومات السرية",
         icon: Lock,
-        filePath: "/governance/policies/privacy-policy.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/12/6.سياسة-خصوصية-البيانات-1.pdf"
       },
       {
         id: "policy-records",
         title: "سياسة حفظ وإتلاف الوثائق",
         description: "إجراءات حفظ الوثائق والسجلات وإتلافها",
         icon: Archive,
-        filePath: "/governance/policies/records-policy.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/12/7.سياسة-الاحتفاظ-بالوثائق-وإتلافها-2.pdf"
       }
     ]
   },
@@ -108,21 +108,21 @@ const governanceSections: Section[] = [
         title: "آلية إدارة المتطوعين",
         description: "الإجراءات التفصيلية لإدارة المتطوعين",
         icon: UserCheck,
-        filePath: "/governance/procedures/volunteers-procedure.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/12/10.آلية-إدارة-المتطوعين.pdf"
       },
       {
         id: "proc-complaints",
         title: "آلية استقبال الشكاوى والاقتراحات والاستفسارات والتعامل معها",
         description: "نظام استقبال ومعالجة الشكاوى والاقتراحات",
         icon: MessageSquare,
-        filePath: "/governance/procedures/complaints-procedure.pdf"
+        filePath: ""
       },
       {
         id: "proc-satisfaction",
         title: "آلية قياس رضا المستفيدين والتغذية الراجعة",
         description: "طرق قياس رضا المستفيدين وجمع التغذية الراجعة",
         icon: ThumbsUp,
-        filePath: "/governance/procedures/satisfaction-procedure.pdf"
+        filePath: ""
       }
     ]
   },
@@ -137,57 +137,31 @@ const governanceSections: Section[] = [
         title: "أسماء أعضاء الجمعية العمومية",
         description: "قائمة أعضاء الجمعية العمومية الحاليين",
         icon: Users,
-        filePath: "/governance/disclosure/general-assembly-members.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2023/10/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9-%D8%A7%D8%B9%D8%B6%D8%A7%D8%A1-%D8%A7%D9%84%D8%AC%D9%85%D8%B9%D9%8A%D8%A9-%D8%A7%D9%84%D8%B9%D9%85%D9%88%D9%85%D9%8A%D8%A9.pdf"
       },
       {
         id: "disc-meetings",
-        title: "دعوات اجتماعات الجمعية العمومية ومحاضر الاجتماعات",
+        title: " اجتماع الجمعية العمومية لعام 2023",
         description: "سجل اجتماعات الجمعية العمومية",
         icon: FileText,
-        filePath: "/governance/disclosure/assembly-meetings.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2024/04/محضر-اجتماع-الجمعية-العمومية-العادي-الأول.pdf"
       },
-      {
-        id: "disc-board",
-        title: "بيانات مجلس الإدارة",
-        description: "أسماء أعضاء مجلس الإدارة ومدة الدورة الحالية",
-        icon: Users,
-        filePath: "/governance/disclosure/board-data.pdf"
+        {
+        id: "disc-meetings",
+        title: " اجتماع الجمعية العمومية لعام 2024",
+        description: "سجل اجتماعات الجمعية العمومية",
+        icon: FileText,
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2025/10/محضر-اجتماع-الجمعية-العمومية-العادية-2024م.pdf"
       },
-      {
-        id: "disc-contracts",
-        title: "الإفصاح عن العلاقات التعاقدية",
-        description: "العلاقات التعاقدية من الدرجة الأولى حتى الرابعة",
-        icon: FileCheck,
-        filePath: "/governance/disclosure/contractual-relations.pdf"
+        {
+        id: "disc-meetings",
+        title: " اجتماع الجمعية العمومية لعام 2025",
+        description: "سجل اجتماعات الجمعية العمومية",
+        icon: FileText,
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2025/10/محضر-اجتماع-الجمعية-العمومية-جمعية-يعمر-2025م.pdf"
       },
-      {
-        id: "disc-relations",
-        title: "الإفصاح عن العلاقات العائلية والتجارية",
-        description: "العلاقات بين أعضاء مجلس الإدارة والإدارة التنفيذية",
-        icon: Users,
-        filePath: "/governance/disclosure/family-business-relations.pdf"
-      },
-      {
-        id: "disc-committees",
-        title: "الإفصاح عن اللجان الدائمة",
-        description: "اللجان الدائمة في الجمعية وأعضائها واختصاصاتها",
-        icon: ClipboardList,
-        filePath: "/governance/disclosure/permanent-committees.pdf"
-      },
-      {
-        id: "disc-ceo",
-        title: "بيانات المدير التنفيذي",
-        description: "اسم المدير التنفيذي وبيانات التواصل",
-        icon: UserCheck,
-        filePath: "/governance/disclosure/ceo-info.pdf"
-      },
-      {
-        id: "disc-branches",
-        title: "بيانات مديري الفروع والمكاتب",
-        description: "أسماء مديري الفروع والمكاتب وبيانات التواصل",
-        icon: Building2,
-        filePath: "/governance/disclosure/branches-managers.pdf"
-      }
+      
+      
     ]
   },
   {
@@ -196,40 +170,35 @@ const governanceSections: Section[] = [
     description: "الأهداف والتقارير والقوائم المالية",
     icon: BarChart,
     documents: [
+      
       {
-        id: "rep-objectives",
-        title: "الأهداف الاستراتيجية والتشغيلية",
-        description: "أهداف الجمعية الاستراتيجية والخطط التشغيلية",
-        icon: TrendingUp,
-        filePath: "/governance/reports/strategic-objectives.pdf"
+        id: "rep-programs",
+        title: "تقارير البرامج والأنشطة لعام 2023",
+        description: "تقارير البرامج والأنشطة المنفذة",
+        icon: FileBarChart,
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2024/03/النسخة-النهائية-التقرير-السنوي-لجمعية-يعمر-تعديل-نهائي.pdf"
       },
       {
         id: "rep-programs",
-        title: "تقارير البرامج والأنشطة",
+        title: "تقارير البرامج والأنشطة لعام 2024",
         description: "تقارير البرامج والأنشطة المنفذة",
         icon: FileBarChart,
-        filePath: "/governance/reports/programs-reports.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2025/10/تقرير-جمعية-يعمر-24-1-3.pdf"
       },
-      {
-        id: "rep-investments",
-        title: "قرارات التملك والاستثمار",
-        description: "القرارات المتعلقة بتملك الأصول والاستثمارات",
-        icon: DollarSign,
-        filePath: "/governance/reports/investment-decisions.pdf"
-      },
-      {
-        id: "rep-statistics",
-        title: "إحصاءات الخدمات المقدمة",
-        description: "البيانات الإحصائية للخدمات المقدمة للمستفيدين",
-        icon: BarChart,
-        filePath: "/governance/reports/services-statistics.pdf"
-      },
+      
       {
         id: "rep-financial",
-        title: "القوائم المالية السنوية",
+        title: "القوائم المالية السنوية لعام 2023",
         description: "القوائم المالية المدققة والمعتمدة",
         icon: FileBarChart,
-        filePath: "/governance/reports/financial-statements.pdf"
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2025/10/القوائم-لعام-2023.pdf"
+      },
+     {
+        id: "rep-financial",
+        title: "القوائم المالية السنوية لعام 2024",
+        description: "القوائم المالية المدققة والمعتمدة",
+        icon: FileBarChart,
+        filePath: "https://yaamur.org.sa/wp-content/uploads/sites/2193/2025/10/جمعية-يعمر-الجديدة-24-1.pdf"
       }
     ]
   }
@@ -297,7 +266,7 @@ export default function GovernancePage() {
         </section>
 
         {governanceSections.map((section, sectionIndex) => (
-          <section key={section.id} className="pb-16 px-4 sm:px-6 lg:px-8 relative">
+          <section id={section.id} key={section.id} className="pb-16 px-4 sm:px-6 lg:px-8 relative scroll-mt-28">
             <div className="container mx-auto relative z-10">
               <ScrollReveal delay={sectionIndex * 50}>
                 <div className="mb-8">

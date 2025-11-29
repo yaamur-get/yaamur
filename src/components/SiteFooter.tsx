@@ -1,8 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ClientOnly } from "@/components/ClientOnly";
-import { Phone, Mail, MapPin, ExternalLink, ArrowLeft } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowLeft } from "lucide-react";
 
 export default function SiteFooter() {
   return (

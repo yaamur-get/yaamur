@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building2, Calendar, ArrowLeft, Filter, Newspaper, Award, Users, TrendingUp } from "lucide-react";
+import { Building2, Calendar, ArrowLeft, Newspaper, Award, Users, TrendingUp } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ClientOnly } from "@/components/ClientOnly";
@@ -172,7 +171,6 @@ export default function NewsPage() {
     : newsItems.filter(news => news.category === selectedCategory);
 
   const featuredNews = newsItems.filter(news => news.featured);
-  const latestNews = [...newsItems].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3);
 
   return (
     <>

@@ -9,8 +9,6 @@ export function PartnersCarousel() {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {partnerList.map((partner, index) => {
           const srcUrl = `/partners/${encodeURIComponent(partner.filename)}`;
-          // @ts-ignore-next-line
-          console.debug("PartnersCarousel loading:", srcUrl);
           return (
             <div
               key={partner.id}
@@ -30,7 +28,6 @@ export function PartnersCarousel() {
                       unoptimized
                       onError={(e) => {
                         // Log the failed URL for debugging and show fallback
-                        // @ts-ignore next-line
                         console.warn("PartnersCarousel image failed:", srcUrl);
                         const imgEl = (e.target || e.currentTarget) as HTMLElement | null;
                         if (imgEl) imgEl.style.display = "none";

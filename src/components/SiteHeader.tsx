@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MobileMenu } from "@/components/MobileMenu";
 import { Building2, Wrench, Sparkles, ChevronDown, ExternalLink } from "lucide-react";
@@ -8,7 +7,9 @@ import { Building2, Wrench, Sparkles, ChevronDown, ExternalLink } from "lucide-r
 export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showServicesMenu, setShowServicesMenu] = useState(false);
-  const hideTimeout = useRef<number | null>(null);
+  const [showGovernanceMenu, setShowGovernanceMenu] = useState(false);
+  const hideTimeout = useRef<ReturnType<typeof window.setTimeout> | null>(null);
+  const governanceHideTimeout = useRef<ReturnType<typeof window.setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -20,28 +21,55 @@ export function SiteHeader() {
   useEffect(() => {
     return () => {
       if (hideTimeout.current) {
-        clearTimeout(hideTimeout.current);
+        window.clearTimeout(hideTimeout.current);
         hideTimeout.current = null;
+      }
+      if (governanceHideTimeout.current) {
+        window.clearTimeout(governanceHideTimeout.current);
+        governanceHideTimeout.current = null;
       }
     };
   }, []);
 
   const openServices = () => {
     if (hideTimeout.current) {
-      clearTimeout(hideTimeout.current);
+      window.clearTimeout(hideTimeout.current);
       hideTimeout.current = null;
     }
     setShowServicesMenu(true);
   };
 
   const closeServicesWithDelay = (delay = 300) => {
-    if (hideTimeout.current) clearTimeout(hideTimeout.current);
-    // @ts-ignore window.setTimeout typing
+    if (hideTimeout.current) window.clearTimeout(hideTimeout.current);
     hideTimeout.current = window.setTimeout(() => {
       setShowServicesMenu(false);
       hideTimeout.current = null;
     }, delay);
   };
+
+  const openGovernance = () => {
+    if (governanceHideTimeout.current) {
+      window.clearTimeout(governanceHideTimeout.current);
+      governanceHideTimeout.current = null;
+    }
+    setShowGovernanceMenu(true);
+  };
+
+  const closeGovernanceWithDelay = (delay = 300) => {
+    if (governanceHideTimeout.current) window.clearTimeout(governanceHideTimeout.current);
+    governanceHideTimeout.current = window.setTimeout(() => {
+      setShowGovernanceMenu(false);
+      governanceHideTimeout.current = null;
+    }, delay);
+  };
+
+  const governanceMenuItems = [
+    { href: "/governance#bylaws", label: "اللائحة الأساسية" },
+    { href: "/governance#policies", label: "السياسات" },
+    { href: "/governance#procedures", label: "الآليات والإجراءات" },
+    { href: "/governance#disclosure", label: "الإفصاح والبيانات التنظيمية" },
+    { href: "/governance#reports", label: "التقارير والبيانات المالية" },
+  ];
 
   return (
     <header
@@ -139,10 +167,38 @@ export function SiteHeader() {
               الفرص الوظيفية
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="/governance" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">
-              الحوكمة
-              <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
-            </Link>
+            <div
+              className="relative"
+              onMouseEnter={openGovernance}
+              onMouseLeave={() => closeGovernanceWithDelay(300)}
+            >
+              <Link
+                href="/governance"
+                className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group flex items-center gap-1"
+              >
+                الحوكمة
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showGovernanceMenu ? "rotate-180" : ""}`} />
+                <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>
+              </Link>
+
+              {showGovernanceMenu && (
+                <div
+                  className="absolute top-full right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border-2 border-gray-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200"
+                  onMouseEnter={openGovernance}
+                  onMouseLeave={() => closeGovernanceWithDelay(300)}
+                >
+                  {governanceMenuItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block px-4 py-3 text-gray-750 hover:bg-[#08704C]/5 hover:text-[#08704C] transition-colors font-semibold"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link href="/#contact" className="relative text-gray-750 hover:text-[#08704C] transition-colors font-semibold text-lg group">
               تواصل معنا
               <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-[#08704C] group-hover:w-full transition-all duration-300"></span>

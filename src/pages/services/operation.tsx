@@ -1,10 +1,7 @@
 
 import Head from "next/head";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, ArrowLeft, Check, Users, BookOpen, Heart } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { Check } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Image from "next/image";
 import SiteFooter from "@/components/SiteFooter";
@@ -13,27 +10,6 @@ export default function OperationPage() {
   const services = [
     "إدارة وتشغيل المساجد بالكامل",
    
-  ];
-
-  const operationAspects = [
-    {
-      title: "الإدارة اليومية",
-      description: "تشغيل المسجد وإدارته بشكل احترافي",
-      icon: Users,
-      features: ["تأمين الأئمة", "المؤذنون", "عمال النظافة", "الإشراف اليومي"]
-    },
-    {
-      title: "البرامج التعليمية",
-      description: "برامج تحفيظ وتعليم القرآن والعلوم الشرعية",
-      icon: BookOpen,
-      features: ["حلقات التحفيظ", "دروس العلم", "محاضرات", "دورات متخصصة"]
-    },
-    {
-      title: "خدمات المجتمع",
-      description: "خدمات اجتماعية ودعوية للمصلين",
-      icon: Heart,
-      features: ["الإرشاد الديني", "الاستشارات", "الفعاليات", "العلاقات المجتمعية"]
-    }
   ];
 
   return (

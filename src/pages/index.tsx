@@ -2,19 +2,16 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Wrench, Sparkles, ArrowRight, Phone, Mail, MapPin, ExternalLink, Users, Handshake, BookOpen, ArrowUp, ArrowLeft, CheckCircle, TrendingUp, ChevronDown } from "lucide-react";
-import MosqueConstructionLogo from "@/components/icons/MosqueConstructionLogo";
+import { Building2, Wrench, Sparkles, ExternalLink, Users, Handshake, BookOpen, ArrowUp, ArrowLeft, TrendingUp } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnersCarousel } from "@/components/PartnersCarousel";
 import { NewsSlider } from "@/components/NewsSlider";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { ClientOnly } from "@/components/ClientOnly";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Link from "next/link";
 import Image from "next/image";
 import SiteFooter from "@/components/SiteFooter";
-import { log } from "console";
 
 export default function HomePage() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -192,7 +189,7 @@ export default function HomePage() {
                             src="/maidelog.png"  
                             alt="جمعية يعمر للعناية بالمساجد | Yaamur Association for Mosque Care"
                             width={1000}
-                            height={360}
+                            height={600}
                             className="mx-auto h-auto w-[min(90vw,640px)] object-contain"
                             priority
                           />
@@ -273,7 +270,7 @@ export default function HomePage() {
                           </div>
                           <div>
                             <p className="text-2xl font-bold text-gray-900">512+</p>
-                            <p className="text-xs text-gray-600">عملية صيانة</p>
+                            <p className="text-xs text-gray-600">عدد المساجد المخدومة</p>
                           </div>
                         </div>
                       </div>
