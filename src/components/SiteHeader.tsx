@@ -8,8 +8,8 @@ export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showServicesMenu, setShowServicesMenu] = useState(false);
   const [showGovernanceMenu, setShowGovernanceMenu] = useState(false);
-  const hideTimeout = useRef<ReturnType<typeof window.setTimeout> | null>(null);
-  const governanceHideTimeout = useRef<ReturnType<typeof window.setTimeout> | null>(null);
+  const hideTimeout = useRef<number | null>(null);
+  const governanceHideTimeout = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
