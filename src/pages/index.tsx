@@ -28,6 +28,24 @@ export default function HomePage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const achievements = [
+    {
+      title: "حصول يعمر على شهادة الآيزو في إدارة الجودة ISO 9001:2015",
+      description: "شهادة الاعتماد في الجودة الإدارية ISO 9001:2015.",
+      image: "/achif/iso.png"
+    },
+    {
+      title: "نسبة الحوكمة لعام 2024: 99.40%",
+      description: "تحقيق معايير الالتزام والشفافية والسلامة المالية بدرجات كاملة تقريباً.",
+      image: "/achif/99.40.jpg"
+    },
+    {
+      title: "حصول يعمر على شهادة الامتثال من الهلال الأحمر",
+      description: "تحقيق معايير ومتطلبات السلامة الاسعافية للأماكن العامة",
+      image: "/achif/cre.png"
+    }
+  ];
+
   return (
     <>
       <Head>
@@ -380,6 +398,41 @@ export default function HomePage() {
                   </CardContent>
                 </Card>
               </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        <section id="achievements" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F4ED] relative overflow-hidden">
+          <div className="absolute inset-0 pattern-grid opacity-20"></div>
+          <div className="container mx-auto relative z-10">
+            <ScrollReveal>
+              <div className="text-center mb-14">
+              
+                <h2 className="text-4xl font-black text-gray-900 mb-3">أبرز  الإنجازات</h2>
+                
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
+              {achievements.map((item, idx) => (
+                <ScrollReveal key={item.title} delay={idx * 80}>
+                  <Card className="h-full flex flex-col border-2 border-transparent hover:border-[#08704C]/20 transition-all duration-300 shadow-lg overflow-hidden">
+                    <div className="relative w-full bg-gray-100 h-[26rem] sm:h-[28rem] md:h-[30rem]">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(min-width: 1280px) 320px, (min-width: 1024px) 280px, (min-width: 640px) 360px, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <CardContent className="p-5 space-y-2 text-right flex-1 flex flex-col">
+                      <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                    </CardContent>
+                  </Card>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
         </section>
