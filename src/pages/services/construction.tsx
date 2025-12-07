@@ -110,7 +110,7 @@ export default function ConstructionPage() {
       y = nextY;
     }
     return cmds.join(" ");
-  }, [constructionSteps.length, stepSpacing]);
+  }, [stepSpacing]);
 
   const nextTestimonial = () => setActiveTestimonial((prev) => (prev + 1) % testimonialSlides.length);
   const prevTestimonial = () =>

@@ -10,7 +10,6 @@ import { Progress } from "@/components/ui/progress";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import SiteFooter from "@/components/SiteFooter";
-import { totalSteps } from "@/data/constructionJourney";
 
 const stats = [
   { label: "المساجد المنجزة", value: "5+", color: "bg-[#08704C]" },
