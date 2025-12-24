@@ -227,7 +227,7 @@ export function SiteHeader() {
               size="lg"
             >
               <ExternalLink className="w-4 h-4 ml-2" />
-              المتجر الإلكتروني
+            منصة التبرع
             </Button>
           </a>
         </div>

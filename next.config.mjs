@@ -5,6 +5,17 @@ import { createRequire } from "module";
 function isElementTaggerAvailable() {
   try {
     const require = createRequire(import.meta.url);
+    // If the package exists, check its package.json for ESM-only type
+    const pkgPath = require.resolve("@softgenai/element-tagger/package.json");
+    const pkg = require(pkgPath);
+    if (pkg && pkg.type === "module") {
+      console.log(
+        "[Softgen] Element tagger is ESM-only (type: module). Skipping loader configuration."
+      );
+      return false;
+    }
+
+    // Fallback: ensure the package can be resolved
     require.resolve("@softgenai/element-tagger");
     return true;
   } catch {

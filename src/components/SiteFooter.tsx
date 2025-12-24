@@ -1,9 +1,20 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ClientOnly } from "@/components/ClientOnly";
-import { Phone, Mail, MapPin, ArrowLeft } from "lucide-react";
+import { type LucideIcon, Phone, Mail, MapPin, Twitter, Instagram, Linkedin, Music, Download } from "lucide-react";
 
 export default function SiteFooter() {
+  const socialLinks: Array<{ label: string; href: string; Icon: LucideIcon }> = [
+    { label: "منصة إكس", href: "https://twitter.com/YaamurOrg", Icon: Twitter },
+    { label: "إنستقرام", href: "https://instagram.com/YaamurOrg", Icon: Instagram },
+    {
+      label: "لينكدإن",
+      href: "https://www.linkedin.com/in/yaamurorg-%D8%AC%D9%85%D8%B9%D9%8A%D8%A9-%D9%8A%D8%B9%D9%85%D8%B1-%D9%84%D9%84%D8%B9%D9%86%D8%A7%D9%8A%D8%A9-%D8%A8%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%AC%D8%AF-0a9562365?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      Icon: Linkedin,
+    },
+    { label: "تيك توك", href: "https://www.tiktok.com/@yaamurorg", Icon: Music },
+  ];
+
   return (
     <footer id="contact" className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 pattern-grid opacity-5"></div>
@@ -22,19 +33,30 @@ export default function SiteFooter() {
             <p className="text-gray-400 leading-relaxed">
               نسعى لتحقيق التميز في خدمة بيوت الله من خلال البناء والصيانة والتشغيل المتقن
             </p>
+            <a 
+              href="/data/شهادة-التسجيل-الجمعية-1.pdf" 
+              download="شهادة-تسجيل-الجمعية.pdf"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00A186]/20 hover:bg-[#00A186] text-[#00A186] hover:text-white transition-colors font-semibold text-sm"
+            >
+              <Download className="w-4 h-4" />
+              شهادة التسجيل
+            </a>
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-bold text-lg mb-6">روابط سريعة</h4>
-            <nav className="flex flex-col gap-3">
-              {[
-                ["الرئيسية", "#home"],
-                ["برامجنا", "#services"],
-                ["الأخبار", "#news"],
-                ["من نحن", "#about"],
-              ].map(([label, href], idx) => (
-                <a key={idx} href={href as string} className="text-gray-400 hover:text-[#00A186] transition-colors flex items-center gap-2 group">
-                  <ArrowLeft className="w-4 h-4 group-hover:mr-1 transition-all" />
+            <h4 className="font-bold text-lg mb-6">حسابات الجمعية</h4>
+            <nav className="flex flex-col gap-4">
+              {socialLinks.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#00A186] transition-colors flex items-center gap-3 group"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-[#00A186]/20 flex items-center justify-center group-hover:bg-[#00A186] transition-colors">
+                    <Icon className="w-4 h-4" />
+                  </div>
                   {label}
                 </a>
               ))}

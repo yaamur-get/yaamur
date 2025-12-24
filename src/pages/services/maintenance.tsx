@@ -1,37 +1,12 @@
-
 import Head from "next/head";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Check, Clock, Shield } from "lucide-react";
+import { ArrowLeft, Check, Clock, Shield, FileSignature, MapPin, Users2, Hammer, PlugZap, BadgeCheck, HandHeart, DraftingCompass, Sparkles, Star } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Image from "next/image";
 import SiteFooter from "@/components/SiteFooter";
 
 export default function MaintenancePage() {
-  const services = [
-    "صيانة دورية شاملة",
-    "ترميم المباني القديمة",
-    "تجديد الأرضيات والإضاءة",
-    "صيانة أنظمة التكييف",
-    "تطوير أنظمة الصوت",
-    "إصلاح الأعطال الطارئة"
-  ];
-
-  const maintenanceTypes = [
-    {
-      title: "الصيانة ",
-      description: "فحص وصيانة",
-      icon: Clock,
-      features: ["فحص المبنى", "صيانة المرافق",  "تقرير مفصل"]
-    },
-    {
-      title: "الصيانة الطارئة",
-      description: "استجابة سريعة على مدار الساعة",
-      icon: Shield,
-      features: ["متوفرة 24/7", "فريق مختص", "معدات حديثة", "حل فوري"]
-    }
-  ];
 
   return (
     <>
@@ -48,91 +23,182 @@ export default function MaintenancePage() {
 
        
 
-        <section className="pt-32 pb-12 px-4 sm:px-6 lg:px-8 relative">
-          <div className="container mx-auto relative z-10">
-            <ScrollReveal>
-              <div className="text-center max-w-4xl mx-auto mb-12">
-                
-                <h1 className="text-5xl sm:text-6xl font-black text-gray-900 mb-6">
-                  الصيانة والترميم
-                </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  نحافظ على جمال وسلامة المساجد من خلال خدمات الصيانة الدورية والترميم الشامل بأيدي خبراء متخصصين
-                </p>
-              </div>
-            </ScrollReveal>
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#08704C]/10 via-white to-[#00A186]/10"></div>
+          <div className="container relative z-10 pt-24 pb-16">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <ScrollReveal>
+                <div className="space-y-6 text-right">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white shadow-md rounded-full">
+                    <Sparkles className="w-4 h-4 text-[#08704C]" />
+                    <span className="text-sm font-semibold text-[#08704C]">اطلب خدمـة صيانة</span>
+                  </div>
+                  <h1 className="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
+                    الصيانة والترميم بثقة ووضوح مع يعمر
+                  </h1>
+                  <p className="text-lg text-gray-700 leading-relaxed max-w-2xl ml-auto">
+                    نقدم خدمات صيانة متكاملة: فحص، تنفيذ، متابعة وتسليم بجودة ومهنية عالية.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-end">
+                    <a href="https://wa.me/966920011240">
+                      <Button
+                        size="lg"
+                        className="bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-xl"
+                      >
+                        احجز موعد
+                        <ArrowLeft className="w-4 h-4 mr-2" />
+                      </Button>
+                    </a>
+                    <a href="#maintenance-journey">
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="border-2 border-[#08704C] text-[#08704C] hover:bg-[#08704C] hover:text-white"
+                      >
+                        عرض المسار
+                      </Button>
+                    </a>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-4 max-w-xl ml-auto pt-4">
+                    <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm flex flex-col items-end text-right">
+                      <div className={`w-10 h-1.5 rounded-full bg-[#7B4F28] mb-2`}></div>
+                      <div className="text-2xl font-extrabold text-gray-900">512+</div>
+                      <div className="text-sm text-gray-600">عمليات صيانة</div>
+                    </div>
+                    <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm flex flex-col items-end text-right">
+                      <div className={`w-10 h-1.5 rounded-full bg-[#00A186] mb-2`}></div>
+                      <div className="text-2xl font-extrabold text-gray-900">24/7</div>
+                      <div className="text-sm text-gray-600">دعم متواصل</div>
+                    </div>
+                    <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm flex flex-col items-end text-right">
+                      <div className={`w-10 h-1.5 rounded-full bg-[#7B4F28] mb-2`}></div>
+                      <div className="text-2xl font-extrabold text-gray-900">100%</div>
+                      <div className="text-sm text-gray-600">ضمان الجودة</div>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={150}>
+                <div className="relative aspect-[4/4] rounded-3xl overflow-hidden shadow-2xl bg-white">
+                  <Image src="/iamge/yaamur_mint.jpg" alt="خدمات الصيانة" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#08704C]/40 to-transparent mix-blend-multiply"></div>
+                  <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur rounded-2xl p-4 shadow-lg text-right">
+                    <p className="text-sm text-gray-600 mb-1">متابعة ميدانية</p>
+                    <p className="text-lg font-bold text-gray-900">من الفحص حتى التسليم</p>
+                    <div className="flex items-center gap-2 text-[#08704C] text-sm mt-2">
+                      <Star className="w-4 h-4 fill-[#08704C] text-[#08704C]" />
+                      <span>جودة ومهنية في التنفيذ</span>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
 
-        <section className="pb-16 px-4 sm:px-6 lg:px-8 relative">
-          <div className="container mx-auto relative z-10">
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <ScrollReveal>
-                <div className="space-y-6">
-                  <h2 className="text-4xl font-black text-gray-900">خدمات الصيانة المتكاملة</h2>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    نوفر خدمات صيانة شاملة تضمن استمرارية المساجد في تقديم خدماتها للمصلين بأفضل صورة. فريقنا المتخصص يعمل على مدار الساعة لضمان سلامة وجمال بيوت الله.
-                  </p>
-                  <ul className="space-y-4">
-                    {services.map((service, idx) => (
-                      <li key={idx} className="flex items-center gap-3">
-                        <div className="w-6 h-6 bg-[#7B4F28] rounded-full flex items-center justify-center flex-shrink-0">
-                          <Check className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-gray-700 text-lg">{service}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </ScrollReveal>
+        
 
-              <ScrollReveal delay={200}>
-                <div className="aspect-[4/4] rounded-3xl relative overflow-hidden">
-                  {/* background image */}
-                  <div className="absolute inset-0">
-                    <Image src="/iamge/yaamur_mint.jpg" alt="مشروع بناء - جمعية يعمر" fill className="object-cover object-center" />
-                  </div>
-
-                  {/* subtle overlay and pattern */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#08704C]/20 to-[#00A186]/20 mix-blend-multiply"></div>
-                  <div className="absolute inset-0 pattern-diagonal opacity-40"></div>
-
-                  {/* optional centered icon removed to let image show */}
-                </div>
-              </ScrollReveal>
-            </div>
-
+        {/* Maintenance timeline (adapted from construction page) */}
+        <section id="maintenance-journey" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+          <div className="container">
             <ScrollReveal>
-              <h2 className="text-3xl font-black text-gray-900 mb-8 text-center">أنواع خدمات الصيانة</h2>
+              <div className="text-center max-w-4xl mx-auto mb-8">
+                <p className="text-[#7B4F28] font-semibold mb-3">خطة الصيانة – خطوات العمل</p>
+                <h2 className="text-4xl font-black text-gray-900 mb-4">مسار الصيانة خطوة بخطوة</h2>
+                <p className="text-lg text-gray-700">
+                  توضح هذه الخريطة خطوات تنفيذ الصيانة من طلب الخدمة حتى التسليم والمتابعة النهائية.
+                </p>
+              </div>
             </ScrollReveal>
 
-            <div className="grid md:grid-cols-2 gap-6 ju">
-              {maintenanceTypes.map((type, idx) => (
-                <ScrollReveal key={idx} delay={idx * 100}>
-                  <Card className="group hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-[#7B4F28]/30 h-full bg-white">
-                    <CardContent className="p-8 space-y-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-[#7B4F28] to-[#08704C] rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-xl">
-                        <type.icon className="w-8 h-8 text-white" />
+            <ScrollReveal delay={120}>
+              {/* timeline variables */}
+              {/* spacing and svg tuning */}
+              {/* These values can be adjusted to fine-tune desktop appearance */}
+              {(() => {
+                const stepSpacing = 120;
+                const extraBuffer = 520; // increased buffer to prevent overlap with footer
+                const timelineHeight = stepSpacing * 11 + extraBuffer;
+                const svgWidth = 320;
+                const svgCenter = svgWidth / 2;
+                const curveOffset = 90;
+
+                const steps = [
+                  { title: "طلب الصيانة (مجدولة)", desc: "تقديم طلب وتحديد الموعد.", icon: FileSignature },
+                  { title: "الفحص والمعاينة", desc: "فحص الموقع وتحديد نطاق العمل.", icon: Clock },
+                  { title: "إعداد التقرير الفني", desc: "مخرجات فنية وجدول أعمال.", icon: DraftingCompass },
+                  { title: "طلب تسعيرات من المقاولين", desc: "جمع العروض واختيار الأنسب.", icon: Users2 },
+                  { title: "اعتماد المقاول وتوقيع العقد", desc: "إجراءات التعاقد والاتفاق.", icon: FileSignature },
+                  { title: "إبلاغ قسم التسويق بمواعيد الأعمال", desc: "تنسيق إعلام المجتمع.", icon: MapPin },
+                  { title: "البدء بالأعمال", desc: "المرحلة التنفيذية بمراقبة الجودة.", icon: Hammer },
+                  { title: "متابعة الأعمال", desc: "متابعة تقدم العمل وإدارة الموقع.", icon: HandHeart },
+                  { title: "استلام الأعمال من المقاول", desc: "مراجعة وتسليم الأعمال.", icon: BadgeCheck },
+                  { title: "إبلاغ قسم خدمة العملاء للتقييم", desc: "جمع ملاحظات المستفيدين.", icon: PlugZap },
+                  { title: "إعداد تقرير فني نهائي", desc: "توثيق وتسليم التقرير.", icon: Check }
+                ];
+
+                return (
+                  <div>
+                    <div className="hidden md:block">
+                      <div className="relative max-w-4xl mx-auto z-30" style={{ height: timelineHeight }}>
+                        {/* background curve removed per request */}
+
+                        <div className="relative flex flex-col gap-8 pb-10">
+                          {steps.map((s, i) => {
+                            const Icon = s.icon as any;
+                            const top = 30 + i * stepSpacing;
+                            const side = i % 2 === 0 ? "right-1/2 translate-x-6 md:translate-x-20" : "left-1/2 -translate-x-6 md:-translate-x-20";
+                            return (
+                              <div key={i} className="relative">
+                                <div className={`absolute ${side} z-10`} style={{ top }}>
+                                  <div className="flex items-center gap-6">
+                                    <div className="w-14 h-14 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center mb-2">
+                                      <Icon className="w-6 h-6 text-[#7B4F28]" />
+                                    </div>
+                                    <div className="bg-white rounded-2xl p-6 shadow-md w-[380px] text-right">
+                                      <div className="text-base font-semibold text-gray-900">{s.title}</div>
+                                      <div className="text-sm text-gray-600 mt-2">{s.desc}</div>
+                                      <div className="mt-3 text-sm text-gray-500">المرحلة {i + 1}</div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className="absolute left-1/2 -translate-x-1/2 z-0" style={{ top }}>
+                                  <div className="w-8 h-8 rounded-full bg-white border-4 border-[#F8F4ED] shadow-sm" />
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-[#7B4F28] transition-colors ">
-                          {type.title}
-                        </h3>
-                        <p className="text-gray-600">{type.description}</p>
-                      </div>
-                      <ul className="space-y-2">
-                        {type.features.map((feature, fIdx) => (
-                          <li key={fIdx} className="flex items-center gap-2 text-sm text-gray-600">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#7B4F28]"></div>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </ScrollReveal>
-              ))}
-            </div>
+                    </div>
+
+                    {/* Mobile stacked timeline */}
+                    <div className="block md:hidden space-y-6">
+                      {steps.map((s, i) => {
+                        const Icon = s.icon as any;
+                        return (
+                          <div key={i} className="flex flex-col items-center text-right px-4">
+                            <div className="-mt-2">
+                              <div className="w-12 h-12 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center">
+                                <Icon className="w-6 h-6 text-[#7B4F28]" />
+                              </div>
+                            </div>
+                            <div className="bg-white rounded-2xl p-4 shadow-md w-full max-w-[92vw] mt-3">
+                              <div className="text-base font-semibold text-gray-900">{s.title}</div>
+                              <div className="text-sm text-gray-600 mt-2">{s.desc}</div>
+                              <div className="mt-3 text-sm text-gray-500">المرحلة {i + 1}</div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })()}
+            </ScrollReveal>
           </div>
         </section>
 

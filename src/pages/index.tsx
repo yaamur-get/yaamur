@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Wrench, Sparkles, ExternalLink, Users, Handshake, BookOpen, ArrowUp, ArrowLeft, TrendingUp } from "lucide-react";
+import { Building2, Wrench, Sparkles, ExternalLink, Users, Handshake, BookOpen, ArrowUp, ArrowLeft, TrendingUp, FileText } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnersCarousel } from "@/components/PartnersCarousel";
 import { NewsSlider } from "@/components/NewsSlider";
+import AchievementsSlider from "@/components/AchievementsSlider";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import Link from "next/link";
@@ -204,7 +205,7 @@ export default function HomePage() {
                                         {/* تحت الآية مباشرة */}
                         <div className="flex w-full justify-center">
                           <Image
-                            src="/maidelog.png"  
+                            src="/maidelog.png"
                             alt="جمعية يعمر للعناية بالمساجد | Yaamur Association for Mosque Care"
                             width={1000}
                             height={600}
@@ -213,38 +214,61 @@ export default function HomePage() {
                           />
                         </div>
 
+                        {/* Mobile-only full-width hero image placed directly under the logo */}
+                        <div className="block md:hidden mt-4">
+                          <div className="rounded-2xl overflow-hidden shadow-2xl">
+                            <Image
+                              src="/thankyou.png"
+                              alt="مشاريع يعمر"
+                              width={1200}
+                              height={700}
+                              className="w-full h-auto object-cover"
+                              priority
+                            />
+                          </div>
+                        </div>
+
                 <ScrollReveal delay={200}>
                   <p className="text-xl text-gray-700 leading-relaxed max-w-xl">
                               جمعية أهلية 
                        تُعنى بتقديم خدمات العناية المتكاملة بالمساجد والجوامع من بناء وصيانة وتشغيل, صدر ترخيصها رقم 5161 بتاريخ 1444/08/17
-              
-    
-
                   </p>
                 </ScrollReveal>
                     
                 <ScrollReveal delay={300}>
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full md:w-fit">
                     <a href="https://store.yaamur.org.sa/">
                     <Button 
                       size="lg" 
-                      className="bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-2xl text-lg px-10 py-7 hover:scale-105 transition-all duration-300"
+                      className="bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-2xl text-lg px-10 py-7 hover:scale-105 transition-all duration-300 w-full"
                     >
                       <ExternalLink className="w-5 h-5 ml-2" />
                       تبرع الآن
                     </Button>
                     </a>
 
-                    <Link href="/about">
+                    <Link href="/about" className="w-full">
                     <Button 
                       size="lg" 
                       variant="outline" 
-                      className="border-2 border-[#08704C] text-[#08704C] hover:bg-[#08704C] hover:text-white text-lg px-10 py-7 transition-all duration-300"
+                      className="border-2 border-[#08704C] text-[#08704C] hover:bg-[#08704C] hover:text-white text-lg px-10 py-7 transition-all duration-300 w-full"
                     >
                       <BookOpen className="w-5 h-5 ml-2" />
                       رؤيتنا ورسالتنا
                     </Button>
+                    
                     </Link>
+
+                    <a href="/data/شهادة-التسجيل-الجمعية-1.pdf" target="_blank" rel="noopener noreferrer" className="md:col-span-1">
+                    <Button 
+                      size="lg" 
+                      variant="outline" 
+                      className="border-2 border-[#7B4F28] text-[#7B4F28] hover:bg-[#7B4F28] hover:text-white text-lg px-10 py-7 transition-all duration-300 w-full"
+                    >
+                      <FileText className="w-5 h-5 ml-2" />
+                      شهادة التسجيل
+                    </Button>
+                    </a>
                     
                   </div>
                 </ScrollReveal>
@@ -269,12 +293,12 @@ export default function HomePage() {
               </div>
 
               <ScrollReveal delay={200}>
-                <div className="relative">
+                <div className="relative hidden md:block">
                   <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl card-elevated">
                     <div
                       className="aspect-[4/4] bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 flex items-center justify-center relative"
                       style={{
-                        backgroundImage: "url('/Picture24.jpg')",
+                        backgroundImage: "url('/thankyou.png')",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}
@@ -413,29 +437,15 @@ export default function HomePage() {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-6">
-              {achievements.map((item, idx) => (
-                <ScrollReveal key={item.title} delay={idx * 80}>
-                  <Card className="h-full flex flex-col border-2 border-transparent hover:border-[#08704C]/20 transition-all duration-300 shadow-lg overflow-hidden">
-                    <div className="relative w-full bg-gray-100 h-[26rem] sm:h-[28rem] md:h-[30rem]">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="(min-width: 1280px) 320px, (min-width: 1024px) 280px, (min-width: 640px) 360px, 100vw"
-                        className="object-cover"
-                      />
-                    </div>
-                    <CardContent className="p-5 space-y-2 text-right flex-1 flex flex-col">
-                      <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
-                    </CardContent>
-                  </Card>
-                </ScrollReveal>
-              ))}
+            <div className="max-w-6xl lg:max-w-[1700px] mx-auto px-4 sm:px-6">
+              <ScrollReveal>
+                <AchievementsSlider items={achievements} />
+              </ScrollReveal>
             </div>
           </div>
         </section>
+        
+      
 
         <section id="news" className="py-24 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[#F8F4ED] to-white relative overflow-hidden">
           
