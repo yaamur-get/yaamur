@@ -71,7 +71,7 @@ export default function ConstructionPage() {
   );
 
   const heroStats = [
-    { label: "مساجد مكتملة", value: "5+", accent: "bg-[#08704C]" },
+    { label: "مساجد مكتملة", value: "4+", accent: "bg-[#08704C]" },
     { label: "عدد المستفيدين", value: "1,200+", accent: "bg-[#00A186]" },
     { label: "التسليم في موعده", value: "100%", accent: "bg-[#7B4F28]" }
   ];
@@ -84,7 +84,7 @@ export default function ConstructionPage() {
   return (
     <>
       <Head>
-        <title>رحلة البناء | يعمر لبناء المساجد</title>
+        <title>رحلة بناء | يعمر </title>
         <meta
           name="description"
           content="رحلة بناء مسجدك مع يعمر في 9 خطوات واضحة. خريطة تفاعلية، مسار عمودي متكامل، ونهاية تحويل قوية للتبرع والمشاركة."
@@ -106,35 +106,16 @@ export default function ConstructionPage() {
                 <div className="space-y-6 text-right">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-white shadow-md rounded-full">
                     <Sparkles className="w-4 h-4 text-[#08704C]" />
-                    <span className="text-sm font-semibold text-[#08704C]">ابدأ رحلة البناء من 9 خطوات</span>
+                    <span className="text-sm font-semibold text-[#08704C]"> رحلة بناء </span>
                   </div>
                   <h1 className="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
-                    رحلة بناء مسجدك بثقة ووضوح مع يعمر
+                    رحلة بناء وفق أعلى المعايير وبأقصى درجات الإتقان.
                   </h1>
                   <p className="text-lg text-gray-700 leading-relaxed max-w-2xl ml-auto">
-                    كل خطوة موضحة ومتابعة ميدانياً. استعرض الخريطة التفاعلية، ثم انتقل للمسار العمودي حيث تظهر المراحل التسع
-                    كاملة أثناء التمرير للأسفل.
+                    حلة البناء بكل تفاصيلها، موثّقة بمعايير عالية وإتقان في التنفيذ.
+كل مرحلة تُعرض بشفافية، لتؤكد التزامنا بالجودة، والدقة، والتطبيق الصحيح للمواصفات الهندسية في كل خطوة.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-end">
-                    <Link href="#step-stream">
-                      <Button
-                        size="lg"
-                        className="bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-xl"
-                      >
-                        ابدأ الرحلة
-                        <ArrowLeft className="w-4 h-4 mr-2" />
-                      </Button>
-                    </Link>
-                    <Link href="#journey">
-                      <Button
-                        size="lg"
-                        variant="outline"
-                        className="border-2 border-[#08704C] text-[#08704C] hover:bg-[#08704C] hover:text-white"
-                      >
-                        عرض الخريطة
-                      </Button>
-                    </Link>
-                  </div>
+            
                   <div className="grid grid-cols-3 gap-4 max-w-xl ml-auto pt-4">
                     {heroStats.map((stat) => (
                       <div
@@ -154,14 +135,7 @@ export default function ConstructionPage() {
                 <div className="relative aspect-[4/4] rounded-3xl overflow-hidden shadow-2xl bg-white">
                   <Image src="/iamge/yaamur_bulding.jpg" alt="رحلة بناء مسجد" fill className="object-cover" priority />
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#08704C]/40 to-transparent mix-blend-multiply"></div>
-                  <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur rounded-2xl p-4 shadow-lg text-right">
-                    <p className="text-sm text-gray-600 mb-1">إشراف موثوق</p>
-                    <p className="text-lg font-bold text-gray-900">من الفكرة حتى التسليم</p>
-                    <div className="flex items-center gap-2 text-[#08704C] text-sm mt-2">
-                      <Star className="w-4 h-4 fill-[#08704C] text-[#08704C]" />
-                      <span>تحريك خفيف وإحساس بالتقدم</span>
-                    </div>
-                  </div>
+                 
                 </div>
               </ScrollReveal>
             </div>
@@ -173,11 +147,9 @@ export default function ConstructionPage() {
           <div className="container">
             <ScrollReveal>
               <div className="text-center max-w-4xl mx-auto mb-8">
-                <p className="text-[#08704C] font-semibold mb-3">مرحلة البناء – رحلة المسجد</p>
-                <h2 className="text-4xl font-black text-gray-900 mb-4">مسار عمودي مموج يوضّح المراحل خطوة بخطوة</h2>
-                <p className="text-lg text-gray-700">
-                  المسار يظهر رأسياً من الأعلى للأسفل، مع خط عمودي مموج ونقاط مرتبة متتابعة (1 → 9). تظهر بطاقة لكل مرحلة على أحد جانبي الخط بتناوب طفيف لقراءة مريحة.
-                </p>
+             
+                <h2 className="text-4xl font-black text-gray-900 mb-4">رحلة البناء</h2>
+                
               </div>
             </ScrollReveal>
 
@@ -267,7 +239,7 @@ export default function ConstructionPage() {
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <ScrollReveal>
                 <div>
-                  <div className="text-4xl font-black mb-2">{constructionSteps.length}+</div>
+                  <div className="text-4xl font-black mb-2">4+</div>
                   <p className="text-lg">مشاريع بناء</p>
                 </div>
               </ScrollReveal>
@@ -291,18 +263,10 @@ export default function ConstructionPage() {
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="container mx-auto text-center">
             <ScrollReveal>
-              <h2 className="text-4xl font-black text-gray-900 mb-6">هل ترغب في بناء مسجدك معنا؟</h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                نقدم خدمة مشروع متكامل من التخطيط حتى التسليم مع متابعة ميدانية ودعم فني.
-              </p>
+              <h2 className="text-4xl font-black text-gray-900 mb-6">هل ترغب في بناء مسجد؟</h2>
+              
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/services/construction/final">
-                <Button size="lg" className="bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-xl text-lg px-10">
-                  ابدأ مشروعك
-                  <ArrowLeft className="w-5 h-5 mr-2" />
-                </Button>
-                </Link>
-
+                
                 <a href="https://wa.me/966920011240">
                   <Button size="lg" variant="outline" className="border-2 border-[#08704C] text-[#08704C] hover:bg-[#08704C] hover:text-white text-lg px-10">
                     تواصل عبر واتساب

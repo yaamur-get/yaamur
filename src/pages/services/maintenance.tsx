@@ -11,7 +11,7 @@ export default function MaintenancePage() {
   return (
     <>
       <Head>
-        <title>الصيانة والترميم | جمعية يعمر لعناية المساجد</title>
+        <title>الصيانة | جمعية يعمر </title>
         <meta name="description" content="خدمات الصيانة الدورية والترميم الشامل للمساجد بأعلى معايير الجودة" />
       </Head>
 
@@ -31,34 +31,15 @@ export default function MaintenancePage() {
                 <div className="space-y-6 text-right">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-white shadow-md rounded-full">
                     <Sparkles className="w-4 h-4 text-[#08704C]" />
-                    <span className="text-sm font-semibold text-[#08704C]">اطلب خدمـة صيانة</span>
+                    <span className="text-sm font-semibold text-[#08704C]">اطلب الصيانة</span>
                   </div>
                   <h1 className="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
-                    الصيانة والترميم بثقة ووضوح مع يعمر
+                    الصيانة  وفق أعلى المعايير وبجودة مهنية معتمدة.
                   </h1>
                   <p className="text-lg text-gray-700 leading-relaxed max-w-2xl ml-auto">
-                    نقدم خدمات صيانة متكاملة: فحص، تنفيذ، متابعة وتسليم بجودة ومهنية عالية.
+                    نلتزم بتطبيق المواصفات الفنية بدقة، وتنفيذ الأعمال باحترافية عالية، مع متابعة مستمرة تضمن الجودة، والموثوقية، والالتزام في كل مرحلة من مراحل الصيانة.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-end">
-                    <a href="https://wa.me/966920011240">
-                      <Button
-                        size="lg"
-                        className="bg-gradient-to-r from-[#08704C] to-[#00A186] hover:from-[#00A186] hover:to-[#08704C] text-white shadow-xl"
-                      >
-                        احجز موعد
-                        <ArrowLeft className="w-4 h-4 mr-2" />
-                      </Button>
-                    </a>
-                    <a href="#maintenance-journey">
-                      <Button
-                        size="lg"
-                        variant="outline"
-                        className="border-2 border-[#08704C] text-[#08704C] hover:bg-[#08704C] hover:text-white"
-                      >
-                        عرض المسار
-                      </Button>
-                    </a>
-                  </div>
+                 
 
                   <div className="grid grid-cols-3 gap-4 max-w-xl ml-auto pt-4">
                     <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm flex flex-col items-end text-right">
@@ -84,14 +65,7 @@ export default function MaintenancePage() {
                 <div className="relative aspect-[4/4] rounded-3xl overflow-hidden shadow-2xl bg-white">
                   <Image src="/iamge/yaamur_mint.jpg" alt="خدمات الصيانة" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#08704C]/40 to-transparent mix-blend-multiply"></div>
-                  <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur rounded-2xl p-4 shadow-lg text-right">
-                    <p className="text-sm text-gray-600 mb-1">متابعة ميدانية</p>
-                    <p className="text-lg font-bold text-gray-900">من الفحص حتى التسليم</p>
-                    <div className="flex items-center gap-2 text-[#08704C] text-sm mt-2">
-                      <Star className="w-4 h-4 fill-[#08704C] text-[#08704C]" />
-                      <span>جودة ومهنية في التنفيذ</span>
-                    </div>
-                  </div>
+              
                 </div>
               </ScrollReveal>
             </div>
@@ -105,11 +79,9 @@ export default function MaintenancePage() {
           <div className="container">
             <ScrollReveal>
               <div className="text-center max-w-4xl mx-auto mb-8">
-                <p className="text-[#7B4F28] font-semibold mb-3">خطة الصيانة – خطوات العمل</p>
-                <h2 className="text-4xl font-black text-gray-900 mb-4">مسار الصيانة خطوة بخطوة</h2>
-                <p className="text-lg text-gray-700">
-                  توضح هذه الخريطة خطوات تنفيذ الصيانة من طلب الخدمة حتى التسليم والمتابعة النهائية.
-                </p>
+               
+                <h2 className="text-4xl font-black text-gray-900 mb-4">مسار الصيانة</h2>
+                
               </div>
             </ScrollReveal>
 

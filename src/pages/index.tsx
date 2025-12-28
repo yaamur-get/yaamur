@@ -218,7 +218,7 @@ export default function HomePage() {
                         <div className="block md:hidden mt-4">
                           <div className="rounded-2xl overflow-hidden shadow-2xl">
                             <Image
-                              src="/thankyou.png"
+                              src="/Picture24.jpg"
                               alt="مشاريع يعمر"
                               width={1200}
                               height={700}
@@ -298,7 +298,7 @@ export default function HomePage() {
                     <div
                       className="aspect-[4/4] bg-gradient-to-br from-[#08704C]/20 via-[#00A186]/20 to-[#7B4F28]/20 flex items-center justify-center relative"
                       style={{
-                        backgroundImage: "url('/thankyou.png')",
+                        backgroundImage: "url('/Picture24.jpg')",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}
