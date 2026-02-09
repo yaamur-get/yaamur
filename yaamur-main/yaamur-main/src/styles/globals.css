@@ -1,0 +1,345 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font Loading - إذا كان لديك ملفات خطوط خاصة */
+/* Uncomment and modify if you want to use custom font files from public/fonts/ */
+/*
+@font-face {
+  font-family: 'CustomArabic';
+  src: url('/fonts/your-font-name.woff2') format('woff2'),
+       url('/fonts/your-font-name.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CustomArabic';
+  src: url('/fonts/your-font-name-bold.woff2') format('woff2'),
+       url('/fonts/your-font-name-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+@font-face {
+  font-family: 'DGShamael';
+  src: url('/font/DGShamael-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Ya'mur Brand Colors */
+    --brand-deep-green: #205939;
+    --brand-warm-brown: #8FA591;
+    --brand-teal: #00A186;
+    --brand-light-blue: #C3CFF1;
+    --brand-cream: #F8F4ED;
+    
+    /* Base theme colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: var(--brand-cream);
+    /* Apply custom font - يمكنك تغيير font-arabic إلى CustomArabic إذا استخدمت ملفات خاصة */
+    font-family: 'DGShamael', 'Cairo', 'Tajawal', system-ui, sans-serif;
+  }
+  
+  /* RTL optimizations */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+  
+  /* Improved mobile typography */
+  @media (max-width: 640px) {
+    h1 {
+      @apply text-3xl;
+    }
+    
+    h2 {
+      @apply text-2xl;
+    }
+    
+    h3 {
+      @apply text-xl;
+    }
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-4 md:px-6 lg:px-8 max-w-7xl w-full;
+  }
+  
+  /* Brand color utilities */
+  .bg-brand-green {
+    background-color: var(--brand-deep-green);
+  }
+  
+  .bg-brand-brown {
+    background-color: var(--brand-warm-brown);
+  }
+  
+  .bg-brand-teal {
+    background-color: var(--brand-teal);
+  }
+  
+  .bg-brand-blue {
+    background-color: var(--brand-light-blue);
+  }
+  
+  .bg-brand-cream {
+    background-color: var(--brand-cream);
+  }
+  
+  .text-brand-green {
+    color: var(--brand-deep-green);
+  }
+  
+  .text-brand-brown {
+    color: var(--brand-warm-brown);
+  }
+  
+  .text-brand-teal {
+    color: var(--brand-teal);
+  }
+  
+  .border-brand-green {
+    border-color: var(--brand-deep-green);
+  }
+  
+  .border-brand-brown {
+    border-color: var(--brand-warm-brown);
+  }
+  
+  .border-brand-teal {
+    border-color: var(--brand-teal);
+  }
+  
+  /* Islamic Geometric Pattern Backgrounds */
+  .pattern-dots {
+    background-image: radial-gradient(circle, rgba(8, 112, 76, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  .pattern-grid {
+    background-image: 
+      linear-gradient(rgba(8, 112, 76, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(8, 112, 76, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  .pattern-diagonal {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(8, 112, 76, 0.03) 20px,
+      rgba(8, 112, 76, 0.03) 40px
+    );
+  }
+  
+  /* .pattern-stars removed as per request to delete star-shaped background */
+  
+  /* Gradient overlays */
+  .gradient-overlay {
+    position: relative;
+  }
+  
+  .gradient-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(8, 112, 76, 0.03) 0%, rgba(123, 79, 40, 0.03) 100%);
+    pointer-events: none;
+  }
+  
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Pulse glow animation */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(8, 112, 76, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(8, 112, 76, 0.5);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  .baner{
+
+    background-size: cover;
+    background-position: center;
+  }
+    
+  
+  /* Glass morphism effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Elevated card effect */
+  .card-elevated {
+    box-shadow: 
+      0 4px 6px -1px rgba(8, 112, 76, 0.1),
+      0 2px 4px -1px rgba(8, 112, 76, 0.06);
+    transition: all 0.3s ease;
+  }
+  
+  .card-elevated:hover {
+    box-shadow: 
+      0 20px 25px -5px rgba(8, 112, 76, 0.15),
+      0 10px 10px -5px rgba(8, 112, 76, 0.1);
+    transform: translateY(-4px);
+  }
+  
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--brand-deep-green) 0%, var(--brand-teal) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Font utility classes - استخدم هذه الكلاسات لتطبيق خطوط مختلفة */
+  .font-arabic {
+    font-family: 'DGShamael', 'Cairo', 'Tajawal', sans-serif;
+  }
+  
+  .font-display {
+    font-family: 'DGShamael', 'Cairo', sans-serif;
+    font-weight: 700;
+  }
+  
+  /* If using custom fonts, uncomment below: */
+  /*
+  .font-custom {
+    font-family: 'CustomArabic', 'Cairo', sans-serif;
+  }
+  */
+}
+
+@layer utilities {
+  /* Animation for ScrollReveal */
+  .animate-reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  /* WhatsApp Button Specific Animations */
+  @keyframes whatsapp-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+  
+  /* Enhanced shadow for WhatsApp button */
+  .shadow-3xl {
+    box-shadow: 0 25px 50px -12px rgba(37, 211, 102, 0.5);
+  }
+  
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--brand-cream);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--brand-deep-green);
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-teal);
+  }
+}
