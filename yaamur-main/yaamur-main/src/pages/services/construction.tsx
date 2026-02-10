@@ -78,12 +78,6 @@ export default function ConstructionPage() {
     []
   );
 
-  const heroStats = [
-    { label: "مساجد مكتملة", value: "4+", accent: "bg-[#08704C]" },
-    { label: "عدد المستفيدين", value: "1,200+", accent: "bg-[#00A186]" },
-    { label: "التسليم في موعده", value: "100%", accent: "bg-[#7B4F28]" }
-  ];
-
   const beforeAfter = {
     before: { label: "قبل", image: "/iamge/yaamur_mint.jpg" },
     after: { label: "بعد", image: "/iamge/yaamur_bulding.jpg" }
@@ -249,45 +243,18 @@ export default function ConstructionPage() {
         {/* Hero */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#08704C]/10 via-white to-[#00A186]/10"></div>
-          <div className="container relative z-10 pt-24 pb-16">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <ScrollReveal>
-                <div className="space-y-6 text-right">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white shadow-md rounded-full">
-                    <Sparkles className="w-4 h-4 text-[#08704C]" />
-                    <span className="text-sm font-semibold text-[#08704C]"> رحلة بناء </span>
-                  </div>
-                  <h1 className="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
-                    رحلة بناء وفق أعلى المعايير وبأقصى درجات الإتقان.
-                  </h1>
-                  <p className="text-lg text-gray-700 leading-relaxed max-w-2xl ml-auto">
-                    حلة البناء بكل تفاصيلها، موثّقة بمعايير عالية وإتقان في التنفيذ.
-كل مرحلة تُعرض بشفافية، لتؤكد التزامنا بالجودة، والدقة، والتطبيق الصحيح للمواصفات الهندسية في كل خطوة.
-                  </p>
-            
-                  <div className="grid grid-cols-3 gap-4 max-w-xl ml-auto pt-4">
-                    {heroStats.map((stat) => (
-                      <div
-                        key={stat.label}
-                        className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm flex flex-col items-end text-right"
-                      >
-                        <div className={`w-10 h-1.5 rounded-full ${stat.accent} mb-2`}></div>
-                        <div className="text-2xl font-extrabold text-gray-900">{stat.value}</div>
-                        <div className="text-sm text-gray-600">{stat.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </ScrollReveal>
+          <div className="container relative z-10 pt-28 pb-24">
+            <ScrollReveal>
+              <div className="flex flex-col items-center justify-center text-center space-y-6">
+                
 
-              <ScrollReveal delay={150}>
-                <div className="relative aspect-[4/4] rounded-3xl overflow-hidden shadow-2xl bg-white">
-                  <Image src="/iamge/yaamur_bulding.jpg" alt="رحلة بناء مسجد" fill className="object-cover" priority />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#08704C]/40 to-transparent mix-blend-multiply"></div>
-                 
-                </div>
-              </ScrollReveal>
-            </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 leading-relaxed max-w-3xl">
+                  رحلة متكاملة لبناء المسجد، تبدأ من الفكرة
+                  وتنتهي بتشغيل مسجد مستدام يخدم الحي لسنوات طويلة،
+                  وفق معايير عالية وخبرة عملية.
+                </h3>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -297,9 +264,7 @@ export default function ConstructionPage() {
             <ScrollReveal>
               <div className="text-center max-w-4xl mx-auto py-10">
                 <h2 className="text-4xl font-black text-gray-900 mb-4">رحلة البناء</h2>
-                <p className="text-base text-gray-600">
-                  الصورة ثابتة لتعطي إحساس الرحلة المستمرة، والمحتوى يتبدل مع النزول خطوة بخطوة.
-                </p>
+                
               </div>
             </ScrollReveal>
 
@@ -354,7 +319,7 @@ export default function ConstructionPage() {
                             type="button"
                             size="sm"
                             variant="outline"
-                            className="border-gray-200 text-gray-700 hover:text-[#08704C] hover:border-[#08704C]"
+                            className="border-gray-200 text-white hover:text-white hover:border-[#08704C] text-base sm:text-lg"
                             onClick={() => changeStep(currentStep - 1)}
                             disabled={currentStep === 0}
                           >
@@ -364,7 +329,7 @@ export default function ConstructionPage() {
                           <Button
                             type="button"
                             size="sm"
-                            className="bg-[#08704C] hover:bg-[#00A186] text-white"
+                            className="bg-[#08704C] hover:bg-[#00A186] text-white text-base sm:text-lg"
                             onClick={() => changeStep(currentStep + 1)}
                             disabled={currentStep === journeySteps.length - 1}
                           >
